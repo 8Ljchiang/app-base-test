@@ -13,6 +13,9 @@
     },
     "react-base-e2e": {
       "tags": []
+    },
+    "nestjs-base": {
+      "tags": []
     }
   }
 }

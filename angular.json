@@ -21,7 +21,9 @@
               "apps/react-base/src/favicon.ico",
               "apps/react-base/src/assets"
             ],
-            "styles": ["apps/react-base/src/styles.css"],
+            "styles": [
+              "apps/react-base/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -67,7 +69,9 @@
               "apps/react-base/tsconfig.app.json",
               "apps/react-base/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -101,6 +105,64 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/react-base-e2e/tsconfig.e2e.json"
+          }
+        }
+      }
+    },
+    "nestjs-base": {
+      "root": "apps/nestjs-base",
+      "sourceRoot": "apps/nestjs-base/src",
+      "projectType": "application",
+      "prefix": "nestjs-base",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/nestjs-base",
+            "main": "apps/nestjs-base/src/main.ts",
+            "tsConfig": "apps/nestjs-base/tsconfig.app.json",
+            "assets": [
+              "apps/nestjs-base/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/nestjs-base/src/environments/environment.ts",
+                  "with": "apps/nestjs-base/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "nestjs-base:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nestjs-base/tsconfig.app.json",
+              "apps/nestjs-base/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nestjs-base/jest.config.js",
+            "tsConfig": "apps/nestjs-base/tsconfig.spec.json"
           }
         }
       }
