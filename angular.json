@@ -2,13 +2,117 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "react-base": {
+      "root": "apps/react-base",
+      "sourceRoot": "apps/react-base/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/react-base",
+            "index": "apps/react-base/src/index.html",
+            "main": "apps/react-base/src/main.tsx",
+            "polyfills": "apps/react-base/src/polyfills.ts",
+            "tsConfig": "apps/react-base/tsconfig.app.json",
+            "assets": [
+              "apps/react-base/src/favicon.ico",
+              "apps/react-base/src/assets"
+            ],
+            "styles": ["apps/react-base/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/react-base/src/environments/environment.ts",
+                  "with": "apps/react-base/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "react-base:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "react-base:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/react-base/tsconfig.app.json",
+              "apps/react-base/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/react-base/jest.config.js",
+            "tsConfig": "apps/react-base/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "react-base-e2e": {
+      "root": "apps/react-base-e2e",
+      "sourceRoot": "apps/react-base-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/react-base-e2e/cypress.json",
+            "tsConfig": "apps/react-base-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react-base:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "react-base:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/react-base-e2e/tsconfig.e2e.json"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
-  "schematics": {}
+  "schematics": {},
+  "defaultProject": "react-base"
 }
