@@ -10,13 +10,16 @@ const login = (initialState: AccountStore, loginInput: LoginInput) => {
 		Log.error(new Error(networkResponse.errors[0]), `AccountService.login`);
   }
   if (networkResponse.data) {
-		return Object.assign(initialState, networkResponse.data);
+    const newState = Object.assign({}, initialState, networkResponse.data);
+    // Log.info('Changing Account Redux state', 'LoginReducer');
+    // console.log(newState);
+    return newState;
 	}
 	return initialState;
 }
 
 const logout = () => {
-	return defaultAccountStore;
+	return Object.assign({}, defaultAccountStore);
 }
 
 const signup = (initialState: AccountStore, signupInput: SignupInput) => {
@@ -36,9 +39,21 @@ export function accountReducer(
 ) {
 	switch(action.type) {
     case AccountActionType.LOGOUT:
-      return logout();
+      const stuff = logout();
+      console.log('logout', stuff);
+      return stuff;
     case AccountActionType.LOGIN:
-      return catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
+      const response = catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
+      // console.log('accountReducer: new state');
+      // console.log(response);
+
+      return response;
+      // return Object.assign({}, response, {
+      //   authToken: 'authToken',
+      //   displayIdentifier: 'helloWorld',
+      //   inviteToken: 'inviteToken',
+      //   role: 'role',
+      // });
 		case AccountActionType.SIGNUP:
 			return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.SIGNUP}`)(state, action.payload);;
 		default:

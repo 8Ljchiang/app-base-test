@@ -43,6 +43,7 @@ export interface SignupInput {
 }
 
 export function login(loginInfo: LoginInput) {
+  console.log('login action');
 	return {
 		type: AccountActionType.LOGIN,
 		payload: loginInfo

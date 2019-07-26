@@ -26,7 +26,8 @@ class MockAccountService {
     }
     return MockAccountService._instance;
   }
-	login(input: LoginInput): INetworkResponse<LoginResponse> {
+
+  login(input: LoginInput): INetworkResponse<LoginResponse> {
 		const authToken = 'abc123';
     const role = 'basic';
     const inviteToken = 'inviteToken';
