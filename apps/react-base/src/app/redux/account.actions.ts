@@ -1,7 +1,6 @@
 export enum AccountActionType {
 	LOGIN = 'ACCOUNT_LOGIN',
 	LOGOUT = 'ACCOUNT_LOGOUT',
-	SIGNUP = 'ACCOUNT_SIGNUP',
 }
 
 interface AccountLoginAction {
@@ -35,13 +34,6 @@ export interface LoginInput {
 	displayIdentifier: string;
 }
 
-export interface SignupInput {
-	accessIdentifier: string;
-	displayIdentifier: string;
-	email: string;
-	inviteToken: string;
-}
-
 export function login(loginInfo: LoginInput) {
   console.log('login action');
 	return {
@@ -57,11 +49,3 @@ export function logout() {
 	}
 }
 
-export function signup(
-	signupInfo: SignupInput
-) {
-	return {
-		type: AccountActionType.SIGNUP,
-		payload: signupInfo
-	}
-}

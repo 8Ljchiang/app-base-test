@@ -1,10 +1,10 @@
 import { NetworkResponseBuilder } from '../../util/NetworkResponseBuilder';
 import { INetworkResponse } from '../../interfaces/INetworkResponse';
-import { LoginInput, SignupInput } from '../../../redux/account.actions';
+import { LoginInput } from '../../../redux/account.actions';
 
 export interface IAccountService {
   login(info: LoginInput): INetworkResponse<LoginResponse>;
-	signup(info: SignupInput): INetworkResponse<SignupResponse>;
+  logout(): void;
 }
 
 interface LoginResponse {
@@ -17,7 +17,7 @@ interface SignupResponse {
 	success: boolean;
 }
 
-class MockAccountService {
+class MockAccountService implements IAccountService {
   private static _instance: MockAccountService;
 	private constructor() {}
   static getInstance() {
@@ -38,11 +38,9 @@ class MockAccountService {
 			role,
 		}
 		return NetworkResponseBuilder.build(data, []);
-	}
+  }
 
-	signup(input: SignupInput): INetworkResponse<SignupResponse> {
-		return NetworkResponseBuilder.build({ success: true }, []);
-	}
+  logout() {}
 }
 
 const mockAccountServiceSingleton = MockAccountService.getInstance();

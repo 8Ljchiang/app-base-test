@@ -1,7 +1,7 @@
 import AccountService from '../core/services/mocks/mock-account.service';
 import Log from '../core/services/log.service';
 import { AccountStore, defaultAccountStore } from './account.store';
-import { LoginInput, SignupInput, AccountActions, AccountActionType } from './account.actions';
+import { LoginInput, AccountActions, AccountActionType } from './account.actions';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
 
 const login = (initialState: AccountStore, loginInput: LoginInput) => {
@@ -54,8 +54,6 @@ export function accountReducer(
       //   inviteToken: 'inviteToken',
       //   role: 'role',
       // });
-		case AccountActionType.SIGNUP:
-			return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.SIGNUP}`)(state, action.payload);;
 		default:
 			return state;
 	}
