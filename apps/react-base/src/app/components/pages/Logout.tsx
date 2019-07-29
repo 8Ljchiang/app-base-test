@@ -10,11 +10,22 @@ class Logout extends Component<any, any> {
 
   render() {
     return (
-      <div style={{ border: '1px solid blue', flexFlow: 'column', padding: '10px'}}>
+      <div style={styles.container}>
         <h3>Log Out</h3>
         <button onClick={this.logout.bind(this)}>Logout</button>
       </div>
     );
+  }
+}
+
+const styles = {
+  container: {
+    borderRadius: '3px',
+    background: 'gray',
+    display: 'flex',
+    flexFlow: 'column',
+    padding: '10px',
+    alignItems: 'center',
   }
 }
 

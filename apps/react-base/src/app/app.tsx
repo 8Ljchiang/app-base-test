@@ -9,7 +9,7 @@ import { createStore } from 'redux';
 import { rootReducer } from './redux/index.reducer';
 
 const store = createStore(rootReducer);
-console.log(store.getState());
+
 export const App = () => {
   return (
     <Provider store={store}>

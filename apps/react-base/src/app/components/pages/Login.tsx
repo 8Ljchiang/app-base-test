@@ -11,9 +11,8 @@ export class Login extends Component<any, any> {
 
   render() {
     return (
-      <div style={{ border: '1px solid blue', padding: '10px', display: 'flex', flexFlow: 'column', alignItems: 'center' }}>
+      <div style={styles.container}>
         <h3>Login</h3>
-        <p>{this.props.username}</p>
         <Formik
           initialValues={{ firstField: '', secondField: '' }}
           onSubmit={(values, actions) => {
@@ -23,8 +22,9 @@ export class Login extends Component<any, any> {
             //   || values.firstField.trim() !== ''
             //   || values.secondField.trim() !== ''
             // ) {
-              actions.setSubmitting(true);
               this.login(values.firstField, values.secondField);
+
+              actions.resetForm();
             // }
             // actions.setSubmitting(false);
           }}
@@ -53,6 +53,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   login
+}
+
+const styles = {
+  container: {
+    boxShadow: '0 0 4px 4px rgb(80, 80, 80)',
+    borderRadius: '3px',
+    background: 'gray',
+    display: 'flex',
+    flexFlow: 'column',
+    padding: '10px',
+    alignItems: 'center'
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -4,12 +4,7 @@ export enum SignupActionType {
 
 interface SignupNewAction {
 	type: SignupActionType.NEW,
-	payload: {
-		username: string,
-		email: string,
-		inviteToken: string,
-		password: string
-	}
+	payload: SignupInput
 }
 
 export type SignupActions =

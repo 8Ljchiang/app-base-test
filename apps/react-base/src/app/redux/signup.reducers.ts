@@ -6,6 +6,7 @@ import { SignupInput, SignupActions, SignupActionType } from './signup.actions';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
 
 const signup = (initialState: SignupStore, signupInput: SignupInput) => {
+  Log.info('SignupAction', SignupActionType.NEW, 'SignupReducer')
 	const networkResult = SignupService.signup(signupInput);
 	if (networkResult.errors && networkResult.errors.length > 0) {
 		Log.error(new Error(networkResult.errors[0]), `AccountService.signup`);

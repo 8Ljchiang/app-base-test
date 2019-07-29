@@ -1,8 +1,10 @@
+import { SignupInput } from './signup.actions';
 export interface AccountStore {
 	authToken: string;
   displayIdentifier: string;
   inviteToken: string;
-	role: string;
+  role: string;
+  signups: SignupInput[];
 }
 
 export const defaultAccountStore: AccountStore = {
@@ -10,4 +12,5 @@ export const defaultAccountStore: AccountStore = {
   displayIdentifier: '',
   inviteToken: '',
   role: '',
+  signups: []
 }

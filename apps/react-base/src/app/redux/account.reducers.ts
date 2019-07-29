@@ -1,34 +1,39 @@
 import AccountService from '../core/services/mocks/mock-account.service';
+import SignupService from '../core/services/mocks/mock-signup.service';
 import Log from '../core/services/log.service';
 import { AccountStore, defaultAccountStore } from './account.store';
-import { LoginInput, AccountActions, AccountActionType } from './account.actions';
+import { LoginInput, AccountActions, AccountActionType, accountSignup } from './account.actions';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
+import { SignupInput } from './signup.actions';
 
 const login = (initialState: AccountStore, loginInput: LoginInput) => {
+  Log.info('AccountAction', AccountActionType.LOGIN, 'AccountReducer')
+
   const networkResponse = AccountService.login(loginInput);
   if (networkResponse.errors && networkResponse.errors.length > 0) {
 		Log.error(new Error(networkResponse.errors[0]), `AccountService.login`);
   }
-  if (networkResponse.data) {
+  const containsAccount = initialState.signups.map(e => e.displayIdentifier).indexOf(loginInput.displayIdentifier) !== -1;
+  if (networkResponse.data && containsAccount) {
     const newState = Object.assign({}, initialState, networkResponse.data);
-    // Log.info('Changing Account Redux state', 'LoginReducer');
-    // console.log(newState);
     return newState;
 	}
 	return initialState;
 }
 
 const logout = () => {
+  Log.info('AccountAction', AccountActionType.LOGOUT, 'AccountReducer')
 	return Object.assign({}, defaultAccountStore);
 }
 
 const signup = (initialState: AccountStore, signupInput: SignupInput) => {
-	const networkResult = AccountService.signup(signupInput);
+  Log.info('AccountSignupAction', AccountActionType.SIGNUP, 'AccountReducer')
+	const networkResult = SignupService.signup(signupInput);
 	if (networkResult.errors && networkResult.errors.length > 0) {
 		Log.error(new Error(networkResult.errors[0]), `AccountService.signup`);
 	}
-	if (networkResult.data) {
-		return Object.assign(initialState, networkResult.data);
+	if (networkResult.data && networkResult.data.success) {
+		return Object.assign({}, initialState, { signups: [...initialState.signups, signupInput] });
 	}
 	return initialState;
 }
@@ -37,23 +42,14 @@ export function accountReducer(
 	state: AccountStore = defaultAccountStore,
 	action: AccountActions
 ) {
+  console.log(state);
 	switch(action.type) {
     case AccountActionType.LOGOUT:
-      const stuff = logout();
-      console.log('logout', stuff);
-      return stuff;
+      return logout();
     case AccountActionType.LOGIN:
-      const response = catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
-      // console.log('accountReducer: new state');
-      // console.log(response);
-
-      return response;
-      // return Object.assign({}, response, {
-      //   authToken: 'authToken',
-      //   displayIdentifier: 'helloWorld',
-      //   inviteToken: 'inviteToken',
-      //   role: 'role',
-      // });
+      return catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
+    case AccountActionType.SIGNUP:
+      return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
 		default:
 			return state;
 	}
