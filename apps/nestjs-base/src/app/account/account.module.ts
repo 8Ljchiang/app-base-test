@@ -6,7 +6,10 @@ import { AccountService } from './account.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema }]),
+    // MongooseModule.forFeature([
+      // { name: 'Account', schema: AccountSchema },
+      // { name: 'Friend', schema: FriendSchema },
+    // ]),
   ],
   controllers: [],
   providers: [AccountResolver, AccountService],

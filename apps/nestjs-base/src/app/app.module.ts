@@ -9,6 +9,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     AccountModule,
+    HelloWorldModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema'
     }),
