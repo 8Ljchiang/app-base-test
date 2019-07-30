@@ -12,5 +12,12 @@ export const defaultAccountStore: AccountStore = {
   displayIdentifier: '',
   inviteToken: '',
   role: '',
-  signups: []
+  signups: [
+    {
+      accessIdentifier: 'authToken1',
+      email: 'user1@email.com',
+      displayIdentifier: 'user1',
+      inviteToken: 'inviteToken',
+    }
+  ]
 }

@@ -5,6 +5,7 @@ import { ConnectedNavigation } from '../units/Navigation';
 import { ConnectedLogout } from '../pages/Logout';
 import { ConnectedReduxStore } from '../units/ReduxStore';
 import { ConnectedSignup } from '../pages/Signup';
+import { ConnectedProfile } from '../pages/Profile';
 
 function Index() {
   return <h2>Home</h2>;
@@ -28,6 +29,7 @@ export const MainLayout = () => {
           <Route path="/about/" component={About} />
           <Route path="/users/" component={Users} />
           <Route path="/login/" component={Login} />
+          <Route path="/profile/" component={ConnectedProfile} />
           <Route path="/logout/" component={ConnectedLogout} />
           <Route path="/signup/" component={ConnectedSignup} />
         </div>
