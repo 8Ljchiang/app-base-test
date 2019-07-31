@@ -29,11 +29,23 @@ interface AccountNewInviteTokenAction {
   payload: null
 }
 
+interface AccountUpdateProfileStatusAction {
+  type: AccountActionType.UPDATE_PROFILE_STATUS,
+  payload: string
+}
+
+interface AccountAddFeatureKeyAction {
+  type: AccountActionType.ADD_FEATURE_KEY,
+  payload: string
+}
+
 export type AccountActions =
 	AccountLoginAction
   | AccountLogoutAction
   | AccountSignupAction
-  | AccountNewInviteTokenAction;
+  | AccountNewInviteTokenAction
+  | AccountUpdateProfileStatusAction
+  | AccountAddFeatureKeyAction;
 
 export interface LoginInput {
 	accessIdentifier: string;

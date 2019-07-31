@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { newInviteToken } from '../../redux/account.actions';
+import { newInviteToken, addFeatureKey, updateStatus } from '../../redux/account.actions';
 import { EditableField } from '../../components/units/EditableField';
 
 const tokens = [
@@ -118,14 +118,18 @@ const styles = {
 
 const mapStateToProps = (state) => {
   return {
-    inviteTokens: state.account.inviteTokens
+    inviteTokens: state.account.inviteTokens,
+    featureKeys: state.account.featureKeys,
+    profile: state.account.profile,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators({
-      newInviteToken
+      newInviteToken,
+      addFeatureKey,
+      updateStatus
     }, dispatch)
   }
 }

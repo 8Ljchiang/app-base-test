@@ -50,6 +50,23 @@ const newInviteToken = (initialState: AccountStore, payload: any) => {
 	return initialState;
 }
 
+const updateProfileStatus = (initialState: AccountStore, payload: any) => {
+  Log.info('AccountUpdateProfileStatus', AccountActionType.UPDATE_PROFILE_STATUS, 'AccountReducer');
+  // const networkResult = AccountService.createInviteToken();
+	// if (networkResult.errors && networkResult.errors.length > 0) {
+	// 	Log.error(new Error(networkResult.errors[0]), `AccountService.updateProfileStatus`);
+	// }
+	// if (networkResult.data && networkResult.data.inviteToken) {
+  return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
+	// }
+	// return initialState;
+}
+
+const addFeatureKey = (initialState: AccountStore, payload: any) => {
+  Log.info('AccountAddFeatureKey', AccountActionType.ADD_FEATURE_KEY, 'AccountReducer');
+  return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, payload ] });
+}
+
 export function accountReducer(
 	state: AccountStore = defaultAccountStore,
 	action: AccountActions
@@ -64,6 +81,10 @@ export function accountReducer(
       return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.SIGNUP}`)(state, action.payload);
     case AccountActionType.NEW_INVITE_TOKEN:
       return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.NEW_INVITE_TOKEN}`)(state, action.payload);
+    case AccountActionType.UPDATE_PROFILE_STATUS:
+      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`)(state, action.payload);
+    case AccountActionType.ADD_FEATURE_KEY:
+      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`)(state, action.payload);
 		default:
 			return state;
 	}
