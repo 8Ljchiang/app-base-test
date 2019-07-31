@@ -5,6 +5,8 @@ export enum AccountActionType {
 	LOGOUT = 'ACCOUNT_LOGOUT',
   SIGNUP = 'ACCOUNT_SIGNUP',
   NEW_INVITE_TOKEN = 'ACCOUNT_NEW_INVITE_TOKEN',
+  UPDATE_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS',
+  ADD_FEATURE_KEY = 'ADD_FEATURE_KEY'
 }
 
 interface AccountLoginAction {
@@ -63,5 +65,19 @@ export function newInviteToken() {
   return {
     type: AccountActionType.NEW_INVITE_TOKEN,
     payload: null
+  }
+}
+
+export function updateStatus(status: string) {
+  return {
+    type: AccountActionType.UPDATE_PROFILE_STATUS,
+    payload: status
+  }
+}
+
+export function addFeatureKey(featureKey: string) {
+  return {
+    type: AccountActionType.ADD_FEATURE_KEY,
+    payload: featureKey
   }
 }

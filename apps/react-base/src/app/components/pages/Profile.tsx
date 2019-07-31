@@ -63,8 +63,11 @@ class Profile extends Component<any, any> {
           <EditableField value={'available'} save={() => null} />
           { showFeatureUnlock ? (
             <>
-              <h4>Status:</h4>
-              <EditableField value={'available'} save={() => null} />
+              <h4>Feature Unlock:</h4>
+              <div>
+                <input type="text" placeholder="feature" />
+                <button>Submit</button>
+              </div>
             </>
           ): (
             null
