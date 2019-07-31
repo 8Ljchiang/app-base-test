@@ -9,8 +9,15 @@ export class EditableField extends Component<any, any> {
     }
   }
 
+  toggleEditing() {
+    this.setState({
+      isEditing: !this.state.isEditing
+    });
+  }
+
   save(value: string) {
     this.props.save(value);
+    this.toggleEditing();
   }
 
   render() {
@@ -24,7 +31,7 @@ export class EditableField extends Component<any, any> {
             <button onClick={this.save.bind(this)}>Save</button>
           </div>
         ): (
-          <p>{value}</p>
+          <p onClick={this.toggleEditing.bind(this)}>{value}</p>
         ) }
       </div>
     );
