@@ -15,10 +15,18 @@ class Profile extends Component<any, any> {
     super(props);
 
     this.state = {
-      showInviteTokens: false
+      showInviteTokens: false,
+      featureUnlockInput: '',
     }
 
     this.copyToClipBoard = this.copyToClipBoard.bind(this);
+  }
+
+  onChange(event) {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   toggleInviteTokens() {
@@ -36,12 +44,18 @@ class Profile extends Component<any, any> {
   }
 
   updateStatus(value: string): void {
-    const { inviteTokens } = this.props;
-    this.props.actions.updateStatus(value);
+    const trimmedValue = value.trim();
+    if (trimmedValue) {
+      this.props.actions.updateStatus(value.trim());
+    }
   }
 
-  addFeatureKey(value: string): void {
-    this.props.actions.addFeatureKey(value);
+  addFeatureKey(): void {
+    const { featureUnlockInput } = this.state;
+    this.setState({
+      featureUnlockInput: ''
+    });
+    this.props.actions.addFeatureKey(featureUnlockInput);
   }
 
   renderInviteTokens() {
@@ -77,8 +91,8 @@ class Profile extends Component<any, any> {
             <>
               <h4>Feature Unlock:</h4>
               <div>
-                <input type="text" placeholder="feature" />
-                <button>Submit</button>
+                <input name="featureUnlockInput" value={this.state.featureUnlockInput} type="text" placeholder="feature" onChange={this.onChange.bind(this)}/>
+                <button onClick={this.addFeatureKey.bind(this)}>Submit</button>
               </div>
             </>
           ): (

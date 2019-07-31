@@ -22,7 +22,6 @@ export class EditableField extends Component<any, any> {
   }
 
   onChange(e) {
-    console.log(e.target.value);
     e.preventDefault();
     this.setState({
       inputValue: e.target.value

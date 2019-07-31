@@ -70,14 +70,17 @@ const updateProfileStatus = (initialState: AccountStore, payload: any) => {
 
 const addFeatureKey = (initialState: AccountStore, payload: any) => {
   Log.info('AccountAddFeatureKey', AccountActionType.ADD_FEATURE_KEY, 'AccountReducer');
-  return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, payload ] });
+  if (payload && !initialState.featureKeys.includes(payload) && Object.values(AppFeature).includes(payload)) {
+    const newFeatureKeys = [...initialState.featureKeys, payload];
+    return Object.assign({}, initialState, { featureKeys: newFeatureKeys });
+  }
+  return initialState;
 }
 
 export function accountReducer(
 	state: AccountStore = defaultAccountStore,
 	action: AccountActions
 ) {
-  console.log(state);
 	switch(action.type) {
     case AccountActionType.LOGOUT:
       return logout();
@@ -90,6 +93,7 @@ export function accountReducer(
     case AccountActionType.UPDATE_PROFILE_STATUS:
       return catchErrorInReduxReducer(updateProfileStatus, state, `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`)(state, action.payload);
     case AccountActionType.ADD_FEATURE_KEY:
+      // TODO: Add logged in check HOC function as a check to whether these other functions can be called.
       return catchErrorInReduxReducer(addFeatureKey, state, `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`)(state, action.payload);
 		default:
 			return state;
