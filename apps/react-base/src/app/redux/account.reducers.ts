@@ -1,3 +1,4 @@
+import { AppFeature } from './../core/configs/feature.config';
 import AccountService from '../core/services/mocks/mock-account.service';
 import SignupService from '../core/services/mocks/mock-signup.service';
 import Log from '../core/services/log.service';
@@ -57,8 +58,13 @@ const updateProfileStatus = (initialState: AccountStore, payload: any) => {
 	// 	Log.error(new Error(networkResult.errors[0]), `AccountService.updateProfileStatus`);
 	// }
 	// if (networkResult.data && networkResult.data.inviteToken) {
-  return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
-	// }
+  // return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
+  // }
+  if (payload === 'UPGRADED' && initialState.inviteTokens.length > 0 && !initialState.inviteTokens.includes(AppFeature.FEATURE_UNLOCK)) {
+    return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, AppFeature.FEATURE_UNLOCK], profile: { ...initialState.profile, status: payload } });
+  } else {
+    return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
+  }
 	// return initialState;
 }
 
@@ -82,9 +88,9 @@ export function accountReducer(
     case AccountActionType.NEW_INVITE_TOKEN:
       return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.NEW_INVITE_TOKEN}`)(state, action.payload);
     case AccountActionType.UPDATE_PROFILE_STATUS:
-      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`)(state, action.payload);
+      return catchErrorInReduxReducer(updateProfileStatus, state, `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`)(state, action.payload);
     case AccountActionType.ADD_FEATURE_KEY:
-      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`)(state, action.payload);
+      return catchErrorInReduxReducer(addFeatureKey, state, `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`)(state, action.payload);
 		default:
 			return state;
 	}

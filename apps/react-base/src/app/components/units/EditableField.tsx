@@ -5,7 +5,8 @@ export class EditableField extends Component<any, any> {
     super(props);
 
     this.state = {
-      isEditing: false
+      isEditing: false,
+      inputValue: '',
     }
   }
 
@@ -15,9 +16,17 @@ export class EditableField extends Component<any, any> {
     });
   }
 
-  save(value: string) {
-    this.props.save(value);
+  save() {
+    this.props.save(this.state.inputValue);
     this.toggleEditing();
+  }
+
+  onChange(e) {
+    console.log(e.target.value);
+    e.preventDefault();
+    this.setState({
+      inputValue: e.target.value
+    });
   }
 
   render() {
@@ -27,7 +36,7 @@ export class EditableField extends Component<any, any> {
       <div>
         { isEditing ? (
           <div>
-            <input type="text" placeholder={placeholder} />
+            <input type="text" placeholder={placeholder} onChange={this.onChange.bind(this)} />
             <button onClick={this.save.bind(this)}>Save</button>
           </div>
         ): (

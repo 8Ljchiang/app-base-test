@@ -1,3 +1,4 @@
+import { AppFeature } from './../core/configs/feature.config';
 import { SignupInput } from './signup.actions';
 
 export interface ProfileStore {
@@ -16,7 +17,7 @@ export interface AccountStore {
   signups: SignupInput[];
   inviteTokens: string[];
   profile: ProfileStore;
-  featureKeys: string[];
+  featureKeys: AppFeature[];
 }
 
 export const defaultAccountStore: AccountStore = {

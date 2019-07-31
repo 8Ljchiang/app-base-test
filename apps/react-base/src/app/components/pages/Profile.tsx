@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { newInviteToken, addFeatureKey, updateStatus } from '../../redux/account.actions';
 import { EditableField } from '../../components/units/EditableField';
+import { AppFeature } from '../../core/configs/feature.config';
 
 const tokens = [
   'token1',
@@ -34,6 +35,15 @@ class Profile extends Component<any, any> {
     console.log(token);
   }
 
+  updateStatus(value: string): void {
+    const { inviteTokens } = this.props;
+    this.props.actions.updateStatus(value);
+  }
+
+  addFeatureKey(value: string): void {
+    this.props.actions.addFeatureKey(value);
+  }
+
   renderInviteTokens() {
     return this.props.inviteTokens.map((token, index) => {
       return (
@@ -44,7 +54,9 @@ class Profile extends Component<any, any> {
 
   render() {
     const { showInviteTokens } = this.state;
-    const { showFeatureUnlock } = this.props;
+    const { profile, featureKeys } = this.props;
+    const username = this.props.username ? this.props.username : 'unknown';
+    const showFeatureUnlock = featureKeys.includes(AppFeature.FEATURE_UNLOCK);
     return (
       <div style={styles.container}>
         <div style={styles.left}>
@@ -58,9 +70,9 @@ class Profile extends Component<any, any> {
         <div style={styles.right}>
           <h3>Account Information</h3>
           <h4>Username:</h4>
-          <EditableField value={'user1'} save={() => null} />
+          <EditableField value={username} save={() => null} />
           <h4>Status:</h4>
-          <EditableField value={'available'} save={() => null} />
+          <EditableField value={profile.status} save={this.updateStatus.bind(this)} />
           { showFeatureUnlock ? (
             <>
               <h4>Feature Unlock:</h4>
@@ -121,6 +133,7 @@ const mapStateToProps = (state) => {
     inviteTokens: state.account.inviteTokens,
     featureKeys: state.account.featureKeys,
     profile: state.account.profile,
+    username: state.account.displayIdentifier,
   }
 }
 
