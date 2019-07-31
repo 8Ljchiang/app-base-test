@@ -3,7 +3,8 @@ import { SignupInput } from './signup.actions';
 export enum AccountActionType {
 	LOGIN = 'ACCOUNT_LOGIN',
 	LOGOUT = 'ACCOUNT_LOGOUT',
-	SIGNUP = 'ACCOUNT_SIGNUP',
+  SIGNUP = 'ACCOUNT_SIGNUP',
+  NEW_INVITE_TOKEN = 'ACCOUNT_NEW_INVITE_TOKEN',
 }
 
 interface AccountLoginAction {
@@ -21,10 +22,16 @@ interface AccountSignupAction {
   payload: SignupInput
 }
 
+interface AccountNewInviteTokenAction {
+  type: AccountActionType.NEW_INVITE_TOKEN,
+  payload: null
+}
+
 export type AccountActions =
 	AccountLoginAction
   | AccountLogoutAction
-  | AccountSignupAction;
+  | AccountSignupAction
+  | AccountNewInviteTokenAction;
 
 export interface LoginInput {
 	accessIdentifier: string;
@@ -49,5 +56,12 @@ export function accountSignup(input: SignupInput) {
   return {
     type: AccountActionType.SIGNUP,
     payload: input
+  }
+}
+
+export function newInviteToken() {
+  return {
+    type: AccountActionType.NEW_INVITE_TOKEN,
+    payload: null
   }
 }

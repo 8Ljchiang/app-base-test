@@ -5,6 +5,7 @@ export interface AccountStore {
   inviteToken: string;
   role: string;
   signups: SignupInput[];
+  inviteTokens: string[];
 }
 
 export const defaultAccountStore: AccountStore = {
@@ -12,6 +13,7 @@ export const defaultAccountStore: AccountStore = {
   displayIdentifier: '',
   inviteToken: '',
   role: '',
+  inviteTokens: [],
   signups: [
     {
       accessIdentifier: 'authToken1',

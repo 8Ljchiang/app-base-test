@@ -38,6 +38,8 @@ class ReduxStore extends Component<any, any> {
 
 const styles = {
   container: {
+    maxHeight: '500px',
+    overflow: 'auto',
     bottom: 0,
     borderRadius: '3px',
     background: 'gray',

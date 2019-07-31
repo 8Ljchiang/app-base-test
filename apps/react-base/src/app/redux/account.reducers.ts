@@ -38,6 +38,18 @@ const signup = (initialState: AccountStore, signupInput: SignupInput) => {
 	return initialState;
 }
 
+const newInviteToken = (initialState: AccountStore, payload: any) => {
+  Log.info('AccountNewInviteToken', AccountActionType.NEW_INVITE_TOKEN, 'AccountReducer');
+  const networkResult = AccountService.createInviteToken();
+	if (networkResult.errors && networkResult.errors.length > 0) {
+		Log.error(new Error(networkResult.errors[0]), `AccountService.createInviteToken`);
+	}
+	if (networkResult.data && networkResult.data.inviteToken) {
+		return Object.assign({}, initialState, { inviteTokens: [...initialState.inviteTokens, networkResult.data.inviteToken] });
+	}
+	return initialState;
+}
+
 export function accountReducer(
 	state: AccountStore = defaultAccountStore,
 	action: AccountActions
@@ -49,7 +61,9 @@ export function accountReducer(
     case AccountActionType.LOGIN:
       return catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
     case AccountActionType.SIGNUP:
-      return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
+      return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.SIGNUP}`)(state, action.payload);
+    case AccountActionType.NEW_INVITE_TOKEN:
+      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.NEW_INVITE_TOKEN}`)(state, action.payload);
 		default:
 			return state;
 	}

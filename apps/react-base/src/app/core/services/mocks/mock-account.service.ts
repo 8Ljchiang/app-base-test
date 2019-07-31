@@ -1,10 +1,15 @@
 import { NetworkResponseBuilder } from '../../util/NetworkResponseBuilder';
 import { INetworkResponse } from '../../interfaces/INetworkResponse';
 import { LoginInput } from '../../../redux/account.actions';
+import uuidv4 from 'uuid/v4';
 
 export interface IAccountService {
   login(info: LoginInput): INetworkResponse<LoginResponse>;
   logout(): void;
+}
+
+interface CreateInviteTokenResponse {
+  inviteToken: string;
 }
 
 interface LoginResponse {
@@ -41,6 +46,14 @@ class MockAccountService implements IAccountService {
   }
 
   logout() {}
+
+  createInviteToken(): INetworkResponse<CreateInviteTokenResponse> {
+    const url = 'app/nx-react-base';
+    const data = {
+      inviteToken: uuidv4()
+    }
+    return NetworkResponseBuilder.build(data, []);
+  }
 }
 
 const mockAccountServiceSingleton = MockAccountService.getInstance();

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { newInviteToken } from '../../redux/account.actions';
 
 const tokens = [
   'token1',
@@ -14,6 +15,8 @@ class Profile extends Component<any, any> {
     this.state = {
       showInviteTokens: false
     }
+
+    this.copyToClipBoard = this.copyToClipBoard.bind(this);
   }
 
   toggleInviteTokens() {
@@ -23,13 +26,17 @@ class Profile extends Component<any, any> {
   }
 
   createInviteToken() {
-    // this.props.actions.createInviteToken();
+    this.props.actions.newInviteToken();
+  }
+
+  copyToClipBoard(token) {
+    console.log(token);
   }
 
   renderInviteTokens() {
-    return tokens.map((token, index) => {
+    return this.props.inviteTokens.map((token, index) => {
       return (
-        <p key={index}>{token}</p>
+        <p onClick={() => this.copyToClipBoard(token)} key={index}>{token}</p>
       );
     });
   }
@@ -70,7 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators({
-      //createInviteToken
+      newInviteToken
     }, dispatch)
   }
 }
