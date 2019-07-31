@@ -7,6 +7,18 @@ import { LoginInput, AccountActions, AccountActionType, accountSignup } from './
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
 import { SignupInput } from './signup.actions';
 
+const isAuthenticatedHoc = (resolverFunction: any, context?: string) => {
+  const funcWithAuthenticationCheck = (initialState: AccountStore, payload: any) => {
+    if (initialState.authToken) {
+      return resolverFunction(initialState, payload);
+    } else {
+      Log.error(new Error('Not authenticated'), context);
+      return initialState;
+    }
+  }
+  return funcWithAuthenticationCheck;
+}
+
 const login = (initialState: AccountStore, loginInput: LoginInput) => {
   Log.info('AccountAction', AccountActionType.LOGIN, 'AccountReducer')
 
@@ -85,16 +97,20 @@ export function accountReducer(
     case AccountActionType.LOGOUT:
       return logout();
     case AccountActionType.LOGIN:
-      return catchErrorInReduxReducer(login, state, `AccountReducer: ${AccountActionType.LOGIN}`)(state, action.payload);
+      const loginContext = `AccountReducer: ${AccountActionType.LOGIN}`;
+      return catchErrorInReduxReducer(login, state, loginContext)(state, action.payload);
     case AccountActionType.SIGNUP:
       return catchErrorInReduxReducer(signup, state, `AccountReducer: ${AccountActionType.SIGNUP}`)(state, action.payload);
     case AccountActionType.NEW_INVITE_TOKEN:
-      return catchErrorInReduxReducer(newInviteToken, state, `AccountReducer: ${AccountActionType.NEW_INVITE_TOKEN}`)(state, action.payload);
+      const newInviteTokenContext = `AccountReducer: ${AccountActionType.NEW_INVITE_TOKEN}`;
+      return catchErrorInReduxReducer(isAuthenticatedHoc(newInviteToken, newInviteTokenContext), state, newInviteTokenContext)(state, action.payload);
     case AccountActionType.UPDATE_PROFILE_STATUS:
-      return catchErrorInReduxReducer(updateProfileStatus, state, `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`)(state, action.payload);
+      const updateProfileStatusContext = `AccountReducer: ${AccountActionType.UPDATE_PROFILE_STATUS}`;
+      return catchErrorInReduxReducer(isAuthenticatedHoc(updateProfileStatus, updateProfileStatusContext), state, updateProfileStatusContext)(state, action.payload);
     case AccountActionType.ADD_FEATURE_KEY:
       // TODO: Add logged in check HOC function as a check to whether these other functions can be called.
-      return catchErrorInReduxReducer(addFeatureKey, state, `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`)(state, action.payload);
+      const addFeatureKeyContext = `AccountReducer: ${AccountActionType.ADD_FEATURE_KEY}`;
+      return catchErrorInReduxReducer(isAuthenticatedHoc(addFeatureKey, addFeatureKeyContext), state, addFeatureKeyContext)(state, action.payload);
 		default:
 			return state;
 	}

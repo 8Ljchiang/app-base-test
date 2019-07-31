@@ -37,7 +37,7 @@ class LogService {
 
   error(error: Error, context?: string) {
     const subject = `${error.message}`;
-		const description = `${error.stack}`;
+		const description = ''; // `${error.stack}`;
 		this.log(LogType.ERROR, subject, description, context);
   }
 
