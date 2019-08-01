@@ -3,7 +3,8 @@ export const mainRoutes = [
     path: '',
     exact: true,
     component: null,
-    guards: ['roleGuard', 'authGuard', 'featureGuard']
+    guards: ['roleGuard', 'authGuard', 'featureGuard'],
+    key: 'uniqueKey',
     // TODO: Create checks for routing in reducer as well
     // - Check if a user is authenticated, if not cannot route.
     // - Check if a feature is available for user, if not user
