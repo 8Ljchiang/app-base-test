@@ -58,5 +58,4 @@ export const appFacets: AppFacet[] = [
     domain: AppFacetDomain.NAVIGATION,
     tag: AppFacetCategory.EXPERIMENTAL
   }
-
-]
+];
