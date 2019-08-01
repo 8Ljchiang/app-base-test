@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from '../pages/Login';
 import { ConnectedNavigation } from '../units/Navigation';
 import { ConnectedLogout } from '../pages/Logout';
-import { ConnectedReduxStore } from '../units/ReduxStore';
 import { ConnectedSignup } from '../pages/Signup';
 import { ConnectedProfile } from '../pages/Profile';
+import { ConnectedSelectionsLayout } from './SelectionsLayout';
+import { Gateway } from '../pages/Gateway';
 
 function Index() {
   return <h2>Home</h2>;
@@ -22,6 +23,7 @@ function Users() {
 export const MainLayout = () => {
   return (
     <div style={{ display: 'flex', flexFlow: 'column', alignItems: 'center', height: '100vh', width: '100%' }}>
+      <ConnectedSelectionsLayout />
       <Router>
         <ConnectedNavigation/>
         <div style={{ display: 'flex', flexFlow: 'column', flex: '1', alignItems: 'center', justifyContent: 'center', width: '100%', background: 'lightgray' }}>
@@ -32,9 +34,9 @@ export const MainLayout = () => {
           <Route path="/profile/" component={ConnectedProfile} />
           <Route path="/logout/" component={ConnectedLogout} />
           <Route path="/signup/" component={ConnectedSignup} />
+          <Route path="/gateway/" component={Gateway} />
         </div>
       </Router>
-      <ConnectedReduxStore />
     </div>
   );
 }

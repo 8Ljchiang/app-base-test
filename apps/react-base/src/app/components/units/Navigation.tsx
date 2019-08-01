@@ -35,6 +35,7 @@ class Navigation extends Component<any, any> {
               <Link onClick={this.toggle.bind(this)} style={styles.menuItem} to="/about/">About</Link>
               <Link onClick={this.toggle.bind(this)} style={styles.menuItem} to="/users/">Users</Link>
               <Link onClick={this.toggle.bind(this)} style={styles.menuItem} to="/profile/">Profile</Link>
+              <Link onClick={this.toggle.bind(this)} style={styles.menuItem} to="/gateway/">Gateway</Link>
               <Link onClick={this.toggle.bind(this)} style={styles.menuItem} to="/logout/">Logout</Link>
             </>
           )

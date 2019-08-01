@@ -47,7 +47,7 @@ export class Login extends Component<any, any> {
           {/* </div> */}
         </div>
         <div style={styles.right}>
-          <h1 style={styles.displayTitle}>{"{ woven }"}</h1>
+          <h1 style={styles.displayTitle}>{"{ connect: interchange }"}</h1>
         </div>
       </div>
     );

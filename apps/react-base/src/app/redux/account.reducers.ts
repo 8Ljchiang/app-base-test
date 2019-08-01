@@ -75,7 +75,8 @@ const updateProfileStatus = (initialState: AccountStore, payload: any) => {
   if (payload === 'UPGRADED' && initialState.inviteTokens.length > 0 && !initialState.inviteTokens.includes(AppFeature.FEATURE_UNLOCK)) {
     return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, AppFeature.FEATURE_UNLOCK], profile: { ...initialState.profile, status: payload } });
   } else {
-    return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
+    const newFeatureKeys = initialState.featureKeys.filter(fKey => fKey !== AppFeature.FEATURE_UNLOCK);
+    return Object.assign({}, initialState, { featureKeys: newFeatureKeys, profile: { ...initialState.profile, status: payload } });
   }
 	// return initialState;
 }
