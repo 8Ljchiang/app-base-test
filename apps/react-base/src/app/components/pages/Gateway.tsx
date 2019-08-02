@@ -15,7 +15,7 @@ export class Gateway extends Component<any, any> {
         </div>
         <div style={styles.metaContainer}>
           <div style={styles.portContainer}>
-            <h3 style={styles.portTitle}>{"{ port: forge (codename: ignite) }"}</h3>
+            <h3 style={styles.portTitle}>{" >> forge (codename: ignite)"}</h3>
             <p style={styles.portDescription}>Social Build Connector</p>
           </div>
           <p style={styles.tag}>experimental</p>
@@ -26,6 +26,13 @@ export class Gateway extends Component<any, any> {
             <p style={styles.portDescription}>Feedback</p>
           </div>
           <p style={styles.tag}>new</p>
+        </div>
+        <div style={styles.metaContainer}>
+          <div style={styles.unknownContainer}>
+            <h3 style={styles.unknownProtTitle}>{" ? ? ? "}</h3>
+            <p style={styles.unknownProtTitle}>placeholder</p>
+          </div>
+          <p style={styles.tag}>unknown</p>
         </div>
       </div>
     );
@@ -77,14 +84,30 @@ const LockedPorts = () => {
 const styles = {
   container: {
     height: '100%',
-    // width: '100%',
+    width: '100%',
     display: 'flex',
+    alignItems: 'center',
     flexFlow: 'column',
+    background: 'rgb(210, 212, 214)',
   },
   metaContainer:{
     display: 'flex',
     flexFlow: 'column',
-    margin: '20px'
+    margin: '20px',
+    maxWidth: '400px',
+    width: '400px'
+  },
+  unknownContainer: {
+    display: 'flex',
+    flexFlow: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '14px',
+    boxShadow: '0 0 10px 5px rgb(150, 150, 150)',
+    background: 'rgb(120, 120, 120)',
+    border: '3px dashed rgb(80, 80, 80)',
+    color: 'gray',
+    borderRadius: '5px',
   },
   tag: {
     marginLeft: '8px',
@@ -106,6 +129,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     color: 'rgb(52, 165, 235)'
+  },
+  unknownProtTitle: {
+    display: 'flex',
+    flexFlow: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'lightgray'
   },
   portDescription: {
     color: 'white',

@@ -22,6 +22,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
     const builtPath = root + routeDef.path;
     const routeKey = builtPath;
     Log.info('Creating route:' + builtPath);
+    const exactMatch = routeDef.childRoutes && routeDef.exact !== null || routeDef.exact !== undefined ? false : routeDef.exact;
     if (routeDef.childRoutes && routeDef.childRoutes.length > 0) {
       const contextKey = index + routeKey;
       return (
@@ -30,7 +31,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
             key={routeKey}
             path={builtPath}
             component={routeDef.component}
-            exact={routeDef.exact} />
+            exact={exactMatch} />
           <ModuleRoutesWrapper
             rootPath={builtPath}
             routes={routeDef.childRoutes}
@@ -44,7 +45,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
           key={routeKey}
           path={builtPath}
           component={routeDef.component}
-          exact={routeDef.exact} />
+          exact={exactMatch} />
       );
     }
   }
@@ -53,24 +54,24 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
     if(noMatch) {
       // return <Redirect from={rootPath+'/:any'} to={rootPath} component={noMatch} />
       Log.info('Creating no match component');
-      return <Route component={NotFound} />;
+      const NoMatch = noMatch;
+      return <Route component={NoMatch} />;
     }
   }
 
   render() {
-    const { routes, rootPath, children, noMatch } = this.props;
+    const { routes, rootPath, noMatch } = this.props;
     if (routes && routes.length > 0) {
       // console.log('module routes wrapper:', rootPath);
+      // console.log(routes);
       return (
         <Switch>
-          { children }
           { this.renderRoutes(routes, rootPath) }
           { this.renderNoMatch(noMatch, rootPath) }
         </Switch>
       );
-    } else {
-      return children;
     }
+    return null;
       // if (rootPath) {
       //   console.log('ModuleRoutesWrapper has routes');
       //   return (

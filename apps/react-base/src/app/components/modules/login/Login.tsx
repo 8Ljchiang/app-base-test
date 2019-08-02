@@ -267,11 +267,11 @@ const styles = {
   },
   formSubmitButton: {
     padding: '4px',
-    // color: 'lightgray',
+    color: 'lightgray',
     // background: 'rgb(52, 165, 235)',
     // color: 'rgb(34, 44, 56)'
     background: 'rgb(34, 44, 56)',
-    color: 'rgb(52, 165, 235)'
+    // color: 'rgb(52, 165, 235)'
   },
   formTitle: {
     marginBottom: '24px'

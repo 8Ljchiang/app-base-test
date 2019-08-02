@@ -24,7 +24,8 @@ export enum AppFacetDomain {
 export enum AppFeature {
   FEATURE_UNLOCK = 'F_UNLOCK',
   FEATURE_DASHBOARD = 'F_DASH',
-  GATEWAY = 'F_GATE',
+  LOOM = 'F_LOOM',
+  GATEWAY = 'F_GATEWAY',
 }
 
 export interface AppFacet {

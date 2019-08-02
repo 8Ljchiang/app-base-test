@@ -72,10 +72,10 @@ class SelectionsLayout extends Component<any, any> {
 
 const styles = {
   pageContainer: {
-    position: 'absolute',
+    // position: 'absolute',
     bottom: 0,
     display: 'flex',
-    flexDirection: 'column-reverse',
+    // flexDirection: 'column-reverse',
     alignItems: 'center',
     zIndex: 100,
   },

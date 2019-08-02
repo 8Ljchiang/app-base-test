@@ -26,7 +26,11 @@ export const defaultAccountStore: AccountStore = {
   inviteToken: '',
   role: '',
   inviteTokens: [],
-  featureKeys: [],
+  featureKeys: [
+    AppFeature.FEATURE_UNLOCK,
+    AppFeature.LOOM,
+    AppFeature.GATEWAY
+  ],
   profile: {
     about: 'about',
     username: 'user1',

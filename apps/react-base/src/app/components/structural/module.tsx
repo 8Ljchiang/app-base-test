@@ -7,18 +7,17 @@ interface IModuleComponentProps {
   moduleName: string;
   routes: any[];
   fallback: any;
-  match: any;
+  rootPath: string;
   noMatch: any;
 }
 export class ModuleComponent extends Component<IModuleComponentProps, any> {
   render() {
-    const { match, moduleName, routes, fallback, children, noMatch } = this.props;
+    const { rootPath, moduleName, routes, fallback, children, noMatch } = this.props;
     return (
       <React.Fragment>
         <ErrorBoundary fallback={fallback} bondaryContext={moduleName}>
-          <ModuleRoutesWrapper routes={routes} rootPath={match.path} noMatch={noMatch}>
-            { children }
-          </ModuleRoutesWrapper>
+          <ModuleRoutesWrapper routes={routes} rootPath={rootPath} noMatch={noMatch} />
+          { children }
         </ErrorBoundary>
       </React.Fragment>
     );

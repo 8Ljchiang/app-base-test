@@ -3,9 +3,7 @@ import { ModuleRootComponent } from '../../structural/module-root';
 import { mainRoutes } from './root.routes';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
-import { ConnectedNavigation } from '../../units/Navigation';
-import { ConnectedSelectionsLayout } from '../../layouts/SelectionsLayout';
-import { RouteLinks } from '../../units/RouteLinks';
+import { RouteLinks, ConnectedRouteLinks } from '../../units/RouteLinks';
 
 interface IModuleComponentProps {
   moduleName: string;
@@ -24,7 +22,7 @@ export const RootModule = (props) => {
         fallback={DefaultErrorFallback}>
         {/* <h1>Root Module Component</h1> */}
         <div style={styles.linkContainer}>
-          <RouteLinks routes={mainRoutes}/>
+          <ConnectedRouteLinks routes={mainRoutes}/>
         </div>
       </ModuleRootComponent>
     </div>

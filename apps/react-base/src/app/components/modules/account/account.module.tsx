@@ -2,7 +2,6 @@ import React from 'react';
 import { ModuleComponent } from '../../structural/module';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
-import { ConnectedSelectionsLayout } from '../../layouts/SelectionsLayout';
 import { ConnectedProfile } from '../../pages/Profile';
 
 export const AccountModule = (props) => {

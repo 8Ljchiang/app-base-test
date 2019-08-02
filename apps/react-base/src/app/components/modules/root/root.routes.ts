@@ -1,8 +1,12 @@
+import { ChildModule } from './../child/child.module';
+import { AppFeature } from './../../../core/configs/feature.config';
 import { AccountModule } from './../account/account.module';
 import { ConnectedProfile } from './../../pages/Profile';
 import { LoomModule } from './../loom/loom.module';
 import { ConnectedLogin } from '../login/Login';
 import { Gateway } from './../../pages/Gateway';
+
+ // Set 'exact' to false if there are child routes, or module has routes.
 
 export const mainRoutes = [
   {
@@ -19,10 +23,17 @@ export const mainRoutes = [
     path: '/gateway',
     exact: true,
     component: Gateway,
+    featureLink: AppFeature.GATEWAY,
   },
   {
     path: '/loom',
-    exact: true,
-    component: LoomModule
-  }
+    exact: false,
+    component: LoomModule,
+    featureLink: AppFeature.LOOM,
+  },
+  // {
+  //   path: '/child-module',
+  //   exact: false,
+  //   component: ChildModule,
+  // }
 ]

@@ -27,7 +27,8 @@ class LogService {
   }
 
   info(subject: string, description?: string, context?: string) {
-    const updatedSubject = `${LogType.INFO}: ${subject}`;
+    // const updatedSubject = `${LogType.INFO}: ${subject}`;
+    const updatedSubject = `  > ${subject}`;
 		this.log(LogType.INFO, updatedSubject, description, context);
   }
 
