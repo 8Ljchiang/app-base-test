@@ -62,6 +62,7 @@ class Profile extends Component<any, any> {
   }
 
   render() {
+    throw Error('Fake error');
     const { showInviteTokens } = this.state;
     const { profile, featureKeys } = this.props;
     const username = this.props.username ? this.props.username : 'unknown';
