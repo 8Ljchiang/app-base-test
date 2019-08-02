@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export class LoomProjectsPage extends Component<any, any> {
+export class LoomExercisesPage extends Component<any, any> {
   render() {
     return (
       <div style={styles.container}>
-        <h1>{"{ loom: projects }"}</h1>
+        <h1>{"{ loom: exercises }"}</h1>
       </div>
     );
   }

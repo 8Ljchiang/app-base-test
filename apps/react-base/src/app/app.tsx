@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from './redux/index.reducer';
 import { RootModule } from './components/modules/root/root.module';
+import { ErrorBoundary } from './components/structural/error-boundary';
+import { DefaultErrorFallback } from './components/units/DefaultErrorFallback';
 
 const store = createStore(rootReducer);
 
@@ -14,7 +16,9 @@ export const App = () => {
   return (
     <Provider store={store}>
       {/* <MainLayout></MainLayout> */}
-      <RootModule/>
+      <ErrorBoundary fallback={DefaultErrorFallback}>
+        <RootModule/>
+      </ErrorBoundary>
     </Provider>
   );
 };

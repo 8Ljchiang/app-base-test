@@ -23,7 +23,7 @@ export class DefaultErrorFallback extends Component<any, any> {
     const { showFeedback } = this.state;
     return (
       <BannerLayout title={"Site fault: Something went wrong..."}>
-        <p>Return <Link to={'/'}>Home</Link></p>
+        <p>Return <a href="/">Home</a></p>
         { showFeedback ? (
           <FeedbackForm />
         ) : <button onClick={this.showFeedback.bind(this)}>Send feedback</button> }

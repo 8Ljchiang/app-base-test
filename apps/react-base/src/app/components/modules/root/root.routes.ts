@@ -1,3 +1,4 @@
+import { FaultComponent } from './../../units/Fault';
 import { LoginModule } from './../login/login.module';
 import { FeedbackModule } from './../feedback/feedback.module';
 import { ChildModule } from './../child/child.module';
@@ -38,6 +39,11 @@ export const mainRoutes = [
     path: '/feedback',
     exact: true,
     component: FeedbackModule
+  },
+  {
+    path: '/fault',
+    exact: true,
+    component: FaultComponent
   }
   // {
   //   path: '/child-module',

@@ -5,24 +5,26 @@ import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { ConnectedSelectionsLayout } from '../../layouts/SelectionsLayout';
 import { RouteLinks } from '../../units/RouteLinks';
 import { loomRoutes } from './loom.routes';
+import { BannerLayout } from '../../layouts/BannerLayout';
 
 export const LoomModule = (props) => {
   const { match } = props;
   console.log(match);
   return (
     <div style={styles.container}>
-      <h1>Loom Module Component</h1>
-      <div style={styles.linksContainer}>
-        <RouteLinks routes={loomRoutes} rootPath={match.path} />
-      </div>
-      <ConnectedSelectionsLayout/>
-      <ModuleComponent
-        rootPath={match.path}
-        noMatch={null}
-        moduleName={'LoomModule'}
-        routes={loomRoutes}
-        fallback={DefaultErrorFallback}>
-      </ModuleComponent>
+      <BannerLayout title={'Loom Module'}>
+        <div style={styles.linksContainer}>
+          <RouteLinks routes={loomRoutes} rootPath={match.path} />
+        </div>
+        <ConnectedSelectionsLayout/>
+        <ModuleComponent
+          rootPath={match.path}
+          noMatch={null}
+          moduleName={'LoomModule'}
+          routes={loomRoutes}
+          fallback={DefaultErrorFallback}>
+        </ModuleComponent>
+      </BannerLayout>
     </div>
   );
 }
