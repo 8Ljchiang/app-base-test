@@ -15,7 +15,7 @@ export const AccountModule = (props) => {
         moduleName={'AccountModule'}
         routes={[]}
         fallback={DefaultErrorFallback}>
-        <h1>Loom Module Component</h1>
+        {/* <h1>Account Module Component</h1> */}
         <ConnectedProfile/>
       </ModuleComponent>
     </div>

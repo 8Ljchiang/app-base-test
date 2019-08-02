@@ -3,10 +3,10 @@ import { ModuleComponent } from '../../structural/module';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { ConnectedSelectionsLayout } from '../../layouts/SelectionsLayout';
+import { RouteLinks } from '../../units/RouteLinks';
 
 export const LoomModule = (props) => {
   const { match } = props;
-  console.log(match);
   return (
     <div style={styles.container}>
       <ModuleComponent
@@ -15,7 +15,10 @@ export const LoomModule = (props) => {
         moduleName={'LoomModule'}
         routes={[]}
         fallback={DefaultErrorFallback}>
-        <h1>Loom Module Component</h1>
+        {/* <h1>Loom Module Component</h1> */}
+        <div style={styles.linkContainer}>
+          <RouteLinks routes={[]}/>
+        </div>
         <ConnectedSelectionsLayout/>
       </ModuleComponent>
     </div>
@@ -23,6 +26,11 @@ export const LoomModule = (props) => {
 }
 
 const styles = {
+  linksContainer: {
+    display: 'flex',
+    width: '50%',
+    justifyContent: 'space-between'
+  },
   container: {
     display: 'flex',
     flexFlow: 'column',

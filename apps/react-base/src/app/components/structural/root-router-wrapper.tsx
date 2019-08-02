@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModuleRoutesWrapper } from './module-routes-wrapper';
-import { TestA } from '../modules/test-root/test2.component';
-import { TestB } from '../modules/test-root/test1.component';
 import { NotFound } from '../units/NotFound';
+import Log from '../../core/services/log.service';
 
 interface IRootRouterWrapperProps {
   rootPath: string;
@@ -27,8 +26,7 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
     const root = rootPath ? rootPath : '';
     const builtPath = root + routeDef.path;
     const routeKey = builtPath;
-    // console.log('routeKey:', routeKey);
-    console.log('creating route:', builtPath);
+    Log.info('Creating route:' + builtPath);
     if (routeDef.childRoutes && routeDef.childRoutes.length > 0) {
       const contextKey = index + routeKey;
       return (
@@ -58,7 +56,7 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
 
   renderNoMatch(noMatch: any) {
     if (noMatch) {
-      console.log('creating not found');
+      Log.info('Creating no match component');
       return <Route component={NotFound} />
     }
   }
@@ -66,7 +64,6 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
   render() {
     const { routes, noMatch, children, rootPath } = this.props;
     if (routes && routes.length > 0) {
-      console.log('RootRouterWrapper has routes', routes);
       return (
         <Router>
           { children }

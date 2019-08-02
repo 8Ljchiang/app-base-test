@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect} from 'react-router-dom';
 import { NotFound } from '../units/NotFound';
+import Log from '../../core/services/log.service';
 
 interface IModuleRoutesWrapperProps {
   rootPath: string;
@@ -20,8 +21,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
     const root = rootPath ? rootPath : '';
     const builtPath = root + routeDef.path;
     const routeKey = builtPath;
-    // console.log('routeKey:', routeKey);
-    console.log('creating route:', builtPath);
+    Log.info('Creating route:' + builtPath);
     if (routeDef.childRoutes && routeDef.childRoutes.length > 0) {
       const contextKey = index + routeKey;
       return (
@@ -52,7 +52,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
   renderNoMatch(noMatch: any, rootPath: string) {
     if(noMatch) {
       // return <Redirect from={rootPath+'/:any'} to={rootPath} component={noMatch} />
-      console.log('creating not found');
+      Log.info('Creating no match component');
       return <Route component={NotFound} />;
     }
   }

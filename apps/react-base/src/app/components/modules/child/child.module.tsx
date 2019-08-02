@@ -6,7 +6,6 @@ import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 
 export const ChildModule = (props) => {
   const { match } = props;
-  console.log(match);
   return (
     <div style={styles.container}>
       <ModuleComponent

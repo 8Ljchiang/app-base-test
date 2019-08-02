@@ -95,12 +95,12 @@ class Login2 extends Component<any, any> {
               style={{ background: 'pink', height: '10px', width: '10px' }}>
             </div>
           </div>
-          
+
           <h1 className="animated animated-fast fadeInDown" style={styles.displayTitle}>
             {"{ interchange }"}
             {/* interchange */}
           </h1>
-        
+
 
 
 
@@ -205,7 +205,7 @@ class Login extends Component<any, any> {
             )}
           />
         </div>
-        <div style={styles.right}>       
+        <div style={styles.right}>
           <h1 style={styles.displayTitle}>
             {"{ interchange }"}
           </h1>
@@ -238,7 +238,8 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
-    width: '520px',
+    minWidth: '440px',
+    width: '440px',
     background: 'rgb(210, 212, 214)',
   },
   right: {
@@ -261,10 +262,16 @@ const styles = {
   },
   formField: {
     marginBottom: '18px',
-    padding: '4px'
+    padding: '4px',
+    width: '54%'
   },
   formSubmitButton: {
-    padding: '4px'
+    padding: '4px',
+    // color: 'lightgray',
+    // background: 'rgb(52, 165, 235)',
+    // color: 'rgb(34, 44, 56)'
+    background: 'rgb(34, 44, 56)',
+    color: 'rgb(52, 165, 235)'
   },
   formTitle: {
     marginBottom: '24px'

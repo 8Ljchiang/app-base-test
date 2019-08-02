@@ -7,7 +7,6 @@ import { Gateway } from '../../pages/Gateway';
 
 export const LoomModule = (props) => {
   const { match } = props;
-  console.log(match);
   return (
     <div style={styles.container}>
       <ModuleComponent

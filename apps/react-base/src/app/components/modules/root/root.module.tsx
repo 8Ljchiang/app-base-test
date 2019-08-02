@@ -14,7 +14,6 @@ interface IModuleComponentProps {
 }
 
 export const RootModule = (props) => {
-  console.log(props);
   return (
     <div style={styles.container}>
       <ModuleRootComponent
@@ -23,14 +22,19 @@ export const RootModule = (props) => {
         noMatch={NotFound}
         routes={mainRoutes}
         fallback={DefaultErrorFallback}>
-        <h1>Root Module Component</h1>
-        <RouteLinks routes={mainRoutes}/>
+        {/* <h1>Root Module Component</h1> */}
+        <div style={styles.linkContainer}>
+          <RouteLinks routes={mainRoutes}/>
+        </div>
       </ModuleRootComponent>
     </div>
   );
 }
 
 const styles = {
+  linkContainer: {
+    display: 'flex', justifyContent: 'space-between', width: '50%'
+  },
   container: {
     display: 'flex',
     flexFlow: 'column',

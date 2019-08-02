@@ -5,11 +5,6 @@ import { newInviteToken, addFeatureKey, updateStatus } from '../../redux/account
 import { EditableField } from '../../components/units/EditableField';
 import { AppFeature } from '../../core/configs/feature.config';
 
-const tokens = [
-  'token1',
-  'token2',
-  'token3',
-]
 class Profile extends Component<any, any> {
   constructor(props) {
     super(props);
@@ -71,6 +66,7 @@ class Profile extends Component<any, any> {
     const { profile, featureKeys } = this.props;
     const username = this.props.username ? this.props.username : 'unknown';
     const showFeatureUnlock = featureKeys.includes(AppFeature.FEATURE_UNLOCK);
+    const buttonTitle = showInviteTokens ? 'Hide' : 'Show';
     return (
       <div style={styles.container}>
         <div style={styles.left}>
@@ -78,7 +74,7 @@ class Profile extends Component<any, any> {
           <h4>Create Invite Token</h4>
           <button onClick={this.createInviteToken.bind(this)}>Create new invite token</button>
           <h4>Invite Tokens</h4>
-          <button onClick={this.toggleInviteTokens.bind(this)}>Show</button>
+          <button onClick={this.toggleInviteTokens.bind(this)}>{buttonTitle}</button>
           { showInviteTokens ? this.renderInviteTokens() : null }
         </div>
         <div style={styles.right}>
@@ -111,18 +107,17 @@ const styles = {
     height: '100%',
   },
   left: {
-    marginTop: '30px',
     height: '100%',
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'start',
     padding: '20px',
-    width: '520px',
+    minWidth: '440px',
+    width: '440px',
     background: 'lightgray',
-    border: '1px solid black',
+    // border: '1px solid black',
   },
   right: {
-    marginTop: '30px',
     height: '100%',
     display: 'flex',
     flexFlow: 'column',
