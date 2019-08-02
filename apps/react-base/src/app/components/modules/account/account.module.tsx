@@ -6,10 +6,11 @@ import { ConnectedProfile } from '../../pages/Profile';
 
 export const AccountModule = (props) => {
   const { match } = props;
+  const root = match.path;
   return (
     <div style={styles.container}>
       <ModuleComponent
-        match={match}
+        rootPath={root}
         noMatch={NotFound}
         moduleName={'AccountModule'}
         routes={[]}

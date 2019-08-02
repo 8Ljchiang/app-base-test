@@ -7,10 +7,11 @@ import { Gateway } from '../../pages/Gateway';
 
 export const LoomModule = (props) => {
   const { match } = props;
+  const root = match.path;
   return (
     <div style={styles.container}>
       <ModuleComponent
-        match={match}
+        rootPath={root}
         noMatch={NotFound}
         moduleName={'GatewayModule'}
         routes={[]}

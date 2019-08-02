@@ -1,3 +1,4 @@
+import { FeedbackModule } from './../feedback/feedback.module';
 import { ChildModule } from './../child/child.module';
 import { AppFeature } from './../../../core/configs/feature.config';
 import { AccountModule } from './../account/account.module';
@@ -31,6 +32,11 @@ export const mainRoutes = [
     component: LoomModule,
     featureLink: AppFeature.LOOM,
   },
+  {
+    path: '/feedback',
+    exact: true,
+    component: FeedbackModule
+  }
   // {
   //   path: '/child-module',
   //   exact: false,
