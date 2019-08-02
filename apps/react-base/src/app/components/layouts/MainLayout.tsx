@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Login from '../pages/Login';
+import Login from '../modules/login/Login';
 import { ConnectedNavigation } from '../units/Navigation';
 import { ConnectedLogout } from '../pages/Logout';
 import { ConnectedSignup } from '../pages/Signup';

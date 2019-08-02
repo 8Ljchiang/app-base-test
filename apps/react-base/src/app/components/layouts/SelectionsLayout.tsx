@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ReduxStore } from '../units/ReduxStore';
+import { ConnectedNavigation } from '../units/Navigation';
 
 class SelectionsLayout extends Component<any, any> {
   constructor(props) {
@@ -28,7 +30,7 @@ class SelectionsLayout extends Component<any, any> {
       case 1:
         return null;
       case 2:
-        return null;
+        return <ConnectedNavigation/>;
       case 3:
         return null;
       case 4:
@@ -52,7 +54,7 @@ class SelectionsLayout extends Component<any, any> {
                   <p>N</p>
                 </div>
                 <div onClick={() => this.select(3)} style={styles.actionContainer}>
-                  <p>P</p>
+                  <Link to={'/account'}>P</Link>
                 </div>
                 <div onClick={() => this.select(4)} style={styles.actionContainer}>
                   <p>R</p>

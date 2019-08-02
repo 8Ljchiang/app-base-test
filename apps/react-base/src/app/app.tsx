@@ -7,13 +7,16 @@ import { MainLayout } from './components/layouts/MainLayout';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from './redux/index.reducer';
+import { RootModule } from './components/modules/root/root.module';
+import { ConnectedSelectionsLayout } from './components/layouts/SelectionsLayout';
 
 const store = createStore(rootReducer);
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <MainLayout></MainLayout>
+      {/* <MainLayout></MainLayout> */}
+      <RootModule/>
     </Provider>
   );
 };

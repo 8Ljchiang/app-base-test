@@ -16,11 +16,15 @@ export class ErrorBoundary extends Component<any, any> {
     const { boundaryContext } = this.props;
     Log.error(error, boundaryContext);
     console.log(info);
+    this.setState({
+      hasError: true
+    });
   }
 
   render() {
     const { hasError } = this.state;
     const { fallback, children } = this.props;
-    return hasError ? fallback : children;
+    const FallbackComponent = fallback;
+    return hasError ? (<FallbackComponent/>) : children;
   }
 }

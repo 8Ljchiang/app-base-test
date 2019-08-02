@@ -55,16 +55,10 @@ class Navigation extends Component<any, any> {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    account: state.account
-  }
-}
-
 const styles = {
   container: {
-    position: 'absolute',
-    zIndex: 100,
+    // position: 'absolute',
+    // zIndex: 100,
     display: 'flex',
     flexFlow: 'column',
     width: '100%',
@@ -89,6 +83,12 @@ const styles = {
   },
   button: {
     padding: '10px'
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    account: state.account
   }
 }
 
