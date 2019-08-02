@@ -215,10 +215,6 @@ class Login extends Component<any, any> {
   }
 }
 
-const mapDispatchToProps = {
-  login
-}
-
 const styles = {
   container: {
     height: '100%',
@@ -291,6 +287,10 @@ const mapStateToProps = (state) => {
   return {
     username: state.account.displayIdentifier
   }
+}
+
+const mapDispatchToProps = {
+  login
 }
 
 export const ConnectedLogin = connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -19,7 +19,7 @@ const styles = {
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    height: '100vh',
+    height: '100%',
     width: '100%',
     background: 'rgb(210, 212, 214)',
   },

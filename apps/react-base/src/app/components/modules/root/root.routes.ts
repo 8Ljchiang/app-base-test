@@ -1,3 +1,4 @@
+import { LoginModule } from './../login/login.module';
 import { FeedbackModule } from './../feedback/feedback.module';
 import { ChildModule } from './../child/child.module';
 import { AppFeature } from './../../../core/configs/feature.config';
@@ -13,7 +14,8 @@ export const mainRoutes = [
   {
     path: '/',
     exact: true,
-    component: ConnectedLogin,
+    component: LoginModule,
+    // component: ConnectedLogin,
   },
   {
     path: '/account',

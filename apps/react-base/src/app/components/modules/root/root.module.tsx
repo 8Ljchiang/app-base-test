@@ -4,6 +4,7 @@ import { mainRoutes } from './root.routes';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { RouteLinks, ConnectedRouteLinks } from '../../units/RouteLinks';
+import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 
 interface IModuleComponentProps {
   moduleName: string;
@@ -13,7 +14,7 @@ interface IModuleComponentProps {
 
 export const RootModule = (props) => {
   return (
-    <div style={styles.container}>
+    <ViewPortLayout>
       <ModuleRootComponent
         moduleName={'RootModule'}
         rootPath={''}
@@ -25,7 +26,7 @@ export const RootModule = (props) => {
           <ConnectedRouteLinks routes={mainRoutes}/>
         </div>
       </ModuleRootComponent>
-    </div>
+    </ViewPortLayout>
   );
 }
 
