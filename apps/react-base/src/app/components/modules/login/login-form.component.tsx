@@ -46,12 +46,13 @@ const styles = {
   },
   formField: {
     marginBottom: '18px',
-    padding: '4px',
+    padding: '5px',
     width: '54%'
   },
   formSubmitButton: {
-    padding: '4px',
+    padding: '5px 16px',
     color: 'lightgray',
+    borderRadius: '3px',
     // background: 'rgb(52, 165, 235)',
     // color: 'rgb(34, 44, 56)'
     background: 'rgb(34, 44, 56)',
