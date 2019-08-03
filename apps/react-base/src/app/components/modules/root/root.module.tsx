@@ -23,6 +23,7 @@ export const RootModule = (props) => {
         fallback={DefaultErrorFallback}>
         {/* <h1>Root Module Component</h1> */}
         <div style={styles.linkContainer}>
+          <p>Root Module:</p>
           <ConnectedRouteLinks routes={mainRoutes}/>
         </div>
       </ModuleRootComponent>

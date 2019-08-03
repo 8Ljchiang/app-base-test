@@ -13,6 +13,7 @@ export const LoomCommunityModule = (props) => {
     {/* <div style={styles.container}> */}
       {/* <BannerLayout title={'Loom Community Module'}> */}
         <div style={styles.linksContainer}>
+          <p>Loom Community Module:</p>
           <RouteLinks routes={loomCommunityRoutes} rootPath={match.path} />
         </div>
         <ConnectedSelectionsLayout/>

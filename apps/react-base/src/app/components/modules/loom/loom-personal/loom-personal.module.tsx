@@ -9,8 +9,8 @@ export const LoomPersonalModule = (props) => {
   const { match } = props;
   return (
     <div style={styles.container}>
-      <BannerLayout title={'Loom Personal Module'}>
         <div style={styles.linksContainer}>
+          <p>Loom Personal Module:</p>
           <RouteLinks routes={[]} rootPath={match.path} />
         </div>
         <ConnectedSelectionsLayout/>
@@ -20,8 +20,9 @@ export const LoomPersonalModule = (props) => {
           moduleName={'LoomPersonalModule'}
           routes={[]}
           fallback={DefaultErrorFallback}>
+          <BannerLayout title={'Loom Personal Module'}>
+          </BannerLayout>
         </ModuleComponent>
-      </BannerLayout>
     </div>
   );
 }
@@ -29,13 +30,11 @@ export const LoomPersonalModule = (props) => {
 const styles = {
   linksContainer: {
     display: 'flex',
-    width: '50%',
-    justifyContent: 'space-between'
   },
   container: {
     display: 'flex',
     flexFlow: 'column',
-    alignItems: 'center',
+    // alignItems: 'center',
     height: '100vh',
     width: '100%'
   }
