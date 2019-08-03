@@ -32,7 +32,7 @@ export const RootModule = (props) => {
 
 const styles = {
   linkContainer: {
-    display: 'flex', justifyContent: 'space-between', width: '50%'
+    display: 'flex'
   },
   container: {
     display: 'flex',

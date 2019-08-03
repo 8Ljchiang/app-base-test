@@ -13,11 +13,17 @@ export const RouteLinks = (props) => {
         const builtRoute = root + r.path;
         console.log('built link: ', builtRoute);
         return (
-          <Link key={index} to={builtRoute}>{builtRoute}</Link>
+          <Link key={index} to={builtRoute} style={styles.conatiner}>{builtRoute}</Link>
         );
       });
     }
     return null;
+  }
+}
+
+const styles = {
+  conatiner: {
+    margin: '0 8px'
   }
 }
 

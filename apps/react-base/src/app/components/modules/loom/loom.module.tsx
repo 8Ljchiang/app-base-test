@@ -11,12 +11,13 @@ export const LoomModule = (props) => {
   const { match } = props;
   console.log(match);
   return (
-    <div style={styles.container}>
-      <BannerLayout title={'Loom Module'}>
+    <>
+    {/* <div style={styles.container}> */}
+      {/* <BannerLayout title={'Loom Module'}> */}
         <div style={styles.linksContainer}>
           <RouteLinks routes={loomRoutes} rootPath={match.path} />
         </div>
-        <ConnectedSelectionsLayout/>
+        {/* <ConnectedSelectionsLayout/> */}
         <ModuleComponent
           rootPath={match.path}
           noMatch={null}
@@ -24,16 +25,15 @@ export const LoomModule = (props) => {
           routes={loomRoutes}
           fallback={DefaultErrorFallback}>
         </ModuleComponent>
-      </BannerLayout>
-    </div>
+      {/* </BannerLayout> */}
+    {/* </div> */}
+    </>
   );
 }
 
 const styles = {
   linksContainer: {
     display: 'flex',
-    width: '50%',
-    justifyContent: 'space-between'
   },
   container: {
     display: 'flex',

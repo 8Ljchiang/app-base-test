@@ -28,8 +28,8 @@ export const defaultAccountStore: AccountStore = {
   inviteTokens: [],
   featureKeys: [
     AppFeature.FEATURE_UNLOCK,
-    // AppFeature.LOOM,
-    // AppFeature.GATEWAY
+    AppFeature.LOOM,
+    AppFeature.GATEWAY
   ],
   profile: {
     about: 'about',

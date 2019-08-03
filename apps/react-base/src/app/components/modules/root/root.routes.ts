@@ -13,39 +13,46 @@ import { Gateway } from './../../pages/Gateway';
 
 export const mainRoutes = [
   {
+    name: 'Home',
     path: '/',
     exact: true,
     component: LoginModule,
     // component: ConnectedLogin,
   },
   {
+    name: 'Profile',
     path: '/account',
     exact: true,
     component: AccountModule,
   },
   {
+    name: 'Gateway',
     path: '/gateway',
     exact: true,
     component: Gateway,
     featureLink: AppFeature.GATEWAY,
   },
   {
+    name: 'Loom',
     path: '/loom',
     exact: false,
     component: LoomModule,
     featureLink: AppFeature.LOOM,
   },
   {
+    name: 'Feedback',
     path: '/feedback',
     exact: true,
     component: FeedbackModule
   },
   {
+    name: 'Fault',
     path: '/fault',
     exact: true,
     component: FaultComponent
   }
   // {
+  //   name: 'Sub Module',
   //   path: '/child-module',
   //   exact: false,
   //   component: ChildModule,

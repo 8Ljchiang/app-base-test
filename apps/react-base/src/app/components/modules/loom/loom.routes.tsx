@@ -1,15 +1,17 @@
-import { LoomProjectsPage } from './loom-projects.page';
-import { LoomExercisesPage } from './loom-exercises.page';
+import { LoomPersonalModule } from './loom-personal/loom-personal.module';
+import { LoomCommunityModule } from './loom-community/loom-community.module';
 
 export const loomRoutes = [
   {
-    path: '/projects',
+    name: 'Personal',
+    path: '/personal',
     exact: true,
-    component: LoomProjectsPage,
+    component: LoomPersonalModule,
   },
   {
-    path: '/exercises',
-    exact: true,
-    component: LoomExercisesPage,
-  }
+    name: 'Community',
+    path: '/community',
+    exact: false,
+    component: LoomCommunityModule,
+  },
 ]
