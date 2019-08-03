@@ -5,6 +5,7 @@ import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 import { LeftRightLayout } from '../../layouts/LeftRightLayout';
 import { ConnectedLoginForm } from './login-form.component';
+import { LoginBanner } from './login-banner.component';
 
 export const LoginModule = (props) => {
   const { match } = props;
@@ -19,27 +20,28 @@ export const LoginModule = (props) => {
         fallback={DefaultErrorFallback}>
           <LeftRightLayout
             left={ConnectedLoginForm}
-            right={() => <h1 style={styles.displayTitle}>{"{ interchange }"}</h1>}
+            right={LoginBanner}
           />
       </ModuleComponent>
     </ViewPortLayout>
   );
 }
 
+const LoginFormOverlay = (props) => {
+  return (
+    <div style={styles.overlayContainer}>
+      <ConnectedLoginForm/>
+    </div>
+  )
+}
+
 const styles = {
-  container: {
+  overlayContainer: {
+    padding: '20px',
     display: 'flex',
     flexFlow: 'column',
-    alignItems: 'center',
-    height: '100vh',
+    height: '100%',
     width: '100%',
-    background: 'rgb(210, 212, 214)',
-  },
-  displayTitle: {
-    display: 'flex',
-    flexFlow: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'rgb(52, 165, 235)',
+    boxShadow: '0 0 4px 4px rgb(50, 50, 50)'
   }
 }

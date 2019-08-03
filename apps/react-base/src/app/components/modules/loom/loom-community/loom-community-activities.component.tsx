@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './loom-community-activities.component.css';
+
 const menuOptions = [
   {
     title: 'Projects',
@@ -28,6 +30,36 @@ const projectItems = [
 ]
 
 const exerciseItems = [
+  {
+    title: 'Exercise #1',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
+  {
+    title: 'Exercise #2',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
+  {
+    title: 'Exercise #3',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
+  {
+    title: 'Exercise #1',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
+  {
+    title: 'Exercise #2',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
+  {
+    title: 'Exercise #3',
+    creator: 'User1',
+    description: 'Exercise #1 Description'
+  },
   {
     title: 'Exercise #1',
     creator: 'User1',
@@ -102,7 +134,7 @@ class LoomActivitiesMenu extends Component<any, any> {
   render() {
     const { options, actions } = this.props;
     return (
-      <div style={activitiesStyles.container}>
+      <div className="loom-activities__type-list">
         { this.renderMenuOptions(options, actions.selectOption) }
       </div>
     );
@@ -129,7 +161,7 @@ class LoomActivitiesDisplay extends Component<any, any> {
 
   renderFrame(dataList: any[], item: any) {
     return (
-      <div style={{ display: 'flex', height: '100%', width: '100%', flex: 1 }}>
+      <div className="loom-activities__display">
         <LoomActivitiesList
           data={dataList}
           onClick={this.setSelectedItem} />
@@ -154,27 +186,27 @@ class LoomActivitiesDisplay extends Component<any, any> {
 }
 
 class LoomActivityDetail extends Component<any, any> {
-  render() {
-    const { item } = this.props;
+  renderItemInfo(item: any) {
     if (item) {
       const itemKeys = Object.keys(item);
-      return (
-        <div style={detailStyles.container}>
-          { itemKeys ? (
-            itemKeys.map((key, index) => {
-              return <p key={index + key}>{key} : {item[key]}</p>
-            })
-          ) : (
-            <p>No item keys</p>
-          )}
-        </div>
-      );
-    }
+      return itemKeys ? (
+        itemKeys.map((key, index) => {
+            const delay = index * 0.2;
+            return <p style={{animationDelay: delay + 's' }} className="loom-item--animated fadeInUp" key={index + key}>{key} : {item[key]}</p>
+          })
+        ) : (
+          <p>No item keys</p>
+        )}
+  }
+  render() {
+    const { item } = this.props;
     return (
       <div style={detailStyles.container}>
-        <p>No item selected</p>
+        <div style={detailStyles.card}>
+          { this.renderItemInfo(item) }
+        </div>
       </div>
-    )
+    );
   }
 }
 class LoomActivitiesList extends Component<any, any> {
@@ -182,8 +214,9 @@ class LoomActivitiesList extends Component<any, any> {
     if (dataList && dataList.length > 0) {
       return dataList.map((item, index) => {
         return (
-          <MenuItem
+          <ActivityItem
             key={item.title + index}
+            elementIndex={index}
             title={item.title}
             onClick={() => onClick(item)} />
         );
@@ -195,7 +228,7 @@ class LoomActivitiesList extends Component<any, any> {
   render() {
     const { data, onClick } = this.props;
     return (
-      <div style={listStyles.container}>
+      <div className="loom-activities__activity-list">
         { this.renderDataList(data, onClick) }
       </div>
     )
@@ -205,56 +238,44 @@ class LoomActivitiesList extends Component<any, any> {
 const MenuItem = (props) => {
   const { title, onClick } = props;
   return (
-    <div style={menuItemStyles.container} onClick={onClick}>
+    <div className="loom-activities__type-list__item" onClick={onClick}>
       <p>{title}</p>
     </div>
   );
 }
 
-const menuItemStyles = {
-  container: {
-    display: 'flex',
-    flexFlow: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '5px',
-    border: '1px solid black'
-  }
-}
-
-const listStyles = {
-  container: {
-    padding: '6px',
-    display: 'flex',
-    flexFlow: 'column',
-    minWidth: '240px',
-    width: '240px',
-    heigth: '100%',
-    border: '1px solid black'
-  }
-}
-
-
-const activitiesStyles = {
-  container: {
-    padding: '6px',
-    display: 'flex',
-    flexFlow: 'column',
-    minWidth: '240px',
-    width: '240px',
-    heigth: '100%',
-  },
+const ActivityItem = (props) => {
+  const { title, elementIndex, onClick } = props;
+  const delay = elementIndex * 0.1;
+  return (
+    <div style={{ animationDelay: delay + 's' }} className="loom-activities__activity-list__item loom-item--animated fadeInUp" onClick={onClick}>
+      <p>{title}</p>
+    </div>
+  );
 }
 
 const detailStyles = {
   container: {
-    padding: '6px',
+    // padding: '6px',
     display: 'flex',
     flexFlow: 'column',
     height: '100%',
     width: '100%',
     flex: 1,
-    border: '1px solid black'
+    // border: '1px solid black'
+  },
+  card: {
+    display: 'flex',
+    flexFlow: 'column',
+    // padding: '20px',
+    // marginLeft: '30px',
+    // marginRight: '30px',
+    borderRadius: '4px',
+    // background: 'gray',
+    // border: '2px solid lightgray',
+    height: '100%',
+    // boxShadow: '0 0 4px 2px rgb(70, 70, 70)',
+    color: 'lightgray'
   }
 }
 

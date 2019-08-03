@@ -1,0 +1,73 @@
+.gateway-tile__container {
+  border: 1px solid black;
+  display: flex; 
+  flexFlow: column; 
+  justifyContent: center; 
+  alignItems: center; 
+  height: 100%; 
+  width: 100%;
+}
+
+.gateway-tile--animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  transition-timing-function: ease;
+  /* animation-iteration-count: infinite; */
+}
+
+.gateway-tile {
+  background: 'blue';
+  border: 1px solid black;
+  display: flex;
+  flexFlow: column;
+  width: 140px;
+  maxWidth: 140px;
+  minWidth: 140px;
+  height: 140px;
+  minHeight: 140px;
+  maxHeight: 140px;
+}
+
+.slideLeft {
+  -webkit-animation-name: slideLeft;
+	animation-name: slideLeft;
+}
+
+.slideRight {
+  -webkit-animation-name: slideRight;
+	animation-name: slideRight;
+}
+
+.slideDown {
+  -webkit-animation-name: slideDown;
+	animation-name: slideDown;
+}
+
+@keyframes slideRight {
+	0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(144);
+  }
+}
+
+@keyframes slideLeft {
+	0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-144);
+  }
+}
+
+@keyframes slideDown {
+	0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateX(144);
+  }
+}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export class Gateway extends Component<any, any> {
-
   render() {
     return (
       <div style={styles.container}>

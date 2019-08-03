@@ -1,0 +1,80 @@
+.loom-activities__display {
+  display: flex;
+  padding: 14px;
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.loom-activities__type-list {
+  z-index: 10;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  flex-flow: column;
+  min-width: 240px;
+  width: 240px;
+}
+
+.loom-activities__type-list__item {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 6px;
+  color: lightgray;
+  background: rgb(34, 44, 56);
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.loom-activities__activity-list {
+  height: 100%;
+  /* padding: 12px; */
+  display: flex;
+  flex-flow: column;
+  min-width: 340px;
+  width: 340px;
+}
+
+.loom-activities__activity-list__item {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 4px 6px;
+  color: lightgray;
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.loom-item--animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  transition-timing-function: ease;
+}
+
+.fadeInUp {
+  -webkit-animation-name: slideUp;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

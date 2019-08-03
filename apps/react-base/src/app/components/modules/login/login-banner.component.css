@@ -1,0 +1,144 @@
+.login-banner {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-banner--color1 {
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #485563;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #4b6cb7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #c2657f, #6C5B7B, rgb(44, 87, 124));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #bd657e, rgb(99, 73, 122), rgb(31, 85, 133)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #16222A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: rgb(34, 44, 56); */
+}
+
+.login-banner--color2 {
+  background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.login-banner--color3 {
+  background: #C33764;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.login-banner__title {
+  color: rgb(52, 165, 235);
+  /* color: rgb(177, 177, 177); */
+}
+
+.widget-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  /* border: 1px solid black; */
+}
+
+.widget-container--bottom {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  /* border: 1px solid black; */
+}
+
+.widget {
+  /* opacity: 0.5; */
+  /* background: rgba(168, 168, 168, 0.4); */
+  /* box-shadow: 0 0 2px 4px rgba(50, 50, 50); */
+  border: 2px solid lightgray;
+  height: 42px;
+  width: 28px;
+  border-radius: 4px;
+}
+
+.animated {
+  -webkit-animation-duration: 6s;
+  animation-duration: 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  transition-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.slideUp {
+  -webkit-animation-name: slideUp;
+  animation-name: slideUp
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-92vh) scale(1);
+  }
+}
+
+.slideDown {
+  -webkit-animation-name: slideDown;
+  animation-name: slideDown
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(92vh) scale(1);
+  }
+}
+
+.letterSpread {
+  -webkit-animation-name: letterSpread;
+  animation-name: letterSpread
+}
+
+@keyframes letterSpread {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    letter-spacing: 1em;
+  }
+}
+
