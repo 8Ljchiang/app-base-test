@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isNoneOrNull, isArrayEmpty } from '../../core/util/helpers';
+import { isNoneOrNull, isArrayEmpty, isArray } from '../../core/util/helpers';
 
 /**
  * This component renders the routes that modules have
@@ -20,9 +20,14 @@ export class ReduxNavigator extends Component<any, any> {
   }
 
   renderPaths(routeDefs: any[], rootPath: string) {
-    return routeDefs.map((rd, index) => {
-      return this.renderLink(rd, rootPath, index)
-    });
+    const { featureKeys } = this.props;
+    const updatedFeatureKeys = isArray(featureKeys) ? featureKeys : [];
+    if (updatedFeatureKeys) {
+      const filteredDefs = routeDefs.filter((rd) => !isNoneOrNull(rd.featureLink) ? updatedFeatureKeys.includes(rd.featureLink) : true);
+      return filteredDefs.map((rd, index) => {
+        return this.renderLink(rd, rootPath, index)
+      });
+    }
   }
 
   renderRouteSet(title: string, routeDefs: any[], rootPath: string, index: any) {
