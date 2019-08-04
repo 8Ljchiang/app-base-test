@@ -16,7 +16,7 @@ export const LoomModule = (props) => {
       {/* <BannerLayout title={'Loom Module'}> */}
         <div style={styles.linksContainer}>
           <p>Loom Module:</p>
-          <RouteLinks routes={loomRoutes} rootPath={match.path} />
+          {/* <RouteLinks routes={loomRoutes} rootPath={match.path} /> */}
         </div>
         {/* <ConnectedSelectionsLayout/> */}
         <ConnectedModuleComponent

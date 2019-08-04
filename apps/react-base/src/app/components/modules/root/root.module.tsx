@@ -41,10 +41,11 @@ const styles = {
   reduxNavContainer: {
     position: 'absolute',
     top: 0,
-    left: 0,
+    right: 0,
     display: 'flex',
     flexFlow: 'column',
-    background: 'gray',
+    background: 'lightgray',
+    border: '3px dotted gray',
     zIndex: 100,
   },
   linkContainer: {
