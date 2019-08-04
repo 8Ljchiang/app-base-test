@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModuleComponent } from '../../../structural/module';
+import { ModuleComponent, ConnectedModuleComponent } from '../../../structural/module';
 import { DefaultErrorFallback } from '../../../units/DefaultErrorFallback';
 import { ConnectedSelectionsLayout } from '../../../layouts/SelectionsLayout';
 import { RouteLinks } from '../../../units/RouteLinks';
@@ -17,13 +17,13 @@ export const LoomCommunityModule = (props) => {
           <RouteLinks routes={loomCommunityRoutes} rootPath={match.path} />
         </div>
         <ConnectedSelectionsLayout/>
-        <ModuleComponent
+        <ConnectedModuleComponent
           rootPath={match.path}
           noMatch={null}
           moduleName={'LoomCommunityModule'}
           routes={loomCommunityRoutes}
           fallback={DefaultErrorFallback}>
-        </ModuleComponent>
+        </ConnectedModuleComponent>
       {/* </BannerLayout> */}
     {/* </div> */}
     </>

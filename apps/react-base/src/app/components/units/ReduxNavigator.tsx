@@ -10,6 +10,22 @@ import { isNoneOrNull, isArrayEmpty, isArray } from '../../core/util/helpers';
  */
 
 export class ReduxNavigator extends Component<any, any> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showNav: false
+    }
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      showNav: !this.state.showNav
+    });
+  }
+
   renderLink(routeRef: any, rootPath: string, index: any) {
     if (!isNoneOrNull(routeRef.path) && !isNoneOrNull(rootPath)) {
       const builtPath = rootPath + routeRef.path;
@@ -54,13 +70,23 @@ export class ReduxNavigator extends Component<any, any> {
 
   render() {
     const { routeSets } = this.props;
-    return this.renderAllRouteSets(routeSets);
+    const { showNav } = this.state;
+    const buttonTitle = showNav ? 'hide' : 'show';
+    return (
+      <>
+        <button onClick={this.toggle} style={styles.navButton}>{'nav: ' + buttonTitle}</button>
+        { showNav ? this.renderAllRouteSets(routeSets) : null }
+      </>
+    )
   }
 }
 
 const styles = {
   linkContainer: {
 
+  },
+  navButton: {
+    padding: '3px'
   }
 }
 

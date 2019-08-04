@@ -12,3 +12,8 @@ export function isArrayEmpty(arr: any[]): boolean {
   }
   return false;
 }
+
+export function removeSpaces(str: string): string {
+  const newString = str.replace(/\s+/g, '');
+  return newString;
+}
