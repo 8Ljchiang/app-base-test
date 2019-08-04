@@ -26,7 +26,12 @@ export enum AppFeature {
   FEATURE_DASHBOARD = 'F_DASH',
   LOOM = 'F_LOOM',
   GATEWAY = 'F_GATEWAY',
-  GATEWAY2 = 'F_GATEWAY_2',
+  GATEWAY2 = 'F_GATEWAY2',
+  TEST_FAULT = 'F_TEST_FAULT',
+  TEST_NAV = 'F_TEST_NAV',
+  FEEDBACK = 'F_FEEDBACK',
+  ACCOUNT = 'F_ACCOUNT',
+
 }
 
 export interface AppFacet {

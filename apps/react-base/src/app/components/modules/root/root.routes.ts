@@ -26,6 +26,7 @@ export const mainRoutes = [
     path: '/account',
     exact: true,
     component: AccountModule,
+    featureLink: AppFeature.ACCOUNT,
   },
   {
     name: 'Gateway 2',
@@ -52,19 +53,22 @@ export const mainRoutes = [
     name: 'Feedback',
     path: '/feedback',
     exact: true,
-    component: FeedbackModule
+    component: FeedbackModule,
+    featureLink: AppFeature.FEEDBACK,
   },
   {
     name: 'Fault',
     path: '/fault',
     exact: true,
-    component: FaultComponent
+    component: FaultComponent,
+    featureLink: AppFeature.TEST_FAULT,
   },
   {
     name: 'Navigation',
     path: '/nav',
     exact: true,
-    component: ConnectedReduxNavigator
+    component: ConnectedReduxNavigator,
+    featureLink: AppFeature.TEST_NAV,
   }
   // {
   //   name: 'Sub Module',
