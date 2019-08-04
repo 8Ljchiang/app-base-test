@@ -7,7 +7,7 @@ export interface ApplicationStore {
 export const defaultApplicationStore: ApplicationStore = {
 	routeSets: {
     RootModule: {
-      rootPath: '/',
+      rootPath: '',
       routeDefs: mainRoutes,
     }
   },

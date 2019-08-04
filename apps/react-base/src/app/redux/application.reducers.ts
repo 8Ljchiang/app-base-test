@@ -15,7 +15,7 @@ const setRouteSets = (initialState: ApplicationStore, setInfo: RouteSetInfo) => 
   return Object.assign({}, initialState, { routeSets: newRouteSets });
 }
 
-export function signupReducer(
+export function applicationReducer(
 	state: ApplicationStore = defaultApplicationStore,
   action: ApplicationActions
 ) {

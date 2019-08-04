@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { isNoneOrNull, isArrayEmpty } from '../../core/util/helpers';
 
 /**
  * This component renders the routes that modules have
@@ -10,7 +11,7 @@ import { connect } from 'react-redux';
 
 export class ReduxNavigator extends Component<any, any> {
   renderLink(routeRef: any, rootPath: string, index: any) {
-    if (routeRef.path && rootPath) {
+    if (!isNoneOrNull(routeRef.path) && !isNoneOrNull(rootPath)) {
       const builtPath = rootPath + routeRef.path;
       return (
         <Link key={index + builtPath} to={builtPath}>{builtPath}</Link>
@@ -26,10 +27,10 @@ export class ReduxNavigator extends Component<any, any> {
 
   renderRouteSet(title: string, routeDefs: any[], rootPath: string, index: any) {
     return (
-      <>
+      <React.Fragment key={index + title}>
         <p>{title} - <Link to={rootPath}>{rootPath}</Link></p>
         { this.renderPaths(routeDefs, rootPath) }
-      </>
+      </React.Fragment>
     )
   }
 
@@ -39,7 +40,7 @@ export class ReduxNavigator extends Component<any, any> {
       const routeSet = routeSets[rsKey];
       if (routeSet) {
         const { rootPath, routeDefs } = routeSet;
-        if (rootPath && routeDefs && routeDefs.length > 0) {
+        if (!isNoneOrNull(rootPath) && !isArrayEmpty(routeDefs)) {
           return this.renderRouteSet(rsKey, routeDefs, rootPath, index);
         }
       }
