@@ -26,6 +26,7 @@ export enum AppFeature {
   FEATURE_DASHBOARD = 'F_DASH',
   LOOM = 'F_LOOM',
   GATEWAY = 'F_GATEWAY',
+  GATEWAY2 = 'F_GATEWAY_2',
 }
 
 export interface AppFacet {
