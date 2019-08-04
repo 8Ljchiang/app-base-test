@@ -4,6 +4,7 @@ import { DefaultErrorFallback } from '../../../units/DefaultErrorFallback';
 import { ConnectedSelectionsLayout } from '../../../layouts/SelectionsLayout';
 import { RouteLinks } from '../../../units/RouteLinks';
 import { BannerLayout } from '../../../layouts/BannerLayout';
+import { DevFutureFeature } from '../../../units/DevFutureFeature';
 
 export const LoomPersonalModule = (props) => {
   const { match } = props;
@@ -21,6 +22,15 @@ export const LoomPersonalModule = (props) => {
           routes={[]}
           fallback={DefaultErrorFallback}>
           <BannerLayout title={'Loom Personal Module'}>
+            <DevFutureFeature
+              featureName={'My projects'}
+              title={'placeholder'} />
+            <DevFutureFeature
+              featureName={'My sessions'}
+              title={'placeholder'} />
+            <DevFutureFeature
+              featureName={'My invites'}
+              title={'placeholder'} />
           </BannerLayout>
         </ModuleComponent>
     </div>

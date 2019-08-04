@@ -4,9 +4,9 @@ export const DevFutureFeature = (props) => {
   const { title, featureName } = props;
   return (
     <div style={styles.container}>
+      <h3 style={styles.title}>{title}</h3>
       <p style={styles.tag}>not implemented:</p>
       <p style={styles.tag}>{featureName}</p>
-      <h3 style={styles.title}>{title}</h3>
     </div>
   );
 }

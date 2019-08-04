@@ -6,9 +6,12 @@ import { ConnectedSelectionsLayout } from '../../layouts/SelectionsLayout';
 import { RouteLinks } from '../../units/RouteLinks';
 import { loomRoutes } from './loom.routes';
 import { BannerLayout } from '../../layouts/BannerLayout';
+import { DevFutureFeature } from '../../units/DevFutureFeature';
+import { Redirect } from 'react-router-dom';
 
 export const LoomModule = (props) => {
   const { match } = props;
+  const root = match.path;
   console.log(match);
   return (
     <>
@@ -19,6 +22,8 @@ export const LoomModule = (props) => {
           {/* <RouteLinks routes={loomRoutes} rootPath={match.path} /> */}
         </div>
         {/* <ConnectedSelectionsLayout/> */}
+
+
         <ConnectedModuleComponent
           rootPath={match.path}
           noMatch={null}

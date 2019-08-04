@@ -5,6 +5,8 @@ import { ConnectedSelectionsLayout } from '../../../layouts/SelectionsLayout';
 import { RouteLinks } from '../../../units/RouteLinks';
 import { BannerLayout } from '../../../layouts/BannerLayout';
 import { loomCommunityRoutes } from './loom-community.routes';
+import { DevFutureFeature } from '../../../units/DevFutureFeature';
+import { Redirect } from 'react-router-dom';
 
 export const LoomCommunityModule = (props) => {
   const { match } = props;

@@ -68,6 +68,7 @@ export class ModuleRoutesWrapper extends Component<IModuleRoutesWrapperProps, an
         <Switch>
           { this.renderRoutes(routes, rootPath) }
           { this.renderNoMatch(noMatch, rootPath) }
+          <Redirect from={rootPath} to={rootPath + routes[0].path} />
         </Switch>
       );
     }
