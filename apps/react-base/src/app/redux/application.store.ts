@@ -1,7 +1,14 @@
-export interface AccountStore {
+import { mainRoutes } from '../components/modules/root/root.routes';
+
+export interface ApplicationStore {
   routeSets: { [key: string]: { routeDefs: any[], rootPath: string } },
 }
 
-export const defaultApplicationStore: AccountStore = {
-	routeSets: {},
+export const defaultApplicationStore: ApplicationStore = {
+	routeSets: {
+    RootModule: {
+      rootPath: '/',
+      routeDefs: mainRoutes,
+    }
+  },
 }

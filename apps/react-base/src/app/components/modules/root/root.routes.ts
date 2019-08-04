@@ -1,3 +1,4 @@
+import { ConnectedReduxNavigator } from './../../units/ReduxNavigator';
 import { FaultComponent } from './../../units/Fault';
 import { LoginModule } from './../login/login.module';
 import { FeedbackModule } from './../feedback/feedback.module';
@@ -58,6 +59,12 @@ export const mainRoutes = [
     path: '/fault',
     exact: true,
     component: FaultComponent
+  },
+  {
+    name: 'Navigation',
+    path: '/nav',
+    exact: true,
+    component: ConnectedReduxNavigator
   }
   // {
   //   name: 'Sub Module',
