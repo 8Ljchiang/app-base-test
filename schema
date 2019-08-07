@@ -3,39 +3,26 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AccountDto {
-  displayIdentifier: String!
-  email: String!
-  role: String!
-  inviteToken: String!
-  friends: [FriendDto!]!
-}
-
-input CreateAccountInputDto {
-  displayIdentifier: String!
-  email: String!
-  inviteToken: String!
-}
-
-type CreateAccountResponseDto {
-  displayIdentifier: String!
+type CreateAccountDto {
   authToken: String!
-  role: String!
-  inviteToken: String!
-}
-
-type FriendDto {
+  accountRole: String!
   username: String!
   email: String!
   inviteToken: String!
 }
 
+input CreateAccountInfo {
+  username: String!
+  email: String!
+  password: String!
+  inviteToken: String!
+}
+
 type Mutation {
-  createAccount(input: CreateAccountInputDto!): CreateAccountResponseDto!
+  createAccount(input: CreateAccountInfo!): CreateAccountDto!
 }
 
 type Query {
   hello: String!
-  sayHello(input: SayHelloInputDto!): String!
-  listAccounts: [AccountDto!]!
+  listAccounts: [CreateAccountDto!]!
 }

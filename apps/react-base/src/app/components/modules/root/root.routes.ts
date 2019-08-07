@@ -10,6 +10,7 @@ import { LoomModule } from './../loom/loom.module';
 import { ConnectedLogin } from '../login/Login';
 import { Gateway } from './../../pages/Gateway';
 import { Gateway2 } from './../../pages/Gateway2';
+import { Gateway3 } from '../../pages/Gateway3';
 
  // Set 'exact' to false if there are child routes, or module has routes.
 
@@ -39,7 +40,7 @@ export const mainRoutes = [
     name: 'Gateway',
     path: '/gateway',
     exact: true,
-    component: Gateway,
+    component: Gateway3,
     featureLink: AppFeature.GATEWAY,
   },
   {
