@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 export const LoomCommunityDashboard = (props) => {
   return (
     <>
-      <p>Loom Community Dashboard Component:</p>
+      <p>Loom Community Dashboard Component: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
       <div style={styles1.container}>
         <div style={styles1.containerColumn}>
           <h2>Create</h2>
-          <p>Pairing Activity</p>
+          <Link to={'/loom/community/pairing-create'} style={styles1.linkStyle}><p>Pairing Activity</p></Link>
         </div>
         <div style={styles1.containerColumn}>
           <h2>Explore / Find</h2>
-          <Link to={'loom/community/activities'} style={styles1.linkStyle}><p>Activities</p></Link>
-          <Link to={'loom/community/profiles'} style={styles1.linkStyle}><p>Profile</p></Link>
-          <Link to={'loom/community/Posts'} style={styles1.linkStyle}><p>Posts</p></Link>
+          <Link to={'/loom/community/activities'} style={styles1.linkStyle}><p>Activities</p></Link>
+          <Link to={'/loom/community/profiles'} style={styles1.linkStyle}><p>Profiles</p></Link>
+          <Link to={'/loom/community/posts'} style={styles1.linkStyle}><p>Posts</p></Link>
         </div>
       </div>
     </>
