@@ -4,6 +4,7 @@ import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { FeedbackForm } from './feedback-form.component';
 import { BannerLayout } from '../../layouts/BannerLayout';
+import { Link } from 'react-router-dom';
 
 export const FeedbackModule = (props) => {
   const { match } = props;
@@ -17,6 +18,7 @@ export const FeedbackModule = (props) => {
         routes={[]}
         fallback={DefaultErrorFallback}>
           <BannerLayout title={"Feedback"}>
+            <Link to={'/gateway'}>Gateway</Link>
             <FeedbackForm/>
           </BannerLayout>
       </ModuleComponent>

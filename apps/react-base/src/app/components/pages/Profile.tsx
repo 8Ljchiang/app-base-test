@@ -85,9 +85,6 @@ class Profile extends Component<any, any> {
           <h4>Status:</h4>
           <EditableField value={profile.status} save={this.updateStatus.bind(this)} />
 
-          <DevFutureFeature featureName={'profile interests'} title={"placeholder"} />
-          <DevFutureFeature featureName={'profile skills'} title={"placeholder"} />
-
           { showFeatureUnlock ? (
             <>
               <h4>Feature Unlock:</h4>

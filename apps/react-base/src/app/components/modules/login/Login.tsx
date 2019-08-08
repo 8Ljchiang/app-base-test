@@ -234,9 +234,10 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
-    minWidth: '440px',
-    width: '440px',
-    background: 'rgb(210, 212, 214)',
+    minWidth: '30%',
+    width: '30%',
+    border: '1px solid black',
+    // background: 'rgb(210, 212, 214)',
   },
   right: {
     display: 'flex',

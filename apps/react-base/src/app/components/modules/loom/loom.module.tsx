@@ -7,7 +7,7 @@ import { RouteLinks } from '../../units/RouteLinks';
 import { loomRoutes } from './loom.routes';
 import { BannerLayout } from '../../layouts/BannerLayout';
 import { DevFutureFeature } from '../../units/DevFutureFeature';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 export const LoomModule = (props) => {
   const { match } = props;
@@ -19,6 +19,7 @@ export const LoomModule = (props) => {
       {/* <BannerLayout title={'Loom Module'}> */}
         <div style={styles.linksContainer}>
           <p>Loom Module:</p>
+          <Link to={'/gateway'}>Return to Gateway</Link>
           {/* <RouteLinks routes={loomRoutes} rootPath={match.path} /> */}
         </div>
         {/* <ConnectedSelectionsLayout/> */}

@@ -22,6 +22,7 @@ const styles = {
     height: '100%',
     width: '100%',
     background: 'rgb(210, 212, 214)',
+    overflow: 'auto',
   },
   banner: {
     height: '160px',

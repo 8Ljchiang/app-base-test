@@ -27,6 +27,21 @@
   flex-flow: column;
   justify-content: center;
   align-items: center; */
+  z-index: 3;
+  animation: g3border 0.8s ease;
+}
+
+.gateway3-tile-border--placeholder {
+  height: 100%;
+  width: 100%;
+  /* border: 3px dashed rgb(80, 80, 80); */
+  border: 3px dashed gray;
+  border-radius: 5px;
+  /* background: green; */
+  /* display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center; */
   animation: g3border 0.8s ease;
 }
 
@@ -52,6 +67,7 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  z-index: 0;
   /* border-radius: 5px; */
   background: rgb(34, 44, 56);
   animation: g3backplate 0.8s ease;
@@ -62,10 +78,15 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  /* padding: 14px; */
   /* box-shadow: 0 0 10px 5px rgb(150, 150, 150); */
-  border: 3px dashed rgb(80, 80, 80);
+  background: gray;
+  /* background: rgb(120, 120, 120); */
   border-radius: 5px;
+  animation: g3backplate 0.8s ease;
 }
 
 .gateway3-tile__faceplate {
@@ -84,9 +105,12 @@
   display: flex;
   flex-flow: column;
   justify-content: center;
+  height: 100%;
+  width: 100%;
   align-items: center;
-  background: rgb(120, 120, 120);
-  color: gray;
+  color: darkgray;
+  animation: g3faceplate 0.8s ease;
+
 }
 
 .gateway3-tile__faceplate-title {
@@ -114,6 +138,7 @@
   margin-left: 14px;
   color: rgb(34, 44, 56);
   animation: g3tag 1s ease;
+  z-index: 1;
   /* animation-delay: 3s; */
 }
 

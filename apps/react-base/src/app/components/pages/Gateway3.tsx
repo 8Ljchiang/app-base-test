@@ -2,33 +2,34 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Gateway3.css';
+import { BannerLayout } from '../layouts/BannerLayout';
 
 const gatewayPorts = [
   {
-    title: 'loom',
-    description: 'pairing coordinator',
+    title: 'port: pairing',
+    description: 'loom - pairing coordinator',
     path: '/loom',
     tag: 'new',
     placeholder: false
   },
   {
-    title: 'forge',
-    description: 'social project builder',
-    path: '/forge',
-    tag: 'experimental',
-    placeholder: false
-  },
-  {
-    title: 'starfall',
-    description: 'feedback',
+    title: 'port: feedback',
+    description: 'mailbox - submit feedback',
     path: '/feedback',
     tag: 'new',
     placeholder: false
   },
   {
+    title: 'port: collab',
+    description: 'ignite - social collaboration',
+    path: '/forge',
+    tag: 'experimental',
+    placeholder: false
+  },
+  {
     title: '? ? ?',
     description: 'placeholder',
-    path: '/',
+    path: '',
     tag: 'unknown',
     placeholder: true
   },
@@ -90,12 +91,12 @@ export class Gateway3 extends Component<any, any> {
     const tagName = showTag ? tag : 'unknown';
     if (showTag) {
       return (
-        <div style={{ height: '32px', animationDelay: delay + 's' }}>
+        <div style={{ height: '32px', animationDelay: delay + 's', zIndex: 1 }}>
           <p className="gateway3-tile__faceplate-tag">{tagName}</p>
         </div>
       );
     }
-    return <div style={{ height: '32px' }}></div>
+    return <div style={{ height: '32px', zIndex: 1 }}></div>
   }
 
   renderTile(port: any, index: any) {
@@ -114,7 +115,7 @@ export class Gateway3 extends Component<any, any> {
 
   renderBorderTile(port: any, delay) {
     const { showTileBorder } = this.state;
-    const tileBorderStyles = port.placeholder ? 'gateway3-tile-border' : 'gateway3-tile-border';
+    const tileBorderStyles = port.placeholder ? 'gateway3-tile-border--placeholder' : 'gateway3-tile-border';
     if (showTileBorder) {
       return (
         <div className={tileBorderStyles} style={{ animationDelay: delay + 's' }}>
@@ -146,7 +147,7 @@ export class Gateway3 extends Component<any, any> {
   renderFaceplate(port: any, delay: any) {
     const { showFaceplate } = this.state;
     if (showFaceplate) {
-      const { title, description } = port;
+      const { title, description, path } = port;
       const updatedTitle = `>> ${title}`;
       const faceplateStyle = port.placeholder ? 'gateway3-tile__faceplate--placeholder' : 'gateway3-tile__faceplate';
       const titleStyle = port.placeholder ? 'gateway3-tile__faceplate-title--placeholder' : 'gateway3-tile__faceplate-title';
@@ -154,7 +155,7 @@ export class Gateway3 extends Component<any, any> {
       return (
         <React.Fragment>
           <div className={faceplateStyle} style={{ animationDelay: delay + 's' }}>
-            <h3 className={titleStyle}>{updatedTitle}</h3>
+      { path ? <Link to={path}><h3 className={titleStyle}>{updatedTitle}</h3></Link> : <h3 className={titleStyle}>{updatedTitle}</h3> }
             <p className={descStyle}>{description}</p>
           </div>
         </React.Fragment>
@@ -178,10 +179,12 @@ export class Gateway3 extends Component<any, any> {
 
   render() {
     return (
-      <div style={styles.container}>
-        <h1>{"{ interchange: gateway }"}</h1>
+      // <div style={styles.container}>
+      <BannerLayout title={"{ gateway }"}>
+        {/* <h1>{"{ interchange: gateway }"}</h1> */}
         { this.renderPorts(gatewayPorts) }
-      </div>
+      </BannerLayout>
+      // </div>
     );
   }
 }

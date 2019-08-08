@@ -29,8 +29,8 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
-    minWidth: '440px',
-    width: '440px',
+    minWidth: '30%',
+    width: '30%',
     background: 'rgb(210, 212, 214)',
     // boxShadow: '0 0 6px 4px rgb(80, 80, 80)'
   },
