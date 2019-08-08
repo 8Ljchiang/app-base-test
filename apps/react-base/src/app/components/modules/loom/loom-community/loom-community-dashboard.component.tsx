@@ -4,6 +4,50 @@ import { Link } from 'react-router-dom';
 
 export const LoomCommunityDashboard = (props) => {
   return (
+    <>
+      <p>Loom Community Dashboard Component:</p>
+      <div style={styles1.container}>
+        <div style={styles1.containerColumn}>
+          <h2>Create</h2>
+          <p>Pairing Activity</p>
+        </div>
+        <div style={styles1.containerColumn}>
+          <h2>Explore / Find</h2>
+          <Link to={'loom/community/activities'} style={styles1.linkStyle}><p>Activities</p></Link>
+          <Link to={'loom/community/profiles'} style={styles1.linkStyle}><p>Profile</p></Link>
+          <Link to={'loom/community/Posts'} style={styles1.linkStyle}><p>Posts</p></Link>
+        </div>
+      </div>
+    </>
+  );
+}
+
+const styles1 = {
+  container: {
+    display: 'flex',
+    width: '100%',
+    // height: '100%',
+  },
+  containerColumn: {
+    display: 'flex',
+    flexFlow: 'column',
+    width: '50%',
+    border: '2px gray dashed',
+    margin: '20px',
+    padding: '12px',
+    // height: '100%',
+  },
+  sectionContainer: {
+    display: 'flex',
+    flexFlow: 'column',
+  },
+  linkStyle: {
+    color: 'black',
+  }
+}
+
+export const LoomCommunityDashboard2 = (props) => {
+  return (
     <div>
       <p>Loom Community dashboard:</p>
       <div style={styles.subConatiner}>

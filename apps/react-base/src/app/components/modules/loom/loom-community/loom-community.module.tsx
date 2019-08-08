@@ -21,7 +21,7 @@ export const LoomCommunityModule = (props) => {
           <Link to={'/loom'}>Return to Loom</Link>
           {/* <RouteLinks routes={loomCommunityRoutes} rootPath={match.path} /> */}
         </div>
-        <ConnectedSelectionsLayout/>
+        {/* <ConnectedSelectionsLayout/> */}
         <ConnectedModuleComponent
           rootPath={root}
           noMatch={null}
@@ -45,7 +45,7 @@ const styles = {
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    height: '100vh',
+    height: '100%',
     width: '100%'
   }
 }

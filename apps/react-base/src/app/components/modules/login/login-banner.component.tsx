@@ -44,8 +44,8 @@ export class LoginBanner extends Component<any, any> {
           {"Interchange"}
         </h1>
         {/* { this.renderSets(topDelays, bottomDelays, isTop, index) } */}
-        { this.renderBoxSet(bottomDelays, "widget-container--bottom", "widget animated slideUp", 6) }
-        { this.renderBoxSet(topDelays, "widget-container", "widget animated slideDown", 0)}
+        { this.renderBoxSet(bottomDelays, "widget-container--bottom", "widget animated slideUp") }
+        { this.renderBoxSet(topDelays, "widget-container", "widget animated slideDown")}
         {/* <div className="widget-container--bottom">
           <div style={{ animationDelay: '3s' }} className="widget animated slideUp"></div>
           <div style={{ animationDelay: '2s' }} className="widget animated slideUp"></div>

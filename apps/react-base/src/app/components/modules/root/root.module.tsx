@@ -55,7 +55,7 @@ const styles = {
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    height: '100vh',
+    height: '100%',
     width: '100%'
   }
 }
