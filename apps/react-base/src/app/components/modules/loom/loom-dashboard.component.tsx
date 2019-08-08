@@ -2,10 +2,26 @@ import React from 'react';
 import { DevFutureFeature } from '../../units/DevFutureFeature';
 import { Link } from 'react-router-dom';
 import './loom-dashboard.component.css';
+import { BannerLayout } from '../../layouts/BannerLayout';
 
 export const LoomDashboard = (props) => {
   return (
-    <div style={styles.container}>
+    <BannerLayout title={"Pairing"}>
+      <p>Platform for facillitating the pairing process and attempts to overcome barriers that prevent pairing</p>
+      <p>Place to explore and create pairing activities</p>
+      <p>Place to share pairing interests and opportunies</p>
+      <p>Provides structure for pairing process</p>
+      <p>Offers gamified experiences for pairing groups</p>
+
+      <div style={styles.rowContainer}>
+        <div style={styles.rowSegment}>
+          <Link to={'/loom/personal'}><h3 style={styles.segmentTitle}>My Stuff</h3></Link>
+        </div>
+        <div style={styles.rowSegment}>
+          <Link to={'/loom/community'}><h3 style={styles.segmentTitle}>Community Space</h3></Link>
+        </div>
+      </div>
+      {/* <div style={styles.container}> */}
       {/* Welcome to Loom: Loom Dashboard */}
       {/* <DevFutureFeature
         featureName={'loom description and welcome'}
@@ -16,42 +32,9 @@ export const LoomDashboard = (props) => {
       <DevFutureFeature
         featureName={'loom community'}
         title={'placeholder'} /> */}
-      <div style={styles.subConatiner}>
-        <h2 style={styles.containerTitle}>Placeholder: (Work In Progress)</h2>
-        <h3 style={styles.sectionTitle}>My Stuff</h3>
-        <div style={styles.subContainerSection}>
-          <h4>Profile</h4>
-          <Link to={'/'}>My Activities</Link>
-          <Link to={'/'}>Interests</Link>
-          <Link to={'/'}>Skills</Link>
-          <Link to={'/'}>Activity History</Link>
-          <h4>Connections</h4>
-          <Link to={'/'}>Invites</Link>
-          <Link to={'/'}>Requests</Link>
-          <Link to={'/'}>Posts</Link>
-        </div>
-        <DevFutureFeature featureName={'profile interests'} title={"placeholder"} />
-        <DevFutureFeature featureName={'profile skills'} title={"placeholder"} />
-      </div>
-      <div style={styles.subConatiner}>
-        <h2 style={styles.containerTitle}>Placeholder: (Work In Progress)</h2>
-        <h3 style={styles.sectionTitle}>Community</h3>
-        <div style={styles.subContainerSection}>
-          <h4>Explore / Find</h4>
-          <Link to={'/loom/community/activities'}>Activities</Link>
-          <Link to={'/loom/community/activities'}>Sessions</Link>
-          <Link to={'/loom/community/activities'}>Posts</Link>
-          <Link to={'/loom/community/activities'}>Users</Link>
-          <h4>Create</h4>
-          <Link to={'/'}>Pairing Activity</Link>
-          <Link to={'/'}>Exercise</Link>
-          <Link to={'/'}>Session</Link>
-          <h4>Connect</h4>
-          <h4>Discuss</h4>
-          <h4>Statistics</h4>
-        </div>
-      </div>
-    </div>);
+        {/* </div> */}
+    </BannerLayout>
+  );
 }
 
 const styles = {
@@ -61,30 +44,24 @@ const styles = {
     width: '100%,',
     padding: '20px',
   },
-  containerTitle: {
-    color: 'lightgray',
-    marginBottom: '20px'
+  rowContainer: {
+    padding: '20px',
+    display: 'flex',
+    width: '100%',
   },
-  sectionTitle: {
-    // color: 'rgb(80, 80, 80)'
-  },
-  subConatiner: {
-    borderRadius: '5px',
+  rowSegment: {
+    borderRadius: '4px',
     border: '3px dashed rgb(80,80,80)',
     background: 'gray',
+    padding: '14px',
+    margin: '20px',
     width: '50%',
     display: 'flex',
     flexFlow: 'column',
-    padding: '14px',
     alignItems: 'center',
-    margin: '20px',
+    animation: 'g3faceplate 1s ease',
   },
-  subContainerSection: {
-    margin: '14px',
-    display: 'flex',
-    flexFlow: 'column',
-    width: '100%',
-    alignItems: 'center',
-    color: 'rgb(80, 80, 80)'
+  segmentTitle: {
+    color: 'darkgray'
   }
 }

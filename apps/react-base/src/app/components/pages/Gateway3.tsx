@@ -69,12 +69,12 @@ export class Gateway3 extends Component<any, any> {
       this.setState({
         showFaceplate: true
       });
-    }, 1200);
+    }, 1050);
     setTimeout(() => {
       this.setState({
         showTag: true
       });
-    }, 1280)
+    }, 1150)
   }
 
   renderLoadingTile(port: any, delay: any) {
@@ -180,7 +180,7 @@ export class Gateway3 extends Component<any, any> {
   render() {
     return (
       // <div style={styles.container}>
-      <BannerLayout title={"{ gateway }"}>
+      <BannerLayout title={"Gateway"}>
         {/* <h1>{"{ interchange: gateway }"}</h1> */}
         { this.renderPorts(gatewayPorts) }
       </BannerLayout>

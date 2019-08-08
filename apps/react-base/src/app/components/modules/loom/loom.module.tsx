@@ -12,7 +12,7 @@ import { Redirect, Link } from 'react-router-dom';
 export const LoomModule = (props) => {
   const { match } = props;
   const root = match.path;
-  console.log(match);
+  // console.log(match);
   return (
     <>
     {/* <div style={styles.container}> */}

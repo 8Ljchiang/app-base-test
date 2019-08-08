@@ -11,7 +11,7 @@ export const RouteLinks = (props) => {
       const filteredRoutes = routes.filter((r) => r.featureLink ? updatedFeatureKeys.includes(r.featureLink) : true);
       return filteredRoutes.map((r, index) => {
         const builtRoute = root + r.path;
-        console.log('built link: ', builtRoute);
+        // console.log('built link: ', builtRoute);
         return (
           <Link key={index} to={builtRoute} style={styles.conatiner}>{builtRoute}</Link>
         );

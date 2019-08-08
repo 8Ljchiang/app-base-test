@@ -153,7 +153,7 @@ class LoomActivitiesDisplay extends Component<any, any> {
   }
 
   setSelectedItem(value: any) {
-    console.log(' setting selected item ', value );
+    // console.log(' setting selected item ', value );
     this.setState({
       selectedItem: value
     });

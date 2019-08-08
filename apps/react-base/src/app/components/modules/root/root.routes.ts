@@ -11,6 +11,7 @@ import { ConnectedLogin } from '../login/Login';
 import { Gateway } from './../../pages/Gateway';
 import { Gateway2 } from './../../pages/Gateway2';
 import { Gateway3 } from '../../pages/Gateway3';
+import { ForgeModule } from '../forge/forge.module';
 
  // Set 'exact' to false if there are child routes, or module has routes.
 
@@ -49,6 +50,13 @@ export const mainRoutes = [
     exact: false,
     component: LoomModule,
     featureLink: AppFeature.LOOM,
+  },
+  {
+    name: 'Forge',
+    path: '/forge',
+    exact: false,
+    component: ForgeModule,
+    featureLink: AppFeature.FORGE,
   },
   {
     name: 'Feedback',

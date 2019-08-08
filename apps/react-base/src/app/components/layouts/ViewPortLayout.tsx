@@ -16,5 +16,6 @@ const styles = {
     height: '100vh',
     width: '100%',
     background: 'rgb(210, 212, 214)',
+    overflow: 'auto'
   }
 }
