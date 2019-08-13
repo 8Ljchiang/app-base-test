@@ -16,11 +16,6 @@ class SignUp extends Component<any, any> {
     return (
       <div style={styles.container}>
         <h3>Sign Up</h3>
-        {/* <input type="text" placeholder="username"/>
-        <input type="text" placeholder="email"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="invite token"/>
-        <button onClick={}>Submit</button> */}
         <Formik
           initialValues={{ username: '', email: '', password: '', inviteToken: '' }}
           onSubmit={(values, actions) => {

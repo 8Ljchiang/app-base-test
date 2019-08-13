@@ -1,3 +1,4 @@
+import { ConnectedSignup } from './../../pages/Signup';
 import { ConnectedReduxNavigator } from './../../units/ReduxNavigator';
 import { FaultComponent } from './../../units/Fault';
 import { LoginModule } from './../login/login.module';
@@ -21,6 +22,13 @@ export const mainRoutes = [
     path: '/',
     exact: true,
     component: LoginModule,
+    // component: ConnectedLogin,
+  },
+  {
+    name: 'Signup',
+    path: '/signup',
+    exact: true,
+    component: ConnectedSignup,
     // component: ConnectedLogin,
   },
   {

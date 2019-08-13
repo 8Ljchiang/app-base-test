@@ -6,6 +6,7 @@ import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 import { LeftRightLayout } from '../../layouts/LeftRightLayout';
 import { ConnectedLoginForm } from './login-form.component';
 import { LoginBanner } from './login-banner.component';
+import { AccessPort } from './access-port.component';
 
 export const LoginModule = (props) => {
   const { match } = props;
@@ -19,7 +20,7 @@ export const LoginModule = (props) => {
         routes={[]}
         fallback={DefaultErrorFallback}>
           <LeftRightLayout
-            left={ConnectedLoginForm}
+            left={AccessPort}
             right={LoginBanner}
           />
       </ModuleComponent>
