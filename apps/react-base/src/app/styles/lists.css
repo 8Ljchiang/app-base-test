@@ -1,0 +1,35 @@
+.list-item-card-container {
+  display: flex;
+  flex-flow: column;
+  background: rgb(44, 54, 66);
+  border-radius: 4px;
+  color: lightgray;
+  padding: 10px;
+  margin: 12px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 4px 4px rgb(40, 40, 40);
+}
+
+.list-item-card__title-container {
+  display: flex;
+}
+
+.list-item-card__title {
+
+}
+
+.list-item-card__author {
+
+}
+
+.list-item-card__description {
+
+}
+
+.list-item-card__language {
+
+}
+
+.list-item-card__tags {
+
+}

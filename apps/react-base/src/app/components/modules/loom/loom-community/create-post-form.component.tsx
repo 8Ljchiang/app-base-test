@@ -22,31 +22,16 @@ class LoomCommunityCreatePostForm extends Component<any, any> {
             actions.resetForm();
         }}
         render={({ errors, status, touched, isSubmitting }) => (
-          <Form style={styles.formContainer}>
-            <Field style={styles.formField} type="text" placeholder="text" name="postContent" />
+          <Form className="form-container" autoComplete="off">
+            <Field className="form-field" type="text" placeholder="text" name="postContent" />
             <ErrorMessage name="postContent" component="div" />
-            <button style={styles.formSubmitButton} type="submit" disabled={isSubmitting}>
+            <button className="form-submit-button" type="submit" disabled={isSubmitting}>
               Submit
             </button>
           </Form>
         )}
       />
     );
-  }
-}
-
-const styles = {
-  formContainer: {
-
-  },
-  formTitle: {
-
-  },
-  formField: {
-
-  },
-  formSubmitButton: {
-
   }
 }
 

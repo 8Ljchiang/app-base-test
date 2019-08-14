@@ -2,6 +2,7 @@ import React from 'react';
 
 import './app.css';
 import './styles/forms.css';
+import './styles/lists.css';
 import { MainLayout } from './components/layouts/MainLayout';
 
 import { Provider } from 'react-redux';

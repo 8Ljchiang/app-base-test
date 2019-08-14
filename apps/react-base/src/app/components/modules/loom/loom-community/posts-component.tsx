@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { ConnectedCreatePostForm } from './create-post-form.component';
+import { ItemCard } from '../../../units/ListItemCard';
 
 const userPosts = [
   {
@@ -30,13 +31,19 @@ export class LoomCommunityPosts extends Component<any, any> {
   renderPost(post, index) {
     const { author, content, time } = post;
     return (
-      <div style={styles.postContainer} key={index}>
-        <div style={styles.postHeadingContainer}>
-          <h3>{author}: </h3>
-          <p>{time}</p>
-        </div>
-        <p>{content}</p>
-      </div>
+      // <div className="list-item-card" key={index}>
+      //   <div style={styles.postHeadingContainer}>
+      //     <h3>{author}: </h3>
+      //     <p>{time}</p>
+      //   </div>
+      //   <p>{content}</p>
+      // </div>
+      <ItemCard
+        key={index}
+        title={`${author}: `}
+        subTitle={content}
+        titleTag={time}
+        />
     );
   }
 
@@ -75,6 +82,7 @@ const styles = {
     border: '2px gray dashed',
     margin: '20px',
     padding: '12px',
+    background: 'rgb(34, 44, 56)'
     // height: '100%',
   },
   sectionContainer: {
