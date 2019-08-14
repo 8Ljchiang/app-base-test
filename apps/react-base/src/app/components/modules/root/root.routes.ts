@@ -25,13 +25,6 @@ export const mainRoutes = [
     // component: ConnectedLogin,
   },
   {
-    name: 'Signup',
-    path: '/signup',
-    exact: true,
-    component: ConnectedSignup,
-    // component: ConnectedLogin,
-  },
-  {
     name: 'Profile',
     path: '/account',
     exact: true,

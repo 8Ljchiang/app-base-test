@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './app.css';
+import './styles/forms.css';
 import { MainLayout } from './components/layouts/MainLayout';
 
 import { Provider } from 'react-redux';

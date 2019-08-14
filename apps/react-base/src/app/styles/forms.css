@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-field {
+  margin-bottom: 18px;
+  padding: 5px;
+  /* border-radius: 3px; */
+}
+
+.form-submit-button {
+  padding: 5px 16px;
+  color: lightgray;
+  border-radius: 3px;
+  background: rgb(34, 44, 56);
+}
+
+.form-title {
+  margin-bottom: 24px;
+}

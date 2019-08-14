@@ -17,7 +17,7 @@ class LoginForm extends Component<any, any> {
             actions.resetForm();
         }}
         render={({ errors, status, touched, isSubmitting }) => (
-          <Form style={styles.formContainer}>
+          <Form style={styles.formContainer} autoComplete="off">
             <h1 style={styles.formTitle}>Login</h1>
             <label>Username</label>
             <Field style={styles.formField} type="text" name="firstField" />

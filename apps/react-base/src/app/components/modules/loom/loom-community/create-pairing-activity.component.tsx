@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ConnectedCreatePostForm } from './create-post-form.component';
 
 export class LoomCommunityCreatePairing extends Component<any, any> {
 

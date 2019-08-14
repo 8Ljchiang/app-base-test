@@ -24,15 +24,15 @@ class SignupForm extends Component<any, any> {
             actions.resetForm();
         }}
         render={({ errors, status, touched, isSubmitting }) => (
-          <Form style={styles.formContainer}>
-            <h1 style={styles.formTitle}>Signup</h1>
-            <Field type="text" name="username" placeholder="username" style={styles.formField} />
+          <Form className="form-container" autoComplete="off">
+            <h1 className="form-title">Signup</h1>
+            <Field type="text" name="username" placeholder="username" className="form-field" />
             <ErrorMessage name="username" component="div" />
-            <Field type="email" name="email" placeholder="email" style={styles.formField} />
+            <Field type="email" name="email" placeholder="email" className="form-field" />
             <ErrorMessage name="email" component="div" />
-            <Field type="password" name="password" placeholder="password" style={styles.formField} />
+            <Field type="password" name="password" placeholder="password" className="form-field" />
             <ErrorMessage name="password" component="div" />
-            <Field type="text" name="inviteToken" placeholder="token" style={styles.formField} />
+            <Field type="text" name="inviteToken" placeholder="token" className="form-field" />
             <ErrorMessage name="inviteToken" component="div" />
             <button style={styles.formSubmitButton} type="submit" disabled={isSubmitting}>
               Submit

@@ -14,19 +14,16 @@ class LoomCommunityCreatePostForm extends Component<any, any> {
   }
 
   render() {
-    const { postContent } = this.state;
     return (
       <Formik
-        initialValues={{ postContent }}
+        initialValues={{ postContent: '' }}
         onSubmit={(values, actions) => {
             this.createPost(values.postContent);
             actions.resetForm();
         }}
         render={({ errors, status, touched, isSubmitting }) => (
           <Form style={styles.formContainer}>
-            <h1 style={styles.formTitle}>Login</h1>
-            <label>Username</label>
-            <Field style={styles.formField} type="text" name="postContent" />
+            <Field style={styles.formField} type="text" placeholder="text" name="postContent" />
             <ErrorMessage name="postContent" component="div" />
             <button style={styles.formSubmitButton} type="submit" disabled={isSubmitting}>
               Submit

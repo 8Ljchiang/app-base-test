@@ -6,7 +6,6 @@ import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { RouteLinks, ConnectedRouteLinks } from '../../units/RouteLinks';
 import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 import { ConnectedReduxNavigator } from '../../units/ReduxNavigator';
-
 interface IModuleComponentProps {
   moduleName: string;
   routes: any[];
