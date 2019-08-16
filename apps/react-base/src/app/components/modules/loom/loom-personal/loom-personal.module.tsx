@@ -6,6 +6,7 @@ import { RouteLinks } from '../../../units/RouteLinks';
 import { BannerLayout } from '../../../layouts/BannerLayout';
 import { DevFutureFeature } from '../../../units/DevFutureFeature';
 import { Link } from 'react-router-dom';
+import { SimplePlaceholder } from '../../../units/SimplePlaceholder';
 
 export const LoomPersonalModule = (props) => {
   const { match } = props;
@@ -24,8 +25,24 @@ export const LoomPersonalModule = (props) => {
           routes={[]}
           fallback={DefaultErrorFallback}>
           {/* <BannerLayout title={'Loom Personal Module'}> */}
-            <div style={styles.subConatiner}>
-              <h2 style={styles.containerTitle}>User Space: (Work In Progress)</h2>
+            {/* <SimplePlaceholder title={"My Stuff"}>
+                <h4>Profile</h4>
+                <Link to={'/'}>My Activities</Link>
+                <Link to={'/'}>Interests</Link>
+                <Link to={'/'}>Skills</Link>
+                <Link to={'/'}>Activity History</Link>
+                <h4>Connections</h4>
+                <Link to={'/'}>Invites</Link>
+                <Link to={'/'}>Requests</Link>
+                <Link to={'/'}>Posts</Link>
+            </SimplePlaceholder> */}
+            <SimplePlaceholder title={"My Projects"} />
+            <SimplePlaceholder title={"My Requests"} />
+            <SimplePlaceholder title={"Requests To Join"} />
+            <SimplePlaceholder title={"Interests"} />
+            <SimplePlaceholder title={"Skills"} />
+            {/* <div style={styles.subConatiner}> */}
+              {/* <h2 style={styles.containerTitle}>User Space: (Work In Progress)</h2>
               <h3 style={styles.sectionTitle}>My Stuff</h3>
               <div style={styles.subContainerSection}>
                 <h4>Profile</h4>
@@ -37,11 +54,11 @@ export const LoomPersonalModule = (props) => {
                 <Link to={'/'}>Invites</Link>
                 <Link to={'/'}>Requests</Link>
                 <Link to={'/'}>Posts</Link>
-              </div>
+              </div> */}
               {/* <DevFutureFeature featureName={'profile interests'} title={"placeholder"} /> */}
               {/* <DevFutureFeature featureName={'profile skills'} title={"placeholder"} /> */}
-            </div>
-            <DevFutureFeature
+            {/* </div> */}
+            {/* <DevFutureFeature
               featureName={'My projects'}
               title={'placeholder'} />
             <DevFutureFeature
@@ -49,7 +66,7 @@ export const LoomPersonalModule = (props) => {
               title={'placeholder'} />
             <DevFutureFeature
               featureName={'My invites'}
-              title={'placeholder'} />
+              title={'placeholder'} /> */}
           {/* </BannerLayout> */}
         </ModuleComponent>
     </div>
@@ -64,8 +81,8 @@ const styles = {
     display: 'flex',
     flexFlow: 'column',
     // alignItems: 'center',
-    height: '100vh',
-    width: '100%'
+    // height: '100vh',
+    // width: '50%'
   },
   containerTitle: {
     color: 'lightgray',
@@ -79,7 +96,7 @@ const styles = {
     borderRadius: '5px',
     border: '3px dashed rgb(80,80,80)',
     background: 'gray',
-    // width: '50%',
+    width: '50%',
     display: 'flex',
     flexFlow: 'column',
     padding: '12px',

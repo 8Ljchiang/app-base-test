@@ -3,6 +3,7 @@ import { DevFutureFeature } from '../../units/DevFutureFeature';
 import { Link } from 'react-router-dom';
 import './loom-dashboard.component.css';
 import { BannerLayout } from '../../layouts/BannerLayout';
+import { SimplePlaceholder } from '../../units/SimplePlaceholder';
 
 export const LoomDashboard = (props) => {
   return (
@@ -14,12 +15,18 @@ export const LoomDashboard = (props) => {
       <p>Offers gamified experiences for pairing groups</p>
 
       <div style={styles.rowContainer}>
-        <div style={styles.rowSegment}>
+        <SimplePlaceholder>
+          <Link to={'/loom/personal'}><h3>My Stuff</h3></Link>
+        </SimplePlaceholder>
+        <SimplePlaceholder>
+          <Link to={'/loom/community'}><h3>Community Space</h3></Link>
+        </SimplePlaceholder>
+        {/* <div style={styles.rowSegment}>
           <Link to={'/loom/personal'}><h3 style={styles.segmentTitle}>My Stuff</h3></Link>
         </div>
         <div style={styles.rowSegment}>
           <Link to={'/loom/community'}><h3 style={styles.segmentTitle}>Community Space</h3></Link>
-        </div>
+        </div> */}
       </div>
       {/* <div style={styles.container}> */}
       {/* Welcome to Loom: Loom Dashboard */}
@@ -47,6 +54,7 @@ const styles = {
   rowContainer: {
     padding: '20px',
     display: 'flex',
+    // flexFlow: 'column',
     width: '100%',
   },
   rowSegment: {

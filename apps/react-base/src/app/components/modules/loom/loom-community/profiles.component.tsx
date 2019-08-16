@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { SimplePlaceholder } from '../../../units/SimplePlaceholder';
 
 export class LoomCommunityProfiles extends Component<any, any> {
   render() {
     return (
       <>
         <p>Loom Community Profiles: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
-        <div style={styles.container}>
+        <SimplePlaceholder title={"Profiles"} />
+        {/* <div style={styles.container}>
           <div style={styles.containerColumn}>
             <h2>Profiles</h2>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </>
     );
   }

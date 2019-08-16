@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ConnectedLoginForm } from './login-form.component';
 import { ConnectedSignupForm } from './signup-form.component';
+import { SimplePlaceholder } from '../../units/SimplePlaceholder';
 
 export class AccessPort extends Component<any, any> {
   constructor(props) {
@@ -39,8 +40,10 @@ export class AccessPort extends Component<any, any> {
     return (
       <>
         <div style={styles.buttonContainer}>
-          <button style={styles.buttonStyle} onClick={this.setLogin}>Login</button>
-          <button style={styles.buttonStyle} onClick={this.setSignup}>Signup</button>
+          <SimplePlaceholder>
+            <button style={styles.buttonStyle} onClick={this.setLogin}>Login</button>
+            <button style={styles.buttonStyle} onClick={this.setSignup}>Signup</button>
+          </SimplePlaceholder>
         </div>
         { isLogin ? (<ConnectedLoginForm/>) : (<ConnectedSignupForm/>) }
       </>
