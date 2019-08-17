@@ -44,22 +44,22 @@ export class FeedbackForm extends Component<any, any> {
           render={({ errors, status, touched, isSubmitting }) => (
             <Form>
               <label>Contact</label>
-              <Field style={styles.formField} type="text" name="contact" />
+              <Field type="text" name="contact" className="form-field"/>
               <ErrorMessage name="contact" component="div" />
 
               <label>Description</label>
-              <Field style={styles.formField} type="textexttarea" name="desc" />
+              <Field type="textexttarea" name="desc" className="form-field"/>
               <ErrorMessage name="desc" component="div" />
 
               <label>App Domain</label>
-              <Field style={styles.formField} type="text" name="appDomain" />
+              <Field type="text" name="appDomain" className="form-field"/>
               <ErrorMessage name="appDomain" component="div" />
 
               <label>Issue Type</label>
-              <Field style={styles.formField} type="text" name="issueType" />
+              <Field type="text" name="issueType" className="form-field"/>
               <ErrorMessage name="issueType" component="div" />
 
-              <button style={styles.formSubmitButton} type="submit" disabled={isSubmitting}>
+              <button type="submit" disabled={isSubmitting} className="form-submit-button">
                 Submit
               </button>
             </Form>
