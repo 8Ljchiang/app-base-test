@@ -1,3 +1,6 @@
+import { AppAnnouncementsScene } from './../../scenes/app-announcements.scene';
+import { GatewayScene } from './../../scenes/gateway.scene';
+import { WelcomeScene } from './../../scenes/welcome.scene';
 import { ConnectedSignup } from './../../pages/Signup';
 import { ConnectedReduxNavigator } from './../../units/ReduxNavigator';
 import { FaultComponent } from './../../units/Fault';
@@ -13,6 +16,7 @@ import { Gateway } from './../../pages/Gateway';
 import { Gateway2 } from './../../pages/Gateway2';
 import { Gateway3 } from '../../pages/Gateway3';
 import { ForgeModule } from '../forge/forge.module';
+import { AppRoadmapScene } from '../../scenes/app-roadmap.scene';
 
  // Set 'exact' to false if there are child routes, or module has routes.
 
@@ -39,11 +43,17 @@ export const mainRoutes = [
     featureLink: AppFeature.GATEWAY2,
   },
   {
-    name: 'Gateway',
-    path: '/gateway',
+    name: 'Gateway 3',
+    path: '/gateway3',
     exact: true,
     component: Gateway3,
     featureLink: AppFeature.GATEWAY,
+  },
+  {
+    name: 'Gateway',
+    path: '/gateway',
+    exact: true,
+    component: GatewayScene,
   },
   {
     name: 'Loom',
@@ -79,6 +89,24 @@ export const mainRoutes = [
     exact: true,
     component: ConnectedReduxNavigator,
     featureLink: AppFeature.TEST_NAV,
+  },
+  {
+    name: 'Welcome',
+    path: '/welcome',
+    exact: true,
+    component: WelcomeScene,
+  },
+  {
+    name: 'Roadmap',
+    path: '/roadmap',
+    exact: true,
+    component: AppRoadmapScene
+  },
+  {
+    name: 'Announcements',
+    path: '/announcements',
+    exact: true,
+    component: AppAnnouncementsScene
   }
   // {
   //   name: 'Sub Module',

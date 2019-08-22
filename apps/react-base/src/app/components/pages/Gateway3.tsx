@@ -12,13 +12,13 @@ const gatewayPorts = [
     tag: 'new',
     placeholder: false
   },
-  {
-    title: 'port: feedback',
-    description: 'mailbox - submit feedback',
-    path: '/feedback',
-    tag: 'new',
-    placeholder: false
-  },
+  // {
+  //   title: 'port: feedback',
+  //   description: 'mailbox - submit feedback',
+  //   path: '/feedback',
+  //   tag: 'new',
+  //   placeholder: false
+  // },
   {
     title: 'port: collab',
     description: 'ignite - social collaboration',

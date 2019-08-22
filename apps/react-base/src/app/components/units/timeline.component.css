@@ -1,0 +1,16 @@
+.timeline-container {
+  position: relative;
+  max-width: 95%;
+  list-style: none;
+}
+
+.timeline-container::before {
+  background-color: rgb(34, 44, 56);
+  content: '';
+  margin-left: -1px;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  width: 2px;
+  height: 100%;
+}

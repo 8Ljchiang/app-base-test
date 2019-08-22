@@ -3,6 +3,7 @@ import { ModuleComponent } from '../../structural/module';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { ConnectedProfile } from '../../pages/Profile';
+import { Link } from 'react-router-dom';
 
 export const AccountModule = (props) => {
   const { match } = props;
@@ -16,6 +17,7 @@ export const AccountModule = (props) => {
         routes={[]}
         fallback={DefaultErrorFallback}>
         {/* <h1>Account Module Component</h1> */}
+        <Link to={'/welcome'}>Home</Link>
         <ConnectedProfile/>
       </ModuleComponent>
     </div>

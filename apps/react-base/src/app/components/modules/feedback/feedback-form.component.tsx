@@ -22,8 +22,9 @@ export class FeedbackForm extends Component<any, any> {
     });
   }
 
-  login(username: string, password: string) {
-    this.props.login({ displayIdentifier: username, accessIdentifier: password });
+  sendFeedback(values) {
+    console.log('feedback');
+    console.log(values);
   }
 
   renderForm() {
@@ -33,31 +34,39 @@ export class FeedbackForm extends Component<any, any> {
         <Formik
           initialValues={{
             contact: '',
-            appDomain: '',
+            subject: '',
             issueType: '',
             desc: '',
           }}
           onSubmit={(values, actions) => {
+            this.sendFeedback(values);
             actions.resetForm();
             this.setIsSubmitted();
           }}
           render={({ errors, status, touched, isSubmitting }) => (
-            <Form>
-              <label>Contact</label>
-              <Field type="text" name="contact" className="form-field"/>
-              <ErrorMessage name="contact" component="div" />
+            <Form className="form-container">
+              <label>Issue Type</label>
+              <Field component="select" name="issueType" className="form-field">
+                <option value="bug">Bug</option>
+                <option value="feedback">Feedback</option>
+                <option value="featureRequest">Feature Request</option>
+              </Field>
+
+              <label>Subject</label>
+              <Field type="text" name="appDomain" className="form-field"/>
+              <ErrorMessage name="appDomain" component="div" />
 
               <label>Description</label>
               <Field type="textexttarea" name="desc" className="form-field"/>
               <ErrorMessage name="desc" component="div" />
 
-              <label>App Domain</label>
-              <Field type="text" name="appDomain" className="form-field"/>
-              <ErrorMessage name="appDomain" component="div" />
+              <label>Contact</label>
+              <Field type="text" name="contact" className="form-field"/>
+              <ErrorMessage name="contact" component="div" />
 
-              <label>Issue Type</label>
+              {/* <label>Issue Type</label>
               <Field type="text" name="issueType" className="form-field"/>
-              <ErrorMessage name="issueType" component="div" />
+              <ErrorMessage name="issueType" component="div" /> */}
 
               <button type="submit" disabled={isSubmitting} className="form-submit-button">
                 Submit

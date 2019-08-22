@@ -18,7 +18,7 @@ export const FeedbackModule = (props) => {
         routes={[]}
         fallback={DefaultErrorFallback}>
           <BannerLayout title={"Feedback"}>
-            <Link to={'/gateway'}>Gateway</Link>
+            <Link to={'/welcome'}>Home</Link>
             <FeedbackForm/>
           </BannerLayout>
       </ModuleComponent>

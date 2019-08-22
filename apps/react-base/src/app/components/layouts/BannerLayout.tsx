@@ -36,6 +36,7 @@ const styles = {
     color: 'rgb(52, 165, 235)'
   },
   body: {
+    border: '1px solid black',
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
