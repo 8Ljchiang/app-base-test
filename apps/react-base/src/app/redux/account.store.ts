@@ -29,6 +29,7 @@ export const defaultAccountStore: AccountStore = {
   featureKeys: [
     AppFeature.FEATURE_UNLOCK,
     AppFeature.ACCOUNT,
+    AppFeature.FEEDBACK,
     // AppFeature.GATEWAY,
     // AppFeature.LOOM,
   ],
