@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../styles/placeholders.css';
+
 export const SimplePlaceholder = (props) => {
   const { title, children, style } = props;
   return (

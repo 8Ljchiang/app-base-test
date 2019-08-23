@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { any } from 'prop-types';
-import { render } from 'react-dom';
 
+import '../../styles/lists.css';
 export class ItemCard extends Component<any, any> {
   render() {
     const { title, titleTag, subTitle, description, tagText } = this.props;
@@ -53,7 +52,7 @@ export class ExpandibleListItemCard extends Component<any, any> {
       <div>
         <div>
           <div>{ isExpanded ? (<ExpandedItemCard {...this.props} />) : (<ItemCard {...this.props} />) }</div>
-          <div>{ buttonText }</div>
+          <button onClick={this.toggleExpanded}>{ buttonText }</button>
         </div>
       </div>
     )

@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    // "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2018", "dom"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types"],
+    "rootDir": "../",
+    "importHelpers": true,
+    "outDir": "dist",
+    // "noImplicitReturns": true,
+    // "noImplicitThis": true,
+    // "noImplicitAny": false,
+    "strictNullChecks": true,
+    "declaration": true
+  },
+  "include": ["apps/react-base/src/app/components/**/*"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "**/*/*.test.ts",
+    "examples",
+    "apps/nestjs-base",
+    "apps/react-base-e2e",
+  ]
+}

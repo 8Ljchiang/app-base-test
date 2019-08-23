@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { bindActionCreators } from 'redux';
 import { accountSignup } from '../../../redux/account.actions';
 
-class SignupForm extends Component<any, any> {
+export class SignupForm extends Component<any, any> {
   constructor(props) {
     super(props);
   }

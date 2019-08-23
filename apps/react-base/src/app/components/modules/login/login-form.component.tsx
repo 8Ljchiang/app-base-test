@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { login } from '../../../redux/account.actions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-class LoginForm extends Component<any, any> {
+export class LoginForm extends Component<any, any> {
   login(username: string, password: string) {
     this.props.login({ displayIdentifier: username, accessIdentifier: password });
   }
