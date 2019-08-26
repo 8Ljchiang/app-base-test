@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ConnectedCreatePostForm } from './create-post-form.component';
+
+import { CreateActivityForm } from './create-activity-form.component';
 
 export class LoomCommunityCreatePairing extends Component<any, any> {
 
@@ -11,6 +12,7 @@ export class LoomCommunityCreatePairing extends Component<any, any> {
         <div style={styles.container}>
           <div style={styles.containerColumn}>
             <h2>Create Pairing Activity</h2>
+            <CreateActivityForm/>
           </div>
         </div>
       </>
