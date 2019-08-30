@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { TestSelect } from '../../../units/test-select.component';
 
 export class CreateActivityForm extends Component<any, any> {
   constructor(props) {
@@ -77,6 +78,18 @@ export class CreateActivityForm extends Component<any, any> {
               <option value="exercise">Exercise</option>
               <option value="other">Other</option>
             </Field>
+            <ErrorMessage name="category" component="div" />
+
+            <label>Tags</label>
+            <TestSelect/>
+            <p>Insert React-Select Component here</p>
+            <p>Customize to be able to create different types of categories within the dropdown menu</p>
+            <ErrorMessage name="category" component="div" />
+
+            <label>Domain</label>
+            <TestSelect/>
+            <p>Insert React-Select Component here</p>
+            <p>Customize to be able to create different types of categories within the dropdown menu</p>
             <ErrorMessage name="category" component="div" />
 
             { /* TODO: Add react-select component here that adds values to an array */ }

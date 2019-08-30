@@ -19,9 +19,9 @@ const gatewayPorts = [
   },
   {
     title: '? ? ?',
-    description: 'placeholder',
+    description: '*module-name*',
     path: '',
-    tag: 'unknown',
+    tag: '*module-tag*',
     placeholder: true
   },
 ]
@@ -35,7 +35,7 @@ export class GatewayScene extends Component<any, any> {
     return (
       <div key={index}>
         <SimplePlaceholder>
-          <Link to={port.path}>{port.title}</Link>
+          { port.path ? <Link to={port.path}>{port.title}</Link> : <p>{port.title}</p> }
           <p>{port.description}</p>
           <p>{port.tag}</p>
         </SimplePlaceholder>
