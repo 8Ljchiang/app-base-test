@@ -51,7 +51,7 @@ class FeedbackSection extends Component<any, any> {
         <div className="meta-feedback-container">
           <div></div>
           <div className="feedback-container">
-            { showHeader && <div className="feedback-section__header">Feedback Section</div> }
+            { showHeader && <div className="feedback-section__header">Site Feedback Section</div> }
             { showBody &&  <div className="feedback-section__body">Other stuff</div> }
           </div>
         </div>
@@ -112,11 +112,13 @@ export class ExpFeedbackFrameScene extends Component<any, any> {
           <div className="action-container">
             App Feedback
           </div>
-          <div className="action-container" onClick={this.toggle}>
+          <div style={{ background: 'pink' }} className="action-container" onClick={this.toggle}>
             Site Feedback
           </div>
         </div>
-        <div className={backdrop}></div>
+        <div className={backdrop}>
+          <div className="frame-tag">Beta v0.1.11</div>
+        </div>
       </PageFrame>
     );
   }

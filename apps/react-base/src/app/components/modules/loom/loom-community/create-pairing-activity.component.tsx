@@ -25,14 +25,18 @@ const styles = {
     width: '100%',
     display: 'flex',
     // height: '100%',
+
   },
   containerColumn: {
     display: 'flex',
+    flex: 1,
     flexFlow: 'column',
     width: '50%',
     border: '2px gray dashed',
     margin: '20px',
     padding: '12px',
+    overflow: 'auto',
+    maxHeight: '80%',
     // height: '100%',
   },
   sectionContainer: {
