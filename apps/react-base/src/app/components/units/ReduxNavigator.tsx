@@ -74,8 +74,14 @@ export class ReduxNavigator extends Component<any, any> {
     const buttonTitle = showNav ? 'hide' : 'show';
     return (
       <>
-        <button onClick={this.toggle} style={styles.navButton}>{'nav: ' + buttonTitle}</button>
-        { showNav ? this.renderAllRouteSets(routeSets) : null }
+        <div onClick={this.toggle} style={styles.navButton}>{'nav: ' + buttonTitle}</div>
+        { showNav &&
+         (
+          <div style={styles.routesContainer}>
+            { showNav && this.renderAllRouteSets(routeSets) }
+          </div>
+         )
+        }
       </>
     )
   }
@@ -86,7 +92,14 @@ const styles = {
 
   },
   navButton: {
-    padding: '3px'
+    background: 'skyblue',
+    outline: 'none',
+    padding: '3px 6px'
+  },
+  routesContainer: {
+    display: 'flex',
+    flexFlow: 'column',
+    padding: '4px'
   }
 }
 

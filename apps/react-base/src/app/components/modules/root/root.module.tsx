@@ -39,12 +39,14 @@ export class RootModule extends Component<any, any> {
 const styles = {
   reduxNavContainer: {
     position: 'absolute',
-    top: 0,
-    right: 0,
+    top: '30px',
+    right: '30px',
     display: 'flex',
     flexFlow: 'column',
-    background: 'lightgray',
-    border: '3px dotted gray',
+    background: 'rgba(255,255,255,0.6)',
+    // border: '3px dotted gray',
+    boxShadow: '0 0 8px 4px rgba(30, 30, 30, 0.5)',
+    border: '4px solid skyblue',
     zIndex: 100,
   },
   linkContainer: {
