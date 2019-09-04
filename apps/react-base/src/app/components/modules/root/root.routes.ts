@@ -109,12 +109,12 @@ export const mainRoutes = [
     exact: true,
     component: AppAnnouncementsScene
   },
-  {
-    name: 'ExperimentalFrame',
-    path: '/experimental',
-    exact: true,
-    component: ExpFeedbackFrameScene
-  }
+  // {
+  //   name: 'ExperimentalFrame',
+  //   path: '/experimental',
+  //   exact: true,
+  //   component: ExpFeedbackFrameScene
+  // }
   // {
   //   name: 'Sub Module',
   //   path: '/child-module',

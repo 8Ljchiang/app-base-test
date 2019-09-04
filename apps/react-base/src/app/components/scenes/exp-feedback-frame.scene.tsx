@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import './exp-feedback-frame.scene.css';
+import { AppRoadmapScene } from './app-roadmap.scene';
+import { ViewPortLayout } from '../layouts/ViewPortLayout';
 
 class PageFrame extends Component<any, any> {
   render() {
@@ -88,11 +90,31 @@ export class ExpFeedbackFrameScene extends Component<any, any> {
     return (
       <PageFrame>
         <div className={clnm}>
-          Page Title
+          { this.props.children }
         </div>
-         { isClicked && <FeedbackSection/> }
-        <div className="frame-button" onClick={this.toggle}>
-          +
+        {/* <div className={clnm}>
+          Page Title
+        </div> */}
+        { isClicked && <FeedbackSection/> }
+        <div className="frame__action-container">
+          <div className="action-container">
+            Profile
+          </div>
+          <div className="action-container">
+            Modules
+          </div>
+          <div className="action-container">
+            Announcements
+          </div>
+          <div className="action-container">
+            Roadmap
+          </div>
+          <div className="action-container">
+            App Feedback
+          </div>
+          <div className="action-container" onClick={this.toggle}>
+            Site Feedback
+          </div>
         </div>
         <div className={backdrop}></div>
       </PageFrame>

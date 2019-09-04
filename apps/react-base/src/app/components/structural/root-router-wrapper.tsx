@@ -5,6 +5,7 @@ import { NotFound } from '../units/NotFound';
 import { connect } from 'react-redux';
 import Log from '../../core/services/log.service';
 import { AppFeature } from '../../core/configs/feature.config';
+import { ExpFeedbackFrameScene } from '../scenes/exp-feedback-frame.scene';
 
 interface IRootRouterWrapperProps {
   rootPath: string;
@@ -75,13 +76,15 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
       return (
         <Router>
           { children }
-          <Switch>
-            {/* <Route exact path={'/'} component={TestA}/>
-            <Route exact path={'/root-b'} component={TestB}/>
-            <Route component={NotFound}/> */}
-            { this.renderRoutes(routes, rootPath, []) }
-            { this.renderNoMatch(noMatch) }
-          </Switch>
+          <ExpFeedbackFrameScene>
+            <Switch>
+              {/* <Route exact path={'/'} component={TestA}/>
+              <Route exact path={'/root-b'} component={TestB}/>
+              <Route component={NotFound}/> */}
+              { this.renderRoutes(routes, rootPath, []) }
+              { this.renderNoMatch(noMatch) }
+            </Switch>
+          </ExpFeedbackFrameScene>
         </Router>
       )
     }
