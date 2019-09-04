@@ -1,0 +1,214 @@
+.frame-background--animated {
+  /* animation: backdropUnblur 1.6s ease; */
+}
+
+.frame-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../../../assets/mountains.jpg);
+  box-shadow: 0 0 0 0;
+  z-index: 0;
+}
+
+.frame-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  /* background: gray; */
+  box-shadow: 0 0 0 0;
+  border: 0;
+  padding: 0;
+}
+
+.meta-page-container {
+  border: 1px solid red;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.meta-page-container--reduced {
+  border: 1px solid red;
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.page-container--raised {
+  background: rgb(35, 41, 95);
+  display: flex;
+  flex-flow: column;
+  /* height: 100%; */
+  height: 100vh;
+  /* height: 100%; */
+  width: 100%;
+  box-shadow: 0 0 8px 4px rgba(50, 50, 50, 0.5);
+  transform: scale(0.74);
+  animation: pageContainerScale 1.2s ease;
+  z-index: 1;
+}
+
+.page-container {
+  background: rgb(35, 41, 95);
+  display: flex;
+  flex-flow: column;
+  z-index: 1;
+  /* height: 100vh; */
+  height: 100vh;
+  width: 100%;
+}
+
+.frame-button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  height: 30px;
+  width: 30px;
+  background: blue;
+  border: 2px solid white;
+  z-index: 5;
+}
+
+
+.meta-feedback-container {
+  position: absolute;
+  bottom: 0;
+  /* left: 0;
+  right: 0; */
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  /* align-items: center; */
+  z-index: 5;
+}
+
+
+.feedback-container {
+  border: 5px solid lightskyblue;
+  bottom: 0px;
+  left: 15%;
+  height: 440px;
+  width: 360px;
+  margin: 30px;
+  animation: feedbackContainerSectionSlide 1.8s ease;
+  z-index: 5;
+  display: flex;
+  flex-flow: column;
+  /* transition: transform 1.2s;
+  transform-style: preserve-3d; */
+}
+
+.feedback-section__header {
+  /* position: absolute; */
+  background: lightskyblue;
+  width: 100%;
+  height: 30px;
+  animation: feedbackSectionFadeIn 0.6s ease;
+}
+
+.feedback-section__body {
+  background: lightgray;
+  opacity: 0.6;
+  flex: 1;
+  animation: feedbackSectionBodyFadeIn 1s ease;
+}
+
+@keyframes pageContainerScale {
+  0% {
+    box-shadow: 0 0 0 0 rgba(140, 140, 140, 0);
+    transform: scale(1);
+  }
+  36%{
+    box-shadow: 0 0 0 0 rgba(140, 140, 140, 0);
+    transform: scale(0.96);
+  }
+  50% {
+    box-shadow: 0 0 0 0 rgba(140, 140, 140, 0);
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(0.74);
+    box-shadow: 0 0 8px 4px rgba(50, 50, 50, 0.5);
+  }
+}
+
+@keyframes feedbackContainerSectionSlide {
+  0% {
+    opacity: 0;
+    height: 0px;
+    width: 0%;
+    transform: translateX(80px);
+  }
+  20% {
+    /* width: 0%; */
+    height: 32px;
+    height: 0px;
+    /* width: 25%; */
+  }
+  40% {
+
+  }
+  50%{
+    height: 36px;
+    width: 360px;
+    /* transform: translateY(0) */
+  }
+  /* 50% { */
+    /* width: 0%; */
+    /* height: 0px; */
+    /* width: 25%; */
+  /* } */
+  80% {
+    transform: translateY(0)
+  }
+  100% {
+    /* height: 120px; */
+    /* width: 80%; */
+    transform: translateY(0)
+  }
+}
+
+@keyframes feedbackSectionFadeIn {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes feedbackSectionBodyFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes backdropUnblur {
+  0% {
+    filter: blur(2px);
+  }
+  60% {
+    filter: blur(2px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}

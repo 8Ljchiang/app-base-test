@@ -1,3 +1,4 @@
+import { ExpFeedbackFrameScene } from './../../scenes/exp-feedback-frame.scene';
 import { AppAnnouncementsScene } from './../../scenes/app-announcements.scene';
 import { GatewayScene } from './../../scenes/gateway.scene';
 import { WelcomeScene } from './../../scenes/welcome.scene';
@@ -107,6 +108,12 @@ export const mainRoutes = [
     path: '/announcements',
     exact: true,
     component: AppAnnouncementsScene
+  },
+  {
+    name: 'ExperimentalFrame',
+    path: '/experimental',
+    exact: true,
+    component: ExpFeedbackFrameScene
   }
   // {
   //   name: 'Sub Module',
