@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './exp-feedback-frame.scene.css';
 import { AppRoadmapScene } from './app-roadmap.scene';
 import { ViewPortLayout } from '../layouts/ViewPortLayout';
+import { SiteFeedbackForm } from '../units/site-feedback-form.component';
 
 class PageFrame extends Component<any, any> {
   render() {
@@ -52,7 +53,11 @@ class FeedbackSection extends Component<any, any> {
           <div></div>
           <div className="feedback-container">
             { showHeader && <div className="feedback-section__header">Site Feedback Section</div> }
-            { showBody &&  <div className="feedback-section__body">Other stuff</div> }
+            { showBody &&
+              <div className="feedback-section__body">
+                <SiteFeedbackForm/>
+              </div>
+            }
           </div>
         </div>
       );

@@ -119,7 +119,7 @@
   /* left: 0;
   right: 0; */
   width: 100%;
-  height: 350px;
+  height: 420px;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -132,7 +132,7 @@
   border: 5px solid pink;
   bottom: 0px;
   left: 15%;
-  height: 440px;
+  height: 100%;
   width: 360px;
   margin: 30px;
   animation: feedbackContainerSectionSlide 1.8s ease;
@@ -154,7 +154,9 @@
 
 .feedback-section__body {
   background: lightgray;
-  opacity: 0.6;
+  padding: 4px;
+  /* opacity: 0.6; */
+  overflow: auto;
   flex: 1;
   animation: feedbackSectionBodyFadeIn 1s ease;
 }
@@ -230,7 +232,7 @@
     opacity: 0;
   }
   100% {
-    opacity: 0.6;
+    /* opacity: 0.6; */
   }
 }
 
