@@ -40,12 +40,13 @@ export class LoginBanner extends Component<any, any> {
     const bottomIndex = Math.floor(Math.random() * bottomDelays.length);
     return (
       <div className="login-banner login-banner--color1">
-        <h1 className="login-banner__title">
+        {/* <h1 className="login-banner__title">
           {"Interchange"}
-        </h1>
+        </h1> */}
+        <h1 style={{ color: 'rgb(52, 165, 235)' }}>{"{ Interchange }"}</h1>
         {/* { this.renderSets(topDelays, bottomDelays, isTop, index) } */}
-        { this.renderBoxSet(bottomDelays, "widget-container--bottom", "widget animated slideUp") }
-        { this.renderBoxSet(topDelays, "widget-container", "widget animated slideDown")}
+        {/* { this.renderBoxSet(bottomDelays, "widget-container--bottom", "widget animated slideUp") } */}
+        {/* { this.renderBoxSet(topDelays, "widget-container", "widget animated slideDown")} */}
         {/* <div className="widget-container--bottom">
           <div style={{ animationDelay: '3s' }} className="widget animated slideUp"></div>
           <div style={{ animationDelay: '2s' }} className="widget animated slideUp"></div>

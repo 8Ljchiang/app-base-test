@@ -84,6 +84,23 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
               { this.renderRoutes(routes, rootPath, []) }
               { this.renderNoMatch(noMatch) }
             </Switch>
+            <div className="frame__action-container">
+            <div className="action-container">
+              Profile
+            </div>
+            <div className="action-container">
+              Modules
+            </div>
+            <div className="action-container">
+              Announcements
+            </div>
+            <div className="action-container">
+              Roadmap
+            </div>
+            <div className="action-container">
+              App Feedback
+            </div>
+          </div>
           </ExpFeedbackFrameScene>
         </Router>
       )

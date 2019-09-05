@@ -92,7 +92,8 @@ const styles = {
 
   },
   navButton: {
-    background: 'skyblue',
+    // background: 'skyblue',
+    background: 'pink',
     outline: 'none',
     padding: '3px 6px'
   },

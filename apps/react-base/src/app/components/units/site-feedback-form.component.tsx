@@ -35,6 +35,8 @@ export class SiteFeedbackForm extends Component<any, any> {
         <p>For Route Path</p>
         <Formik
           initialValues={{
+            context: 'route',
+            category: 'site',
             contact: '',
             subject: '',
             issueType: '',

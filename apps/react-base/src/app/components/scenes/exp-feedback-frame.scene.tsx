@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import { SiteFeedbackForm } from '../units/site-feedback-form.component';
 
 import './exp-feedback-frame.scene.css';
-import { AppRoadmapScene } from './app-roadmap.scene';
-import { ViewPortLayout } from '../layouts/ViewPortLayout';
-import { SiteFeedbackForm } from '../units/site-feedback-form.component';
 
 class PageFrame extends Component<any, any> {
   render() {
@@ -24,6 +22,12 @@ class FeedbackSection extends Component<any, any> {
       showHeader: false,
       showBody: false,
     }
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.props.actions.reset();
   }
 
   componentDidMount() {
@@ -52,7 +56,12 @@ class FeedbackSection extends Component<any, any> {
         <div className="meta-feedback-container">
           <div></div>
           <div className="feedback-container">
-            { showHeader && <div className="feedback-section__header">Site Feedback Section</div> }
+            { showHeader &&
+              <div onClick={this.toggle} className="feedback-section__header">
+                <p>Site Feedback Section</p>
+                <p>X</p>
+              </div>
+            }
             { showBody &&
               <div className="feedback-section__body">
                 <SiteFeedbackForm/>
@@ -92,17 +101,21 @@ export class ExpFeedbackFrameScene extends Component<any, any> {
     const clnm = isClicked ? "page-container--raised" : "page-container";
     const metaContainer = isClicked ? "meta-page-container--reduced" : "meta-page-container";
     const backdrop = isClicked ? "frame-background frame-background--animated": "frame-background";
+    const actions = {
+      reset: this.toggle
+    }
     return (
       <PageFrame>
         <div className={clnm}>
+          { isClicked && <div className="frame-tag">Alpha v0.1.11</div> }
           { this.props.children }
         </div>
         {/* <div className={clnm}>
           Page Title
         </div> */}
-        { isClicked && <FeedbackSection/> }
-        <div className="frame__action-container">
-          <div className="action-container">
+        { isClicked && <FeedbackSection actions={actions}/> }
+        <div className="site-feedback-container">
+          {/* <div className="action-container">
             Profile
           </div>
           <div className="action-container">
@@ -116,15 +129,25 @@ export class ExpFeedbackFrameScene extends Component<any, any> {
           </div>
           <div className="action-container">
             App Feedback
-          </div>
-          <div style={{ background: 'pink' }} className="action-container" onClick={this.toggle}>
+          </div> */}
+          <div style={styles.siteFeedbackContainer} onClick={this.toggle}>
             Site Feedback
           </div>
         </div>
         <div className={backdrop}>
-          <div className="frame-tag">Beta v0.1.11</div>
+          {/* <div className="frame-tag"></div> */}
         </div>
       </PageFrame>
     );
   }
 }
+
+const styles = {
+  siteFeedbackContainer: {
+    background: 'pink',
+    padding: '4px',
+    border: '4px solid white',
+    margin: '10px',
+    minWidth: '30px'
+  }
+};

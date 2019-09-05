@@ -27,6 +27,7 @@ export class CreateActivityForm extends Component<any, any> {
       languages: [],
       domains: [],
       agendaItems: [],
+      groups: 'global',
     };
     return(
       <Formik
