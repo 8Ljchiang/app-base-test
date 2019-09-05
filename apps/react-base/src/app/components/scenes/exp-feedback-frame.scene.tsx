@@ -107,7 +107,7 @@ export class ExpFeedbackFrameScene extends Component<any, any> {
     return (
       <PageFrame>
         <div className={clnm}>
-          { isClicked && <div className="frame-tag">Alpha v0.1.11</div> }
+          { isClicked && <div className="frame-tag">(dev) Pre-Alpha v0.1.11</div> }
           { this.props.children }
         </div>
         {/* <div className={clnm}>
