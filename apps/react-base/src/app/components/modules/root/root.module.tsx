@@ -66,7 +66,7 @@ const styles = {
   headerContainer: {
     position: 'absolute',
     top: '30px',
-    right: '30px',
+    right: '190px',
     display: 'flex',
     zIndex: 100
   },

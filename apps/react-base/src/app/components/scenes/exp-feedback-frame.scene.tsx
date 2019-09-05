@@ -146,8 +146,9 @@ const styles = {
   siteFeedbackContainer: {
     background: 'pink',
     padding: '4px',
-    border: '4px solid white',
+    border: '4px solid pink',
     margin: '10px',
-    minWidth: '30px'
+    minWidth: '30px',
+    boxShadow: '0 0 8px 4px rgba(30, 30, 30, 0.5)'
   }
 };

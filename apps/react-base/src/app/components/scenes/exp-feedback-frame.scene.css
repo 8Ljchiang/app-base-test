@@ -14,11 +14,11 @@
 
 .site-feedback-container {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   display: flex;
   flex-flow: column;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   z-index: 5;
 }
 
