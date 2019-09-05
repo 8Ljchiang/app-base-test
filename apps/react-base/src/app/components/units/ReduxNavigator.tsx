@@ -73,7 +73,7 @@ export class ReduxNavigator extends Component<any, any> {
     const { showNav } = this.state;
     const buttonTitle = showNav ? 'hide' : 'show';
     return (
-      <>
+      <div style={styles.reduxNavContainer}>
         <div onClick={this.toggle} style={styles.navButton}>{'nav: ' + buttonTitle}</div>
         { showNav &&
          (
@@ -82,7 +82,7 @@ export class ReduxNavigator extends Component<any, any> {
           </div>
          )
         }
-      </>
+      </div>
     )
   }
 }
@@ -90,6 +90,16 @@ export class ReduxNavigator extends Component<any, any> {
 const styles = {
   linkContainer: {
 
+  },
+  reduxNavContainer: {
+    display: 'flex',
+    flexFlow: 'column',
+    background: 'rgba(255,255,255,0.6)',
+    // border: '3px dotted gray',
+    maxHeight: '400px',
+    boxShadow: '0 0 8px 4px rgba(30, 30, 30, 0.5)',
+    border: '4px solid pink',
+    zIndex: 100,
   },
   navButton: {
     // background: 'skyblue',
@@ -100,7 +110,8 @@ const styles = {
   routesContainer: {
     display: 'flex',
     flexFlow: 'column',
-    padding: '4px'
+    padding: '4px',
+    overflow: 'auto',
   }
 }
 

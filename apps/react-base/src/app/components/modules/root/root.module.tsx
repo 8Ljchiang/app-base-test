@@ -7,6 +7,7 @@ import { RouteLinks, ConnectedRouteLinks } from '../../units/RouteLinks';
 import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 import { ConnectedReduxNavigator } from '../../units/ReduxNavigator';
 import { ExpFeedbackFrameScene } from '../../scenes/exp-feedback-frame.scene';
+import { AppProjectPlan } from '../../units/project-plan.component';
 interface IModuleComponentProps {
   moduleName: string;
   routes: any[];
@@ -31,9 +32,8 @@ export class RootModule extends Component<any, any> {
             </div> */}
             <div style={styles.headerContainer}>
               {/* <div style={styles.siteFeedbackButton}>Site Feedback</div> */}
-              <div style={styles.reduxNavContainer}>
-                <ConnectedReduxNavigator/>
-              </div>
+              <AppProjectPlan />
+              <ConnectedReduxNavigator/>
             </div>
           </ConnectedModuleRoot>
           {/* <div className="frame__action-container">
