@@ -73,7 +73,6 @@ const styles = {
     border: '3px solid pink',
     // maxWidth: '200px',
     maxHeight: '400px',
-    overflow: 'auto',
     marginRight: '18px',
     boxShadow: '0 0 8px 4px rgb(30, 30, 30, 0.5)'
   },
@@ -83,6 +82,8 @@ const styles = {
     minHeight: '30px',
   },
   planContainer: {
-    background: 'rgba(255, 255, 255, 0.6)'
+    maxHeight: '360px',
+    background: 'rgba(255, 255, 255, 0.6)',
+    overflow: 'auto',
   }
 }
