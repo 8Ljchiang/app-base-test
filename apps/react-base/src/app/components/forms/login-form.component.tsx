@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../../redux/account.actions';
+import { login } from '../../redux/account.actions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 export class LoginForm extends Component<any, any> {

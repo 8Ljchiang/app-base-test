@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { bindActionCreators } from 'redux';
-import { accountSignup } from '../../../redux/account.actions';
+import { accountSignup } from '../../redux/account.actions';
 
 export class SignupForm extends Component<any, any> {
   constructor(props) {

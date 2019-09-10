@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { TestSelect } from '../../../units/test-select.component';
+import { TestSelect } from '../units/test-select.component';
 
 export class CreateActivityForm extends Component<any, any> {
   constructor(props) {

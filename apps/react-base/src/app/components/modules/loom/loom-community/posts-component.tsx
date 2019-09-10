@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ConnectedCreatePostForm } from './create-post-form.component';
+import { ConnectedCreatePostForm } from '../../../forms/create-post-form.component';
 import { ItemCard } from '../../../units/ListItemCard';
 
 const userPosts = [

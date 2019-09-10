@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CreateActivityForm } from './create-activity-form.component';
+import { CreateActivityForm } from '../../../forms/create-activity-form.component';
 
 export class LoomCommunityCreatePairing extends Component<any, any> {
 

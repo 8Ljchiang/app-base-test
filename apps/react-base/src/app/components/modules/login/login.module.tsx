@@ -4,7 +4,7 @@ import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
 import { ViewPortLayout } from '../../layouts/ViewPortLayout';
 import { LeftRightLayout } from '../../layouts/LeftRightLayout';
-import { ConnectedLoginForm } from './login-form.component';
+import { ConnectedLoginForm } from '../../forms/login-form.component';
 import { LoginBanner } from './login-banner.component';
 import { AccessPort } from './access-port.component';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ConnectedLoginForm } from './login-form.component';
-import { ConnectedSignupForm } from './signup-form.component';
+import { ConnectedLoginForm } from '../../forms/login-form.component';
+import { ConnectedSignupForm } from '../../forms/signup-form.component';
 import { SimplePlaceholder } from '../../units/SimplePlaceholder';
 
 export class AccessPort extends Component<any, any> {
