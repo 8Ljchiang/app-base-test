@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const initialValues = { postContent: '' };
+export const initialValuesForCreatePost = { postContent: '' };
 
 export const formSchemaForCreatePost = Yup.object().shape({
 	postContent: Yup.string()

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { formSchemaForCreatePost } from './create-post-form.validation';
 
 class LoomCommunityCreatePostForm extends Component<any, any> {
   constructor(props) {
@@ -16,7 +17,7 @@ class LoomCommunityCreatePostForm extends Component<any, any> {
   render() {
     return (
       <Formik
-        initialValues={{ postContent: '' }}
+        initialValues={formSchemaForCreatePost}
         onSubmit={(values, actions) => {
             this.createPost(values.postContent);
             actions.resetForm();

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TestSelect } from '../units/test-select.component';
+import { INITIAL_VALUES_CREATE_ACTIVITY, FORM_SCHEMA_CREATE_ACTIVITY } from './create-activity-form.validation';
 
 export class CreateActivityForm extends Component<any, any> {
   constructor(props) {
@@ -14,24 +15,10 @@ export class CreateActivityForm extends Component<any, any> {
   }
 
   render() {
-    const initialValues = {
-      socialContext: 'global',
-      title: '',
-      description: '',
-      visibility: '',
-      access: '',
-      repo: '',
-      type: '',
-      category: '',
-      tags: [],
-      languages: [],
-      domains: [],
-      agendaItems: [],
-      groups: 'global',
-    };
     return(
       <Formik
-        initialValues={initialValues}
+        initialValues={INITIAL_VALUES_CREATE_ACTIVITY}
+        validationSchema={FORM_SCHEMA_CREATE_ACTIVITY}
         onSubmit={(values, actions) => {
             this.createActivity(values);
             actions.resetForm();
