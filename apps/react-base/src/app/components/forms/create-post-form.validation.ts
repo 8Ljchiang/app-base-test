@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
-export const initialValuesForCreatePost = { postContent: '' };
+export const INITIAL_VALUES_CREATE_POST = { postContent: '' };
 
-export const formSchemaForCreatePost = Yup.object().shape({
+export const FORM_SCHEMA_CREATE_POST = Yup.object().shape({
 	postContent: Yup.string()
 		.min(3, 'Must be at least 3 characters.')
 		.max(240, 'Max length is 240 characters.')
