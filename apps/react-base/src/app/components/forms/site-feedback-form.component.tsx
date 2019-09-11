@@ -27,7 +27,7 @@ export class SiteFeedbackForm extends Component<any, any> {
   }
 
   sendFeedback(values) {
-    console.log('site-feedback-send');
+    console.log('site-feedback-send', values);
   }
 
   renderForm() {
@@ -50,13 +50,14 @@ export class SiteFeedbackForm extends Component<any, any> {
                 <option value="feedback">Feedback</option>
                 <option value="featureRequest">Feature Request</option>
               </Field>
+              <ErrorMessage name="issueType" component="div" />
 
               <label>Subject</label>
-              <Field type="text" name="appDomain" className="form-field"/>
-              <ErrorMessage name="appDomain" component="div" />
+              <Field type="text" name="subject" className="form-field"/>
+              <ErrorMessage name="subject" component="div" />
 
               <label>Description</label>
-              <Field type="textexttarea" name="desc" className="form-field"/>
+              <Field type="text" name="desc" className="form-field"/>
               <ErrorMessage name="desc" component="div" />
 
               <label>Contact</label>
@@ -78,7 +79,7 @@ export class SiteFeedbackForm extends Component<any, any> {
       <div>
         <h1>Thank You</h1>
         <p>Your feedback has been submitted.</p>
-        <button onClick={this.resetIsSubmitted} >
+        <button className="form-submit-button" onClick={this.resetIsSubmitted}>
           Back
         </button>
       </div>

@@ -15,7 +15,7 @@ export const INITIAL_VALUES_SITE_FEEDBACK_FORM: ICreateFeedbackFormInput = {
   category: 'site',
   contact: '',
   subject: '',
-  issueType: '',
+  issueType: 'bug',
   desc: '',
 };
 
