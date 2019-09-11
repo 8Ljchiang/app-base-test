@@ -78,6 +78,13 @@ export const mainRoutes = [
     featureLink: AppFeature.FEEDBACK,
   },
   {
+    name: 'Feedback List',
+    path: '/feedback-list',
+    exact: true,
+    component: FeedbackModule,
+    featureLink: AppFeature.FEEDBACK_LIST,
+  },
+  {
     name: 'Fault',
     path: '/fault',
     exact: true,

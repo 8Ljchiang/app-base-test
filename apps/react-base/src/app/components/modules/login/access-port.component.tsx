@@ -56,7 +56,7 @@ const styles = {
     display: 'flex',
     // position: 'absolute',
     bottom: 0,
-    flex: 1
+    // flex: 1
     // width: '100%'
   },
   buttonStyle: {
@@ -64,7 +64,7 @@ const styles = {
     color: 'lightgray',
     borderRadius: '3px',
     background: 'rgb(34, 44, 56)',
-    flex: 1,
+    // flex: 1,
     // width: '50%'
   }
 }

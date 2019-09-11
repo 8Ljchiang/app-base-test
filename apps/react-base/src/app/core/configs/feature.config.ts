@@ -30,9 +30,9 @@ export enum AppFeature {
   GATEWAY2 = 'F_GATEWAY2',
   TEST_FAULT = 'F_TEST_FAULT',
   TEST_NAV = 'F_TEST_NAV',
-  FEEDBACK = 'F_FEEDBACK',
+  FEEDBACK = 'F_SUBMIT_FEEDBACK',
   ACCOUNT = 'F_ACCOUNT',
-
+  FEEDBACK_LIST = 'F_FEEDBACK_LIST'
 }
 
 export interface AppFacet {
