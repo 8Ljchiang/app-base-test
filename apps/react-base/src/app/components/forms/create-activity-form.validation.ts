@@ -1,8 +1,22 @@
 import { MIN_STRING_LENGTH_4, MAX_STRING_LENGTH_128, MAX_STRING_LENGTH_512, STRING_REQUIRED, MIN_STRING_LENGTH_8, MAX_STRING_LENGTH_256 } from './../../core/configs/validation-messages.config';
 import * as Yup from 'yup';
 
-export const INITIAL_VALUES_CREATE_ACTIVITY= {
-  socialContext: 'global',
+export interface ICreateActivityFormInput {
+  context: string;
+  ref: string;
+  title: string;
+  description: string;
+  visibility: string;
+  access: string;
+  repo: string;
+  category: string;
+  tags: string[];
+  type: string;
+}
+
+export const INITIAL_VALUES_CREATE_ACTIVITY: ICreateActivityFormInput = {
+  context: 'global',
+  ref: '',
   title: '',
   description: '',
   visibility: '',
