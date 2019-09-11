@@ -19,6 +19,11 @@ export type FeedbackActions =
 UpvoteFeedbackItemAction
   | CreateFeedbackItemAction;
 
+
+export interface IUpvoteFeedbackInput {
+  id: string;
+}
+
 export function upvoteFeedbackItem(input: { id: string}) {
   return {
     type: FeedbackActionType.UPVOTE_FEEDBACK_ITEM,

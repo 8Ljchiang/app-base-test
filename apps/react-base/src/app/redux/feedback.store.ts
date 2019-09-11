@@ -2,7 +2,7 @@ import { AppFeature } from './../core/configs/feature.config';
 import { SignupInput } from './signup.actions';
 
 export interface FeedbackItem {
-  id: number;
+  id: string;
   createdAt: number;
   author: string;
   title: string;
@@ -18,7 +18,7 @@ export interface FeedbackStore {
 
 const seedItems: FeedbackItem[] = [
   {
-    id: 1,
+    id: '1',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 1),
     title: 'title-1',
@@ -28,7 +28,7 @@ const seedItems: FeedbackItem[] = [
     upvotes: 1,
   },
   {
-    id: 2,
+    id: '2',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 3, 1),
     title: 'title-2',
@@ -38,7 +38,7 @@ const seedItems: FeedbackItem[] = [
     upvotes: 2,
   },
   {
-    id: 3,
+    id: '3',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 2, 1),
     title: 'title-3',
@@ -48,7 +48,7 @@ const seedItems: FeedbackItem[] = [
     upvotes: 3,
   },
   {
-    id: 4,
+    id: '4',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 1, 1),
     title: 'title-4',
