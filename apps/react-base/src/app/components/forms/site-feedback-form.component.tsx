@@ -1,3 +1,4 @@
+import { FORM_SCHEMA_SITE_FEEDBACK_FORM, INITIAL_VALUES_SITE_FEEDBACK_FORM } from './site-feedback-form.validation';
 import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
@@ -34,14 +35,8 @@ export class SiteFeedbackForm extends Component<any, any> {
       <div>
         <p>For Route Path</p>
         <Formik
-          initialValues={{
-            context: 'route',
-            category: 'site',
-            contact: '',
-            subject: '',
-            issueType: '',
-            desc: '',
-          }}
+          initialValues={INITIAL_VALUES_SITE_FEEDBACK_FORM}
+          validationSchema={FORM_SCHEMA_SITE_FEEDBACK_FORM}
           onSubmit={(values, actions) => {
             this.sendFeedback(values);
             actions.resetForm();
