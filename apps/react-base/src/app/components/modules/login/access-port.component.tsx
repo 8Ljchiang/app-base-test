@@ -54,7 +54,7 @@ export class AccessPort extends Component<any, any> {
 const styles = {
   buttonContainer: {
     display: 'flex',
-    position: 'absolute',
+    // position: 'absolute',
     bottom: 0,
     flex: 1
     // width: '100%'

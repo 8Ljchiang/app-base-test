@@ -23,6 +23,6 @@ export const FORM_SCHEMA_SITE_FEEDBACK_FORM = Yup.object().shape({
     .required(STRING_REQUIRED),
 	desc: Yup.string()
     .min(4, createMinStringLengthMessage(4))
-    .min(256, createMaxStringLengthMessage(256))
+    .max(256, createMaxStringLengthMessage(256))
     .required(STRING_REQUIRED),
 });

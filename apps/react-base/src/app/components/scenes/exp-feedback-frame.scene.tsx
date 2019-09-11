@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SiteFeedbackForm } from '../units/site-feedback-form.component';
+import { SiteFeedbackForm } from '../forms/site-feedback-form.component';
 
 import './exp-feedback-frame.scene.css';
 
