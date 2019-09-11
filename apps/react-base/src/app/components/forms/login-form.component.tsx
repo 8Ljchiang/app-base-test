@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../redux/account.actions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { INITIAL_VALUES_LOGIN_FORM, FORM_SCHEMA_LOGIN_FORM } from './login-form.validation';
 
 export class LoginForm extends Component<any, any> {
   login(username: string, password: string) {
@@ -11,7 +12,8 @@ export class LoginForm extends Component<any, any> {
   render() {
     return (
       <Formik
-        initialValues={{ firstField: '', secondField: '' }}
+        initialValues={INITIAL_VALUES_LOGIN_FORM}
+        validationSchema={FORM_SCHEMA_LOGIN_FORM}
         onSubmit={(values, actions) => {
             this.login(values.firstField, values.secondField);
             actions.resetForm();

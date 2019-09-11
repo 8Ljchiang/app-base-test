@@ -36,6 +36,7 @@
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.2.4",
     "@nestjs/platform-fastify": "^6.5.3",
+    "@types/yup": "^0.26.23",
     "apollo-server-fastify": "^2.7.0",
     "document-register-element": "1.13.1",
     "formik": "^1.5.8",
@@ -49,7 +50,8 @@
     "redux": "^4.0.4",
     "reflect-metadata": "^0.1.12",
     "type-graphql": "^0.17.4",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@angular/cli": "8.0.0",

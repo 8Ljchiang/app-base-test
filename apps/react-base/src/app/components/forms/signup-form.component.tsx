@@ -1,3 +1,4 @@
+import { INITIAL_VALUES_SIGNUP_FORM, FORM_SCHEMA_SIGNUP_FORM } from './signup-form.validation';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -16,7 +17,8 @@ export class SignupForm extends Component<any, any> {
   render() {
     return (
       <Formik
-        initialValues={{ username: '', email: '', password: '', inviteToken: '' }}
+        initialValues={INITIAL_VALUES_SIGNUP_FORM}
+        validationSchema={FORM_SCHEMA_SIGNUP_FORM}
         onSubmit={(values, actions) => {
           const { username, email, password, inviteToken } = values;
             this.signup(username, email, password, inviteToken);
