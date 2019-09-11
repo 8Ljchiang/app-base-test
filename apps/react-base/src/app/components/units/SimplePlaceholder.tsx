@@ -14,6 +14,7 @@ export const SimplePlaceholder = (props) => {
 
 const styles = {
   container: {
-    animation: 'g3faceplate 1s ease'
+    animation: 'g3faceplate 1s ease',
+    overflow: 'auto',
   }
 }

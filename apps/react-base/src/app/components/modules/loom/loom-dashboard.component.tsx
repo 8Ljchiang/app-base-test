@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './loom-dashboard.component.css';
 import { BannerLayout } from '../../layouts/BannerLayout';
 import { SimplePlaceholder } from '../../units/SimplePlaceholder';
+import { NarrowLayout } from '../../layouts/narrow.layout';
+import { CenterLayout } from '../../layouts/center.layout';
 
 export const LoomDashboard = (props) => {
   return (
@@ -14,30 +16,35 @@ export const LoomDashboard = (props) => {
       <p>Provides structure for pairing process</p>
       <p>Offers gamified experiences for pairing groups</p>
 
-      <div style={styles.rowContainer}>
+      {/* <div style={styles.rowContainer}> */}
+      <CenterLayout>
+        <NarrowLayout>
+          <SimplePlaceholder>
+            <h2>Create</h2>
+            <Link to={'/loom/community/pairing-create'}><h3>Pairing Activity</h3></Link>
+          </SimplePlaceholder>
 
-        <SimplePlaceholder>
-          <h2>Create</h2>
-          <Link to={'/loom/community/pairing-create'}><h3>Pairing Activity</h3></Link>
-        </SimplePlaceholder>
+          <SimplePlaceholder>
+            <h2>Profile</h2>
+            <Link to={'/loom/personal'}><h3>My Stuff</h3></Link>
+          </SimplePlaceholder>
 
-        <SimplePlaceholder>
-          <h2>Profile</h2>
-          <Link to={'/loom/personal'}><h3>My Stuff</h3></Link>
-        </SimplePlaceholder>
+          <SimplePlaceholder>
+            <h2>Community</h2>
+            <Link to={'/loom/community'}><h3>Available Activities</h3></Link>
+            <Link to={'/loom/community'}><h3>Users</h3></Link>
+          </SimplePlaceholder>
+        </NarrowLayout>
+      </CenterLayout>
 
-        <SimplePlaceholder>
-          <h2>Community</h2>
-          <Link to={'/loom/community'}><h3>Available Activities</h3></Link>
-          <Link to={'/loom/community'}><h3>Users</h3></Link>
-        </SimplePlaceholder>
+
         {/* <div style={styles.rowSegment}>
           <Link to={'/loom/personal'}><h3 style={styles.segmentTitle}>My Stuff</h3></Link>
         </div>
         <div style={styles.rowSegment}>
           <Link to={'/loom/community'}><h3 style={styles.segmentTitle}>Community Space</h3></Link>
         </div> */}
-      </div>
+      {/* </div> */}
       {/* <div style={styles.container}> */}
       {/* Welcome to Loom: Loom Dashboard */}
       {/* <DevFutureFeature

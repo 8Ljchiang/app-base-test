@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ViewPortLayout = (props) => {
+export const NarrowLayout = (props) => {
   const { children } = props;
   return (
     <div style={styles.container}>
@@ -13,10 +13,7 @@ const styles = {
   container: {
     display: 'flex',
     flexFlow: 'column',
-    height: '100vh',
-    width: '100%',
-    background: 'rgb(210, 212, 214)',
-    // background: 'rgb(34, 44, 55)',
+    width: '500px',
     overflow: 'auto'
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ViewPortLayout = (props) => {
+export const CenterLayout = (props) => {
   const { children } = props;
   return (
     <div style={styles.container}>
@@ -11,12 +11,10 @@ export const ViewPortLayout = (props) => {
 
 const styles = {
   container: {
-    display: 'flex',
+	display: 'flex',
     flexFlow: 'column',
-    height: '100vh',
-    width: '100%',
-    background: 'rgb(210, 212, 214)',
-    // background: 'rgb(34, 44, 55)',
-    overflow: 'auto'
+    alignItems: 'center',
+    overflow: 'auto',
+	width: '100%',
   }
 }

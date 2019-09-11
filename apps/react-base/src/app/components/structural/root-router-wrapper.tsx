@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { ModuleRoutesWrapper } from './module-routes-wrapper';
 import { NotFound } from '../units/NotFound';
 import { connect } from 'react-redux';
@@ -86,19 +86,19 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
             </Switch>
             <div className="frame__action-container">
             <div className="action-container">
-              Profile
+              <Link to={'/account'} style={styles.link}>Profile</Link>
             </div>
             <div className="action-container">
-              Modules
+              <Link to={'/gateway'} style={styles.link}>Modules</Link>
             </div>
             <div className="action-container">
-              Announcements
+              <Link to={'/announcements'} style={styles.link}>Announcements</Link>
             </div>
             <div className="action-container">
-              Roadmap
+              <Link to={'/roadmap'} style={styles.link}>Roadmap</Link>
             </div>
             <div className="action-container">
-              App Feedback
+              <Link to={'/feedback'} style={styles.link}>App Feedback</Link>
             </div>
           </div>
           </ExpFeedbackFrameScene>
@@ -106,6 +106,12 @@ export class RootRouterWrapper extends Component<IRootRouterWrapperProps, any> {
       )
     }
     return children;
+  }
+}
+
+const styles = {
+  link: {
+    color: 'black',
   }
 }
 

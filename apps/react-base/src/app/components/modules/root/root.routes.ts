@@ -91,12 +91,12 @@ export const mainRoutes = [
     component: ConnectedReduxNavigator,
     featureLink: AppFeature.TEST_NAV,
   },
-  {
-    name: 'Welcome',
-    path: '/welcome',
-    exact: true,
-    component: WelcomeScene,
-  },
+  // {
+  //   name: 'Welcome',
+  //   path: '/welcome',
+  //   exact: true,
+  //   component: WelcomeScene,
+  // },
   {
     name: 'Roadmap',
     path: '/roadmap',
@@ -109,12 +109,12 @@ export const mainRoutes = [
     exact: true,
     component: AppAnnouncementsScene
   },
-  {
-    name: 'ExperimentalFrame',
-    path: '/experimental',
-    exact: true,
-    component: ExpFeedbackFrameScene
-  }
+  // {
+  //   name: 'ExperimentalFrame',
+  //   path: '/experimental',
+  //   exact: true,
+  //   component: ExpFeedbackFrameScene
+  // }
   // {
   //   name: 'Sub Module',
   //   path: '/child-module',
