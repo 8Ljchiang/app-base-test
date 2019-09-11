@@ -1,5 +1,3 @@
-import { SignupInput } from './signup.actions';
-
 export enum ApplicationActionType {
   SET_ROUTE_SETS = 'APP_SET_ROUTE_SETS',
   ADD_ROUTE_SETS = 'APP_ADD_ROUTE_SETS',

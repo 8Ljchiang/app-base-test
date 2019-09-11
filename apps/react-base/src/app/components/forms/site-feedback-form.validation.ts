@@ -1,7 +1,16 @@
 import { createMinStringLengthMessage, createMaxStringLengthMessage, STRING_REQUIRED } from './../../core/configs/validation-messages.config';
 import * as Yup from 'yup';
 
-export const INITIAL_VALUES_SITE_FEEDBACK_FORM = {
+export interface ICreateFeedbackFormInput {
+  context: string;
+  category: string;
+  contact: string;
+  subject: string;
+  issueType: string;
+  desc: string;
+}
+
+export const INITIAL_VALUES_SITE_FEEDBACK_FORM: ICreateFeedbackFormInput = {
   context: 'route',
   category: 'site',
   contact: '',
