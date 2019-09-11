@@ -15,7 +15,7 @@ export class FeedbackListScene extends Component<any, any> {
     const { feedbackItems } = this.props; // From redux
 
     return (
-      <BannerLayout title={'Welcome'}>
+      <BannerLayout title={'Feedback List'}>
         <div style={styles.container}>
           <CenterLayout>
             <NarrowLayout>

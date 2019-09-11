@@ -1,3 +1,4 @@
+import { FeedbackListScene } from './../../scenes/feedback-list.scene';
 import { ExpFeedbackFrameScene } from './../../scenes/exp-feedback-frame.scene';
 import { AppAnnouncementsScene } from './../../scenes/app-announcements.scene';
 import { GatewayScene } from './../../scenes/gateway.scene';
@@ -81,7 +82,7 @@ export const mainRoutes = [
     name: 'Feedback List',
     path: '/feedback-list',
     exact: true,
-    component: FeedbackModule,
+    component: FeedbackListScene,
     featureLink: AppFeature.FEEDBACK_LIST,
   },
   {
