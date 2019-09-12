@@ -24,7 +24,11 @@ export function logNetworkResponseErrorHoc(networkFunction: (args: any) => INetw
 	return newNetworkFunction;
 }
 
-export function catchErrorInReduxReducer(func: (initialState: any, funcArgs: any) => any, failureResponse: any, errorContext: string): (state: any, args: any) => any {
+type BasicResolver = (initialState: any, funcArgs: any) => any;
+type BasicResolverWithService = (initialState: any, funcArgs: any, services?: any) => any;
+type CombinedResolverType = BasicResolver | BasicResolverWithService;
+
+export function catchErrorInReduxReducer(func: BasicResolverWithService, failureResponse: any, errorContext: string): BasicResolverWithService {
 	const newFunction = (state: any, args: any) => {
 		try {
 			return func(state, args);

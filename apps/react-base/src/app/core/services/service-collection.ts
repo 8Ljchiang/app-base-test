@@ -13,7 +13,7 @@ interface IServiceStore {
   [key: string]: any;
 }
 
-interface IServiceCollection {
+export interface IServiceCollection {
   registerService(cls: any, name?: string): void;
   get(serviceName: string): IOptional;
 }
