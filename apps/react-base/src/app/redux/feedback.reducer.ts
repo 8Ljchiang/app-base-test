@@ -3,6 +3,7 @@ import { IUpvoteFeedbackInput, FeedbackActionType, FeedbackActions } from './fee
 import { FeedbackStore, defaultFeedbackStore } from './feedback.store';
 import Log from '../core/services/log.service';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
+import { reduxReducerWithServiceCollection } from '../core/services/service-collection';
 
 const reducerName = 'FeedbackReducer';
 
@@ -48,3 +49,5 @@ export function feedbackReducer(
       return state;
   }
 }
+
+export const feedbackReducerWithServiceCollection = reduxReducerWithServiceCollection(feedbackReducer)
