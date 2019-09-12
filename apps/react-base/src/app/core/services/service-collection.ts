@@ -48,9 +48,10 @@ class ServiceResolver implements IServiceResolver {
     if (name) {
       // Todo: Check if name is chars only, and no spaces.
       if (true) {
-
+        this._addService(cls, cls.constructor.name);
+      } else {
+        throw new Error("Invalid service name");
       }
-      throw new Error("Invalid service name");
     }
     this._addService(cls, cls.constructor.name);
   }

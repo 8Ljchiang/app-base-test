@@ -4,6 +4,8 @@ import { SimplePlaceholder } from '../units/SimplePlaceholder';
 import { BannerLayout } from '../layouts/BannerLayout';
 import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
+import { FeedbackList } from '../units/feedback-list.component';
+import { connect } from 'react-redux';
 
 export class FeedbackListScene extends Component<any, any> {
   constructor(props) {
@@ -12,6 +14,7 @@ export class FeedbackListScene extends Component<any, any> {
 
   render() {
     const selectionOptions = [];
+    const filterOptions = [];
     const { feedbackItems } = this.props; // From redux
 
     return (
@@ -21,7 +24,7 @@ export class FeedbackListScene extends Component<any, any> {
             <NarrowLayout>
               Select sort by dropdown
               Select Type Dropdown
-              Feedback Item List
+              <FeedbackList feedbackItems={feedbackItems}/>
             </NarrowLayout>
           </CenterLayout>
         </div>
@@ -36,6 +39,13 @@ const styles = {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    feedbackItems: state.feedback.feedbackItems
+  }
+}
+
+export const ConnectedFeedbackListScene = connect(mapStateToProps, null)(FeedbackListScene);
 // TODO: Connect to redux, add seed data to view test feedback items.
 // TODO: Create the ability to upvote certain feedback.
 // Consider making a mock service that will handle this thing.
