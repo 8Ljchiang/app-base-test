@@ -1,3 +1,4 @@
+import { MockPostsService } from './mocks/mock-posts.service';
 import { appConfig } from './../configs/app.config';
 import Log from './log.service';
 import { MockFeedbackService } from './mocks/mock-feedback.service';
@@ -94,7 +95,8 @@ class ServiceCollection implements IServiceCollection {
 function buildMockServiceCollection(): IServiceCollection {
   const serviceResolver = new ServiceResolver();
   return new ServiceCollection(serviceResolver)
-    .registerService(MockFeedbackService, 'FeedbackService');
+    .registerService(MockFeedbackService, 'FeedbackService')
+    .registerService(MockPostsService, 'PostsService');
 }
 
 function buildServiceCollection(): IServiceCollection {
