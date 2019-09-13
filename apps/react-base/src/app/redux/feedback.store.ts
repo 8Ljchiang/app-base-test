@@ -10,6 +10,7 @@ export interface FeedbackItem {
   desc: string;
   context: string;
   upvotes: number;
+  issueType: string;
 }
 
 export interface FeedbackStore {
@@ -26,6 +27,7 @@ const seedItems: FeedbackItem[] = [
     desc: 'desc-1',
     context: 'global',
     upvotes: 1,
+    issueType: 'bug',
   },
   {
     id: '2',
@@ -36,6 +38,7 @@ const seedItems: FeedbackItem[] = [
     desc: 'desc-2',
     context: 'global',
     upvotes: 2,
+    issueType: 'feature-request',
   },
   {
     id: '3',
@@ -46,6 +49,7 @@ const seedItems: FeedbackItem[] = [
     desc: 'desc-3',
     context: 'global',
     upvotes: 3,
+    issueType: 'feedback',
   },
   {
     id: '4',
@@ -56,6 +60,7 @@ const seedItems: FeedbackItem[] = [
     desc: 'desc-4',
     context: 'global',
     upvotes: 4,
+    issueType: 'feedback',
   },
 ];
 

@@ -12,20 +12,63 @@ import { upvoteFeedbackItem } from '../../redux/feedback.actions';
 export class FeedbackListScene extends Component<any, any> {
   constructor(props) {
     super(props);
+
+    this.state = {
+      sortByField: 'upvotes',
+      filterByType: ''
+    }
+
+    this.onSortByChange = this.onSortByChange.bind(this);
+    this.onFilterByTypeChange = this.onFilterByTypeChange.bind(this);
+  }
+
+  onSortByChange(event) {
+    const { value } = event.target;
+    this.setState({
+      sortByField: value
+    });
+  }
+
+  onFilterByTypeChange(event) {
+    const { value } = event.target;
+    this.setState({
+      filterByType: value
+    });
   }
 
   render() {
-    const selectionOptions = [];
-    const filterOptions = [];
     const { feedbackItems, actions } = this.props; // From redux
+    const { sortByField, filterByType } = this.state;
+
+    const feedbackItemTypes: string[] = feedbackItems.map(item => item.issueType);
+    const filterOptions: string[] = [...new Set(feedbackItemTypes)];
+    const sortOptions = ['upvotes', 'createdAt'];
+
+    let resultItems = feedbackItems;
+
+    if (filterByType) {
+      resultItems = resultItems.filter(item => item.issueType === filterByType);
+    }
+
+    if (sortByField) {
+      resultItems = resultItems.sort((a, b) => a[sortByField] < b[sortByField] ? 1 : -1);
+    }
+
     return (
       <BannerLayout title={'Feedback List'}>
         <div style={styles.container}>
           <CenterLayout>
             <NarrowLayout>
-              Select sort by dropdown
-              Select Type Dropdown
-              <FeedbackList feedbackItems={feedbackItems} actions={actions} />
+              Sort By:
+              <select onChange={this.onSortByChange}>
+                { sortOptions.map(option => <option value={option}>{option}</option>) }
+              </select>
+              Select Type:
+              <select onChange={this.onFilterByTypeChange}>
+                <option value={''}>all</option>
+                { filterOptions.map(option => <option value={option}>{option}</option>) }
+              </select>
+              <FeedbackList feedbackItems={resultItems} actions={actions} />
             </NarrowLayout>
           </CenterLayout>
         </div>
