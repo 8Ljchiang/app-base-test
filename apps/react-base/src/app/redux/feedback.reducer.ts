@@ -16,6 +16,7 @@ const upvoteFeedbackResolver = (initialState: FeedbackStore, payload: IUpvoteFee
   const feedbackItemId = payload.id;
   if (networkResponse.errors && networkResponse.errors.length > 0) {
     Log.error(new Error(networkResponse.errors[0]), 'FeedbackService.upvoteFeedbackItem');
+    return initialState;
   }
 
   if (networkResponse.data.success === true) {
@@ -45,7 +46,6 @@ function feedbackReducer(
   switch(action.type) {
     case FeedbackActionType.UPVOTE_FEEDBACK_ITEM:
       const service = services.get('FeedbackService').getValue();
-      console.log('feedbackReducer:', service);
       // TODO: add is authenticated hoc, making it available across various stores.
       return catchErrorInReduxReducer(upvoteFeedbackResolver, state, createLogContext(reducerName, action.type))(state, action.payload, service);
     default:
