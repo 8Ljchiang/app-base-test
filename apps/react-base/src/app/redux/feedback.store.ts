@@ -1,6 +1,3 @@
-import { AppFeature } from './../core/configs/feature.config';
-import { SignupInput } from './signup.actions';
-
 export interface FeedbackItem {
   id: string;
   createdAt: number;
