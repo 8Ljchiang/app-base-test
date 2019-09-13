@@ -9,9 +9,8 @@ import { IServiceCollection } from '../core/services/service-collection';
 
 const reducerName = 'FeedbackReducer';
 
-const upvoteFeedbackItem = (initialState: FeedbackStore, payload: IUpvoteFeedbackInput, feedbackService: IFeedbackService) => {
+const upvoteFeedbackResolver = (initialState: FeedbackStore, payload: IUpvoteFeedbackInput, feedbackService: IFeedbackService) => {
   Log.info('FeedbackAction', FeedbackActionType.UPVOTE_FEEDBACK_ITEM, 'FeedbackReducer');
-
   const networkResponse = feedbackService.upvoteFeedback(payload.id);
   const feedbackItemId = payload.id;
   if (networkResponse.errors && networkResponse.errors.length > 0) {
@@ -44,8 +43,10 @@ function feedbackReducer(
 ) {
   switch(action.type) {
     case FeedbackActionType.UPVOTE_FEEDBACK_ITEM:
+      const service = services.get('FeedbackService').getValue();
+      console.log('feedbackReducer:', service);
       // TODO: add is authenticated hoc, making it available across various stores.
-      return catchErrorInReduxReducer(upvoteFeedbackItem, state, createLogContext(reducerName, action.type))(state, action.payload, services.get('FeedbackService').getValue());
+      return catchErrorInReduxReducer(upvoteFeedbackResolver, state, createLogContext(reducerName, action.type))(state, action.payload, service);
     default:
       return state;
   }

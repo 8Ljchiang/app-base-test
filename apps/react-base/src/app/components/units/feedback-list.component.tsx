@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 
-const FeedbackListItem = (props) => {
-  const { title, desc } = props.feedbackItem;
-  return (
-    <div style={styles.feedbackItemContainer}>
-      {title} - {desc}
-    </div>
-  );
+class FeedbackListItem extends Component<any, any> {
+  upvote() {
+    const { upvoteFeedbackItem } = this.props.actions;
+    const { id } = this.props.feedbackItem;
+    upvoteFeedbackItem({ id })
+  }
+
+  render() {
+    const { title, desc, upvotes } = this.props.feedbackItem;
+    return (
+      <div style={styles.feedbackItemContainer}>
+        <p>{title} - {desc} - likes: {upvotes}</p>
+        <button onClick={this.upvote.bind(this)}> Upvote </button>
+      </div>
+    );
+  }
 }
 
 export class FeedbackList extends Component<any, any> {
   renderItems(items: any) {
+    const { actions } = this.props;
     return items.map((feedbackItem, index) => {
-      return <FeedbackListItem key={index} feedbackItem={feedbackItem} />;
+      return <FeedbackListItem key={index} feedbackItem={feedbackItem} actions={actions}/>;
     });
   }
 
@@ -32,6 +42,8 @@ const styles = {
     flexFlow: 'column',
   },
   feedbackItemContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
     border: '1px dashed gray',
     marginBottom: '4px',
   }

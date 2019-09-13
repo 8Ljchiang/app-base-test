@@ -6,6 +6,8 @@ import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
 import { FeedbackList } from '../units/feedback-list.component';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { upvoteFeedbackItem } from '../../redux/feedback.actions';
 
 export class FeedbackListScene extends Component<any, any> {
   constructor(props) {
@@ -15,8 +17,7 @@ export class FeedbackListScene extends Component<any, any> {
   render() {
     const selectionOptions = [];
     const filterOptions = [];
-    const { feedbackItems } = this.props; // From redux
-
+    const { feedbackItems, actions } = this.props; // From redux
     return (
       <BannerLayout title={'Feedback List'}>
         <div style={styles.container}>
@@ -24,7 +25,7 @@ export class FeedbackListScene extends Component<any, any> {
             <NarrowLayout>
               Select sort by dropdown
               Select Type Dropdown
-              <FeedbackList feedbackItems={feedbackItems}/>
+              <FeedbackList feedbackItems={feedbackItems} actions={actions} />
             </NarrowLayout>
           </CenterLayout>
         </div>
@@ -45,7 +46,15 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const ConnectedFeedbackListScene = connect(mapStateToProps, null)(FeedbackListScene);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({
+      upvoteFeedbackItem
+    }, dispatch)
+  };
+}
+
+export const ConnectedFeedbackListScene = connect(mapStateToProps, mapDispatchToProps)(FeedbackListScene);
 // TODO: Connect to redux, add seed data to view test feedback items.
 // TODO: Create the ability to upvote certain feedback.
 // Consider making a mock service that will handle this thing.

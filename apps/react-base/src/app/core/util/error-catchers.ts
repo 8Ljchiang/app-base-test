@@ -29,9 +29,9 @@ type BasicResolverWithService = (initialState: any, funcArgs: any, services?: an
 type CombinedResolverType = BasicResolver | BasicResolverWithService;
 
 export function catchErrorInReduxReducer(func: BasicResolverWithService, failureResponse: any, errorContext: string): BasicResolverWithService {
-	const newFunction = (state: any, args: any) => {
+	const newFunction = (state: any, args: any, service?: any) => {
 		try {
-			return func(state, args);
+			return func(state, args, service);
 		} catch (err) {
 			Log.error(err, errorContext);
 			return failureResponse;

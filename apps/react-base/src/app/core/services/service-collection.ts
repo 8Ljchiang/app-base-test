@@ -48,18 +48,18 @@ class ServiceResolver implements IServiceResolver {
     if (name) {
       // Todo: Check if name is chars only, and no spaces.
       if (true) {
-        this._addService(cls, cls.constructor.name);
+        this._addService(cls, name);
       } else {
         throw new Error("Invalid service name");
       }
+    } else {
+      this._addService(cls, cls.constructor.name);
     }
-    this._addService(cls, cls.constructor.name);
   }
 
   getService(name: string): Optional<unknown> {
     const service = this._retriveService(name);
-    const result = Optional.of(service);
-
+    const result = new Optional(service);
     if (result.isSome()) {
       return result;
     }
@@ -70,8 +70,8 @@ class ServiceResolver implements IServiceResolver {
     return this._serviceStore[name];
   }
 
-  private _addService(cls: any, name: string): void {
-    const service = new cls();
+  private _addService(Stuff: any, name: string): void {
+    const service = new Stuff();
     this._serviceStore[name] = Object.freeze(service);
   }
 }

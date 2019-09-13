@@ -24,7 +24,7 @@ export interface IUpvoteFeedbackInput {
   id: string;
 }
 
-export function upvoteFeedbackItem(input: { id: string}) {
+export function upvoteFeedbackItem(input: IUpvoteFeedbackInput) {
   return {
     type: FeedbackActionType.UPVOTE_FEEDBACK_ITEM,
     payload: input
