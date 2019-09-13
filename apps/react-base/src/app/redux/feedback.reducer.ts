@@ -9,6 +9,7 @@ import { IServiceCollection } from '../core/services/service-collection';
 
 const reducerName = 'FeedbackReducer';
 
+// TODO: Update resolver to have more realistic upvoting later.
 const upvoteFeedbackResolver = (initialState: FeedbackStore, payload: IUpvoteFeedbackInput, feedbackService: IFeedbackService) => {
   Log.info('FeedbackAction', FeedbackActionType.UPVOTE_FEEDBACK_ITEM, 'FeedbackReducer');
   const networkResponse = feedbackService.upvoteFeedback(payload.id);
@@ -30,7 +31,7 @@ const upvoteFeedbackResolver = (initialState: FeedbackStore, payload: IUpvoteFee
   return initialState;
 }
 
-const createFeedbackItem = (initialState: FeedbackStore, payload: any) => {};
+const createFeedbackItem = (initialState: FeedbackStore, payload: any, services: any) => {};
 
 function createLogContext(name: string, reducerActionType: any) {
   return `${name}: ${reducerActionType}`;
