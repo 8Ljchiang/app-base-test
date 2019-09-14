@@ -1,3 +1,4 @@
+import { IAppStore } from './../core/interfaces/IAppStore';
 import { combineReducers } from 'redux';
 import { accountReducer } from './account.reducers';
 import { signupReducer } from './signup.reducers';
@@ -11,10 +12,13 @@ import { postsReducerWithServiceCollection } from './posts.reducer';
 // TODO: Add react saga login ability to redirect with reach router
 // TODO: Add react saga intercepts that allow checks for authentication before redux resolver action
 
-export const rootReducer = combineReducers({
+const reducerSet: { [key in keyof IAppStore]: any} = {
   account: accountReducer,
   app: applicationReducer,
   feedback: feedbackReducerWithServiceCollection,
-  posts: postsReducerWithServiceCollection
+  posts: postsReducerWithServiceCollection,
+  exercises: {}
   // signup: signupReducer
-});
+};
+
+export const rootReducer = combineReducers(reducerSet);
