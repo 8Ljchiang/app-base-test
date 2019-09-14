@@ -1,19 +1,26 @@
 import * as Yup from 'yup';
 
-export const INITIAL_VALUES_CREATE_POST = { postContent: '' };
+import { createMinStringLengthMessage, createMaxStringLengthMessage, STRING_REQUIRED } from './../../core/configs/validation-messages.config';
+import { ICreatePostFormInput } from './../../core/services/mocks/mock-posts.service';
+
+export const INITIAL_VALUES_CREATE_POST: ICreatePostFormInput = {
+  title: '',
+  message: '',
+  context: 'pair',
+  type: 'message',
+};
 
 export const FORM_SCHEMA_CREATE_POST = Yup.object().shape({
-	postContent: Yup.string()
-		.min(3, 'Must be at least 3 characters.')
-		.max(240, 'Max length is 240 characters.')
-		.required('Input is required.'),
-	// email: Yup.string()
-	// 	.email('Invalid email address')
-	// 	.required('Email is required.'),
-	// phone: Yup.string()
-	// 	.matches(phoneRegExp, 'Phone number is not valid.'),
-	// title: Yup.string()
-	// 	.min(2, 'Must be at least 2 characters.')
-	// 	.max(3, 'Max length is 3 characters.')
-	// 	.required('Title is required.'),
+	title: Yup.string()
+		.min(4, createMinStringLengthMessage(4))
+		.max(32, createMaxStringLengthMessage(32))
+    .required(STRING_REQUIRED),
+  message: Yup.string()
+    .min(4, createMinStringLengthMessage(4))
+    .max(256, createMaxStringLengthMessage(256))
+    .required(STRING_REQUIRED),
+  context: Yup.string()
+    .required(STRING_REQUIRED),
+  type: Yup.string()
+    .required(STRING_REQUIRED)
 });
