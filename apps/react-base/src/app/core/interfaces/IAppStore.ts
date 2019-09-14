@@ -6,5 +6,6 @@ export interface IAppStore {
   account: AccountStore,
   app: ApplicationStore,
   feedback: FeedbackStore
-  posts: PostsStore
+  posts: PostsStore,
+  exercises: any
 }
