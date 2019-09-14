@@ -1,3 +1,4 @@
+import { ExercisesModule } from './../exercises/exercises.module';
 import { FeedbackListScene, ConnectedFeedbackListScene } from './../../scenes/feedback-list.scene';
 import { ExpFeedbackFrameScene } from './../../scenes/exp-feedback-frame.scene';
 import { AppAnnouncementsScene } from './../../scenes/app-announcements.scene';
@@ -70,6 +71,12 @@ export const mainRoutes = [
     exact: false,
     component: ForgeModule,
     featureLink: AppFeature.FORGE,
+  },
+  {
+    name: 'Exercises',
+    path: '/exercises',
+    exact: true,
+    component: ExercisesModule,
   },
   {
     name: 'Feedback',

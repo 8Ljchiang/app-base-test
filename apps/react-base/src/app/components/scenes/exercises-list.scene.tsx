@@ -76,12 +76,12 @@ class ExercisesListScene extends Component<any, any> {
       <div style={styles.listContainer}>
         Sort By:
         <select onChange={this.onChangeSortBy}>
-          { sortOptions.map(option => <option value={option}>{option}</option>) }
+          { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
         </select>
         Select Type:
         <select onChange={this.onChangeFilterBy}>
           <option value={''}>all</option>
-          { filterOptions.map(option => <option value={option}>{option}</option>) }
+          { filterOptions.map((option, index)=> <option key={index} value={option}>{option}</option>) }
         </select>
         { this.renderExercises(resultItems) }
       </div>

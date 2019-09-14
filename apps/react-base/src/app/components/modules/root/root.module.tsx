@@ -9,6 +9,7 @@ import { ConnectedReduxNavigator } from '../../units/ReduxNavigator';
 import { ExpFeedbackFrameScene } from '../../scenes/exp-feedback-frame.scene';
 import { AppProjectPlan } from '../../units/project-plan.component';
 import { SiteElementKey } from '../../units/site-element-key.component';
+import { ModuleNames } from '../../../core/interfaces/ModuleNames';
 interface IModuleComponentProps {
   moduleName: string;
   routes: any[];
@@ -21,7 +22,7 @@ export class RootModule extends Component<any, any> {
       <ViewPortLayout>
         {/* <ExpFeedbackFrameScene> */}
           <ConnectedModuleRoot
-            moduleName={'RootModule'}
+            moduleName={ModuleNames.ROOT}
             rootPath={''}
             noMatch={NotFound}
             routes={mainRoutes}

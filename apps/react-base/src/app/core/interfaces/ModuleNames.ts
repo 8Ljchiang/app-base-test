@@ -1,4 +1,5 @@
 export enum ModuleNames {
+  ROOT = 'RootModule',
   ACCOUNT = 'AccountModule',
   FEEDBACK = 'FeedbackModule',
   EXERCISES = 'ExercisesModule',

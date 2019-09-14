@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { ModuleNames } from '../../../core/interfaces/ModuleNames';
 import { ConnectedExercisesListScene } from '../../scenes/exercises-list.scene';
 
-export const FeedbackModule = (props) => {
+export const ExercisesModule = (props) => {
   const { match } = props;
   const root = match.path;
   return (
