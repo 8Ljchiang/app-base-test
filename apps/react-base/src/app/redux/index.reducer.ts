@@ -1,3 +1,4 @@
+import { exercisesReducerWithServiceCollection } from './exercises.reducer';
 import { IAppStore } from './../core/interfaces/IAppStore';
 import { combineReducers } from 'redux';
 import { accountReducer } from './account.reducers';
@@ -17,7 +18,7 @@ const reducerSet: { [key in keyof IAppStore]: any} = {
   app: applicationReducer,
   feedback: feedbackReducerWithServiceCollection,
   posts: postsReducerWithServiceCollection,
-  exercises: {}
+  exercises: exercisesReducerWithServiceCollection
   // signup: signupReducer
 };
 
