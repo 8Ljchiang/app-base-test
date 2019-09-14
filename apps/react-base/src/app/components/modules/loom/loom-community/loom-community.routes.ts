@@ -1,3 +1,4 @@
+import { ConnectedPostsListScene } from './../../../scenes/posts-list.scene';
 import { LoomCommunityCreatePairing } from './create-pairing-activity.component';
 import { LoomCommunityProfiles } from './profiles.component';
 import { LoomCommunityPosts } from './posts-component';
@@ -17,7 +18,8 @@ export const loomCommunityRoutes = [
   {
     path: '/posts',
     exact: true,
-    component: LoomCommunityPosts,
+    component: ConnectedPostsListScene
+    // component: LoomCommunityPosts,
   },
   {
     path: '/profiles',

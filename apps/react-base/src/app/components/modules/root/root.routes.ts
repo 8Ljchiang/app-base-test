@@ -19,7 +19,6 @@ import { Gateway2 } from './../../pages/Gateway2';
 import { Gateway3 } from '../../pages/Gateway3';
 import { ForgeModule } from '../forge/forge.module';
 import { AppRoadmapScene } from '../../scenes/app-roadmap.scene';
-import { ConnectedPostListScene } from '../../scenes/posts-list.scene';
 
  // Set 'exact' to false if there are child routes, or module has routes.
 
@@ -59,8 +58,8 @@ export const mainRoutes = [
     component: GatewayScene,
   },
   {
-    name: 'Loom',
-    path: '/loom',
+    name: 'Pairing',
+    path: '/pairing',
     exact: false,
     component: LoomModule,
     featureLink: AppFeature.LOOM,
@@ -84,13 +83,6 @@ export const mainRoutes = [
     path: '/feedback-list',
     exact: true,
     component: ConnectedFeedbackListScene,
-    // featureLink: AppFeature.FEEDBACK_LIST,
-  },
-  {
-    name: 'Post List',
-    path: '/post-list',
-    exact: true,
-    component: ConnectedPostListScene,
     // featureLink: AppFeature.FEEDBACK_LIST,
   },
   {

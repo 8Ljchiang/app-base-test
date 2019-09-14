@@ -21,18 +21,18 @@ export const LoomDashboard = (props) => {
         <NarrowLayout>
           <SimplePlaceholder>
             <h2>Create</h2>
-            <Link to={'/loom/community/pairing-create'}><h3>Pairing Activity</h3></Link>
+            <Link to={'/pairing/community/pairing-create'}><h3>Pairing Activity</h3></Link>
           </SimplePlaceholder>
 
           <SimplePlaceholder>
             <h2>Profile</h2>
-            <Link to={'/loom/personal'}><h3>My Stuff</h3></Link>
+            <Link to={'/pairing/personal'}><h3>My Stuff</h3></Link>
           </SimplePlaceholder>
 
           <SimplePlaceholder>
             <h2>Community</h2>
-            <Link to={'/loom/community'}><h3>Available Activities</h3></Link>
-            <Link to={'/loom/community'}><h3>Users</h3></Link>
+            <Link to={'/pairing/community/activities'}><h3>Pairing Activities</h3></Link>
+            <Link to={'/pairing/community/posts'}><h3>Pairing Posts</h3></Link>
           </SimplePlaceholder>
         </NarrowLayout>
       </CenterLayout>

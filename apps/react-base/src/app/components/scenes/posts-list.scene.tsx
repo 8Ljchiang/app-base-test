@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { BannerLayout } from '../layouts/BannerLayout';
 import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
-import { FeedbackList } from '../units/feedback-list.component';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { upvoteFeedbackItem } from '../../redux/feedback.actions';
+import { ConnectedCreatePostForm } from '../forms/create-post-form.component';
+import { PostsList } from '../units/posts-list.component';
 
-export class PostListScene extends Component<any, any> {
+export class PostsListScene extends Component<any, any> {
   constructor(props) {
     super(props);
 
@@ -35,14 +34,14 @@ export class PostListScene extends Component<any, any> {
   }
 
   render() {
-    const { postItems, actions } = this.props; // From redux
+    const { posts } = this.props; // From redux
     const { sortByField, filterByType } = this.state;
 
-    const feedbackItemTypes: string[] = postItems.map(item => item.issueType);
-    const filterOptions: string[] = [...new Set(feedbackItemTypes)];
+    const itemTypes: string[] = posts.map(item => item.type);
+    const filterOptions: string[] = [...new Set(itemTypes)];
     const sortOptions = ['createdAt'];
 
-    let resultItems = postItems;
+    let resultItems = posts;
 
     if (filterByType) {
       resultItems = resultItems.filter(item => item.issueType === filterByType);
@@ -57,6 +56,7 @@ export class PostListScene extends Component<any, any> {
         <div style={styles.container}>
           <CenterLayout>
             <NarrowLayout>
+              <ConnectedCreatePostForm />
               Sort By:
               <select onChange={this.onSortByChange}>
                 { sortOptions.map(option => <option value={option}>{option}</option>) }
@@ -66,7 +66,7 @@ export class PostListScene extends Component<any, any> {
                 <option value={''}>all</option>
                 { filterOptions.map(option => <option value={option}>{option}</option>) }
               </select>
-              {/* <FeedbackList feedbackItems={resultItems} actions={actions} /> */}
+              <PostsList posts={resultItems} />
             </NarrowLayout>
           </CenterLayout>
         </div>
@@ -83,16 +83,8 @@ const styles = {
 
 const mapStateToProps = (state) => {
   return {
-    feedbackItems: state.feedback.feedbackItems
+    posts: state.posts.posts
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators({
-      upvoteFeedbackItem
-    }, dispatch)
-  };
-}
-
-export const ConnectedPostListScene = connect(mapStateToProps, mapDispatchToProps)(PostListScene);
+export const ConnectedPostsListScene = connect(mapStateToProps, null)(PostsListScene);
