@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { IAppStore } from '../../core/interfaces/IAppStore';
+import { CenterLayout } from '../layouts/center.layout';
+import { NarrowLayout } from '../layouts/narrow.layout';
 
 class ExerciseItem extends Component<any, any> {
   render() {
     const { title } = this.props.exercise;
     return (
-      <div>
+      <div style={styles.itemContainer}>
         <p>{title}</p>
       </div>
     );
@@ -54,7 +56,7 @@ class ExercisesListScene extends Component<any, any> {
     let resultItems = items;
 
     if (filterBy) {
-      resultItems =  resultItems.filter((item) => item.topic == filterBy);
+      resultItems =  resultItems.filter((item) => item.topic === filterBy);
     }
 
     if (sortBy) {
@@ -65,26 +67,29 @@ class ExercisesListScene extends Component<any, any> {
   }
 
   render() {
-    // const { exerciseItems } = this.props;
-    const exerciseItems = [];
-    const itemTypes: string[] = exerciseItems.map(item => item.category);
+    const { exerciseItems } = this.props;
+    const itemTypes: string[] = exerciseItems.map(item => item.topic);
     const filterOptions: string[] = [...new Set(itemTypes)];
     const sortOptions = ['createdAt'];
     const resultItems = this.processItems(exerciseItems);
 
     return (
-      <div style={styles.listContainer}>
-        Sort By:
-        <select onChange={this.onChangeSortBy}>
-          { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
-        </select>
-        Select Type:
-        <select onChange={this.onChangeFilterBy}>
-          <option value={''}>all</option>
-          { filterOptions.map((option, index)=> <option key={index} value={option}>{option}</option>) }
-        </select>
-        { this.renderExercises(resultItems) }
-      </div>
+      <CenterLayout>
+        <NarrowLayout>
+          <div style={styles.listContainer}>
+            Sort By:
+            <select onChange={this.onChangeSortBy}>
+              { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
+            </select>
+            Select Type:
+            <select onChange={this.onChangeFilterBy}>
+              <option value={''}>all</option>
+              { filterOptions.map((option, index)=> <option key={index} value={option}>{option}</option>) }
+            </select>
+            { this.renderExercises(resultItems) }
+          </div>
+        </NarrowLayout>
+      </CenterLayout>
     );
   }
 }
@@ -93,6 +98,11 @@ const styles = {
   listContainer: {
     display: 'flex',
     flexFlow: 'column',
+  },
+  itemContainer: {
+    border: '1px dashed gray',
+    padding: '4px',
+    marginBottom: '4px'
   }
 }
 

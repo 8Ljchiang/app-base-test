@@ -2,6 +2,7 @@ export interface ExerciseItem {
   id: string;
   createdAt: number;
   author: string;
+  repo: string;
   title: string;
   desc: string;
   topic: string;
@@ -24,7 +25,8 @@ const seedItems: ExerciseItem[] = [
     topic: 'typescript',
     category: 'practice',
     domain: 'backend',
-    type: 'default'
+    type: 'default',
+    repo: 'repo',
   },
   {
     id: '2',
@@ -35,7 +37,8 @@ const seedItems: ExerciseItem[] = [
     topic: 'typescript',
     category: 'practice',
     domain: 'backend',
-    type: 'default'
+    type: 'default',
+    repo: 'repo',
   },
   {
     id: '3',
@@ -46,7 +49,8 @@ const seedItems: ExerciseItem[] = [
     topic: 'typescript',
     category: 'practice',
     domain: 'backend',
-    type: 'default'
+    type: 'default',
+    repo: 'repo',
   },
 ];
 

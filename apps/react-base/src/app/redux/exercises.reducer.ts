@@ -1,7 +1,7 @@
 import { ServiceNames } from './../core/interfaces/ServiceNames';
 import { IServiceCollection, reduxReducerWithServiceCollection } from './../core/services/service-collection';
 import { ExercisesActionType, ExerciseActions, ICreateExerciseFormInput } from './exercises.actions';
-import { ExercisesStore } from './exercises.store';
+import { ExercisesStore, defaultExercisesStore } from './exercises.store';
 import { ICreateActivityFormInput } from '../components/forms/create-activity-form.validation';
 import { resolverWithLogging, createLogContext } from '../core/util/reduxResolver.utils';
 import Log from '../core/services/log.service';
@@ -40,7 +40,7 @@ const createExerciseResolver = resolverWithLogging(
 );
 
 function exercisesReducer(
-  state: ExercisesStore,
+  state: ExercisesStore = defaultExercisesStore,
   action: ExerciseActions,
   services: IServiceCollection
 ) {

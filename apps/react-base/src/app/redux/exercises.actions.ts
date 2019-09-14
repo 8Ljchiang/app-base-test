@@ -10,6 +10,7 @@ export interface ICreateExerciseFormInput {
   topic: string;
   type: string;
   domain: string;
+  repo: string;
 }
 
 interface CreateExerciseAction {
