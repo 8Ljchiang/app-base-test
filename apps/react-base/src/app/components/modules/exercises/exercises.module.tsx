@@ -2,9 +2,9 @@ import React from 'react';
 import { ModuleComponent } from '../../structural/module';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
-import { FeedbackForm } from './feedback-form.component';
 import { BannerLayout } from '../../layouts/BannerLayout';
 import { Link } from 'react-router-dom';
+import { ModuleNames } from '../../../core/interfaces/ModuleNames';
 
 export const FeedbackModule = (props) => {
   const { match } = props;
@@ -14,13 +14,11 @@ export const FeedbackModule = (props) => {
       <ModuleComponent
         rootPath={root}
         noMatch={NotFound}
-        moduleName={'FeedbackModule'}
+        moduleName={ModuleNames.EXERCISES}
         routes={[]}
         fallback={DefaultErrorFallback}>
-          <BannerLayout title={"Feedback"}>
-            {/* <Link to={'/welcome'}>Home</Link> */}
-            <Link to={'/feedback-list'}>View Feedback</Link>
-            <FeedbackForm/>
+          <BannerLayout title={'Exercises'}>
+
           </BannerLayout>
       </ModuleComponent>
     </div>

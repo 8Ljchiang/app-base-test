@@ -2,6 +2,7 @@ import { MockPostsService } from './mocks/mock-posts.service';
 import { appConfig } from './../configs/app.config';
 import Log from './log.service';
 import { MockFeedbackService } from './mocks/mock-feedback.service';
+import { ServiceNames } from '../interfaces/ServiceNames';
 
 
 interface IOptional {
@@ -82,7 +83,7 @@ class ServiceCollection implements IServiceCollection {
     private _serviceResolver: ServiceResolver
   ) {}
 
-  registerService(cls: any, name?: string) {
+  registerService(cls: any, name?: string | ServiceNames) {
     this._serviceResolver.setService(cls, name);
     return this;
   }
@@ -95,8 +96,8 @@ class ServiceCollection implements IServiceCollection {
 function buildMockServiceCollection(): IServiceCollection {
   const serviceResolver = new ServiceResolver();
   return new ServiceCollection(serviceResolver)
-    .registerService(MockFeedbackService, 'FeedbackService')
-    .registerService(MockPostsService, 'PostsService');
+    .registerService(MockFeedbackService, ServiceNames.FEEDBACK)
+    .registerService(MockPostsService, ServiceNames.POSTS);
 }
 
 function buildServiceCollection(): IServiceCollection {

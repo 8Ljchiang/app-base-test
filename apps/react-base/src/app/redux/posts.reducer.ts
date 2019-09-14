@@ -4,6 +4,7 @@ import Log from '../core/services/log.service';
 import { IServiceCollection, reduxReducerWithServiceCollection } from '../core/services/service-collection';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
 import { ICreatePostFormInput } from '../core/services/mocks/mock-posts.service';
+import { ServiceNames } from '../core/interfaces/ServiceNames';
 
 const reducerName = 'PostsReducer';
 const actionCategory = 'PostsAction';
@@ -22,7 +23,7 @@ const createPostResolver = resolverWithLogging(
     const networkResponse = postsService.createPost(payload);
 
     if (networkResponse.errors && networkResponse.errors.length > 0) {
-      Log.error(new Error(networkResponse.errors[0]), 'PostsService.createPost');
+      Log.error(new Error(networkResponse.errors[0]), `${ServiceNames.POSTS}.createPost`);
     }
 
     if (networkResponse.data.success === true) {
@@ -59,7 +60,7 @@ function postsReducer(
 ) {
   switch(action.type) {
     case PostsActionType.CREATE_POST:
-      const postsService = services.get('PostsService').getValue();
+      const postsService = services.get(ServiceNames.POSTS).getValue();
       return catchErrorInReduxReducer(
         createPostResolver,
         state,

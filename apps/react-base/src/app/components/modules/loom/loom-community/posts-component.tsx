@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ConnectedCreatePostForm } from '../../../forms/create-post-form.component';
+// import { ConnectedCreatePostForm } from '../../../forms/create-post-form.component';
 import { ItemCard } from '../../../units/ListItemCard';
 
 const userPosts = [
@@ -61,7 +61,7 @@ export class LoomCommunityPosts extends Component<any, any> {
           <div style={styles.containerColumn}>
             <h2>Posts</h2>
             { this.renderPosts(userPosts) }
-            <ConnectedCreatePostForm/>
+            {/* <ConnectedCreatePostForm/> */}
           </div>
         </div>
       </>
