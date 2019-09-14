@@ -6,7 +6,7 @@ export class LoomCommunityProfiles extends Component<any, any> {
   render() {
     return (
       <>
-        <p>Loom Community Profiles: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
+        <p>Loom Community Profiles: <Link to={'/pairing/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
         <SimplePlaceholder title={"Profiles"} />
         {/* <div style={styles.container}>
           <div style={styles.containerColumn}>

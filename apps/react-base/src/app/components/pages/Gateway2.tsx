@@ -71,7 +71,7 @@ export class Gateway2 extends Component<any, any> {
 
   renderFaceplate(title: string) {
     if (this.state.showFaceplate) {
-      return (<div className="tile-faceplate"><Link to={'/loom/community/activities'}>{title}</Link></div>);
+      return (<div className="tile-faceplate"><Link to={'/pairing/community/activities'}>{title}</Link></div>);
     }
     return null;
   }

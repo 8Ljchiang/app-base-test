@@ -8,7 +8,7 @@ export class LoomCommunityCreatePairing extends Component<any, any> {
   render() {
     return (
       <>
-        <p>Loom Community Create Pairing Activity Page: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
+        <p>Loom Community Create Pairing Activity Page: <Link to={'/pairing/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
         <div style={styles.container}>
           <div style={styles.containerColumn}>
             <h2>Create Pairing Activity</h2>

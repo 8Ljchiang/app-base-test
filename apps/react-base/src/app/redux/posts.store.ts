@@ -20,8 +20,8 @@ const seedItems: PostItem[] = [
     id: '1',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 1),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'message'
   },
@@ -29,8 +29,8 @@ const seedItems: PostItem[] = [
     id: '2',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 2),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'message'
   },
@@ -38,8 +38,8 @@ const seedItems: PostItem[] = [
     id: '3',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 3),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'tip'
   },
@@ -47,8 +47,8 @@ const seedItems: PostItem[] = [
     id: '4',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 4),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'resource'
   },
@@ -56,8 +56,8 @@ const seedItems: PostItem[] = [
     id: '5',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 5),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'story'
   },
@@ -65,8 +65,8 @@ const seedItems: PostItem[] = [
     id: '6',
     author: "author-name",
     createdAt: new Date().setFullYear(2020, 4, 6),
-    title: 'title' + this.id,
-    message: 'desc' + this.id,
+    title: 'title-1',
+    message: 'desc-1',
     context: 'pair',
     type: 'message'
   }

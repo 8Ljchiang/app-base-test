@@ -1,8 +1,9 @@
 import { PostsActionType, PostsActions } from './posts.actions';
-import { PostsStore, PostItem, defaultPostsStore } from "./posts.store";
+import { PostsStore, PostItem, defaultPostsStore, PostContext, PostType } from "./posts.store";
 import Log from '../core/services/log.service';
 import { IServiceCollection, reduxReducerWithServiceCollection } from '../core/services/service-collection';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
+import { ICreatePostFormInput } from '../core/services/mocks/mock-posts.service';
 
 const reducerName = 'PostsReducer';
 const actionCategory = 'PostsAction';
@@ -17,7 +18,7 @@ const resolverWithLogging = (resolver: ResolverWithService, rName: string, aCate
 }
 
 const createPostResolver = resolverWithLogging(
-  (initialState: PostsStore, payload: PostItem, postsService: any): PostsStore => {
+  (initialState: PostsStore, payload: ICreatePostFormInput, postsService: any): PostsStore => {
     const networkResponse = postsService.createPost(payload);
 
     if (networkResponse.errors && networkResponse.errors.length > 0) {
@@ -25,7 +26,17 @@ const createPostResolver = resolverWithLogging(
     }
 
     if (networkResponse.data.success === true) {
-      const newPosts = [...initialState.posts, payload];
+      const newPostId = initialState.posts.length;
+      const newPost = {
+        ...payload,
+        id: newPostId.toString(),
+        context: payload.context as PostContext,
+        type: payload.type as PostType,
+        author: 'default-author',
+        createdAt: Date.now(),
+      };
+
+      const newPosts = [...initialState.posts, newPost];
 
       const newState = Object.assign({}, { posts: newPosts });
       return newState;

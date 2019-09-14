@@ -56,7 +56,7 @@ export class LoomCommunityPosts extends Component<any, any> {
   render() {
     return (
       <>
-        <p>Loom Community Posts: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
+        <p>Loom Community Posts: <Link to={'/pairing/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
         <div style={styles.container}>
           <div style={styles.containerColumn}>
             <h2>Posts</h2>

@@ -5,8 +5,8 @@ import { PostType, PostContext } from '../../../redux/posts.store';
 export interface ICreatePostFormInput {
   title: string;
   message: string;
-  context: string | PostContext;
-  type: string | PostType;
+  context: string;
+  type: string;
 }
 
 export interface IPostsService {

@@ -8,7 +8,7 @@ const gatewayPorts = [
   {
     title: 'port: pairing',
     description: 'loom - pairing coordinator',
-    path: '/loom',
+    path: '/pairing',
     tag: 'new',
     placeholder: false
   },

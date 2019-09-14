@@ -3,8 +3,8 @@ import { BannerLayout } from '../layouts/BannerLayout';
 import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
 import { connect } from 'react-redux';
-import { ConnectedCreatePostForm } from '../forms/create-post-form.component';
 import { PostsList } from '../units/posts-list.component';
+import { Link } from 'react-router-dom';
 
 export class PostsListScene extends Component<any, any> {
   constructor(props) {
@@ -44,11 +44,11 @@ export class PostsListScene extends Component<any, any> {
     let resultItems = posts;
 
     if (filterByType) {
-      resultItems = resultItems.filter(item => item.issueType === filterByType);
+      resultItems = resultItems.filter(item => item.type === filterByType);
     }
 
     if (sortByField) {
-      resultItems = resultItems.sort((a, b) => a[sortByField] < b[sortByField] ? 1 : -1);
+      resultItems = resultItems.sort((a, b) => a[sortByField] > b[sortByField] ? 1 : -1);
     }
 
     return (
@@ -56,15 +56,15 @@ export class PostsListScene extends Component<any, any> {
         <div style={styles.container}>
           <CenterLayout>
             <NarrowLayout>
-              <ConnectedCreatePostForm />
+              <Link to={'/pairing/community/post-create'}>Create Post</Link>
               Sort By:
               <select onChange={this.onSortByChange}>
-                { sortOptions.map(option => <option value={option}>{option}</option>) }
+                { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
               </select>
               Select Type:
               <select onChange={this.onFilterByTypeChange}>
                 <option value={''}>all</option>
-                { filterOptions.map(option => <option value={option}>{option}</option>) }
+                { filterOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
               </select>
               <PostsList posts={resultItems} />
             </NarrowLayout>

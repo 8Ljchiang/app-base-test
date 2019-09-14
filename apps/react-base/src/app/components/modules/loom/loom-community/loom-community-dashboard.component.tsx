@@ -6,15 +6,15 @@ import { SimplePlaceholder } from '../../../units/SimplePlaceholder';
 export const LoomCommunityDashboard = (props) => {
   return (
     <>
-      <p>Loom Community Dashboard Component: <Link to={'/loom/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
+      <p>Loom Community Dashboard Component: <Link to={'/pairing/community/dashboard'}>Return to Loom Community Dashboard</Link></p>
       <div style={styles1.container}>
         <SimplePlaceholder title={"Create"}>
-          <Link to={'/loom/community/pairing-create'} style={styles1.linkStyle}><p>Pairing Activity</p></Link>
+          <Link to={'/pairing/community/pairing-create'} style={styles1.linkStyle}><p>Pairing Activity</p></Link>
         </SimplePlaceholder>
         <SimplePlaceholder title={"Explore / Find"}>
-          <Link to={'/loom/community/activities'} style={styles1.linkStyle}><p>Activities</p></Link>
-          <Link to={'/loom/community/profiles'} style={styles1.linkStyle}><p>Profiles</p></Link>
-          <Link to={'/loom/community/posts'} style={styles1.linkStyle}><p>Posts</p></Link>
+          <Link to={'/pairing/community/activities'} style={styles1.linkStyle}><p>Activities</p></Link>
+          <Link to={'/pairing/community/profiles'} style={styles1.linkStyle}><p>Profiles</p></Link>
+          <Link to={'/pairing/community/posts'} style={styles1.linkStyle}><p>Posts</p></Link>
         </SimplePlaceholder>
         {/* <div style={styles1.containerColumn}>
           <h2>Create</h2>
@@ -64,21 +64,21 @@ export const LoomCommunityDashboard2 = (props) => {
         <h3 style={styles.sectionTitle}>Community</h3>
         <div style={styles.subContainerSection}>
           <h4>Highlights</h4>
-          <Link to={'/loom/community/activities'}>Weekly Stats</Link>
-          <Link to={'/loom/community/activities'}>Pairing News and Events</Link>
+          <Link to={'/pairing/community/activities'}>Weekly Stats</Link>
+          <Link to={'/pairing/community/activities'}>Pairing News and Events</Link>
           <h4>Explore / Find</h4>
-          <Link to={'/loom/community/activities'}>Activities</Link>
-          <Link to={'/loom/community/activities'}>Profiles</Link>
-          {/* <Link to={'/loom/community/activities'}>Sessions</Link> */}
-          {/* <Link to={'/loom/community/activities'}>Users</Link> */}
+          <Link to={'/pairing/community/activities'}>Activities</Link>
+          <Link to={'/pairing/community/activities'}>Profiles</Link>
+          {/* <Link to={'/pairing/community/activities'}>Sessions</Link> */}
+          {/* <Link to={'/pairing/community/activities'}>Users</Link> */}
           <h4>Create</h4>
           <Link to={'/'}>Pairing Activity</Link>
           <Link to={'/'}>Exercise Activity</Link>
           {/* <Link to={'/'}>Session</Link> */}
           <h4>Broadcast</h4>
-          <Link to={'/loom/community/activities'}>Shoutout</Link>
+          <Link to={'/pairing/community/activities'}>Shoutout</Link>
           <h4>Statistics</h4>
-          <Link to={'/loom/community/activities'}>Admin Data Dashboard</Link>
+          <Link to={'/pairing/community/activities'}>Admin Data Dashboard</Link>
         </div>
       </div>
       {/* <DevFutureFeature

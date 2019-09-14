@@ -3,6 +3,7 @@ import { accountReducer } from './account.reducers';
 import { signupReducer } from './signup.reducers';
 import { applicationReducer } from './application.reducers';
 import { feedbackReducerWithServiceCollection } from './feedback.reducer';
+import { postsReducerWithServiceCollection } from './posts.reducer';
 
 // TODO Add redux logging middleware,
 // TODO: add redux error handling middleware
@@ -13,6 +14,7 @@ import { feedbackReducerWithServiceCollection } from './feedback.reducer';
 export const rootReducer = combineReducers({
   account: accountReducer,
   app: applicationReducer,
-  feedback: feedbackReducerWithServiceCollection
+  feedback: feedbackReducerWithServiceCollection,
+  posts: postsReducerWithServiceCollection
   // signup: signupReducer
 });

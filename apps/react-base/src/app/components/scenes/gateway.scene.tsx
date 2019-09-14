@@ -6,8 +6,8 @@ import { CenterLayout } from '../layouts/center.layout';
 
 const gatewayPorts = [
   {
-    title: 'port: pairing',
-    description: 'loom - pairing coordinator',
+    title: 'pairing',
+    description: 'find pairing stuff',
     path: '/pairing',
     tag: 'new',
     placeholder: false,
@@ -17,8 +17,17 @@ const gatewayPorts = [
     // backgroundColor: 'rgb(69, 165, 255)',
   },
   {
-    title: 'port: collab',
-    description: 'ignite - social collaboration',
+    title: 'learning exercises',
+    description: 'find exercises stuff',
+    path: '/forge',
+    tag: 'new',
+    placeholder: false,
+    // backgroundColor: 'rgb(69, 165, 255)',
+    // backgroundColor: '#db6ed0',
+  },
+  {
+    title: 'collaboration',
+    description: 'social foundation for projects stuff',
     path: '/forge',
     tag: 'experimental',
     placeholder: false,

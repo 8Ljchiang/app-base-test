@@ -14,7 +14,7 @@ export const LoomPersonalModule = (props) => {
     <div style={styles.container}>
         <div style={styles.linksContainer}>
           <p>Loom Personal Module:</p>
-          <Link to={'/loom'}>Return to Loom</Link>
+          <Link to={'/pairing'}>Return to Loom</Link>
           {/* <RouteLinks routes={[]} rootPath={match.path} /> */}
         </div>
         <ConnectedSelectionsLayout/>

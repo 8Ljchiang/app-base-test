@@ -1,11 +1,11 @@
-import { PostItem } from './posts.store';
+import { ICreatePostFormInput } from '../core/services/mocks/mock-posts.service';
 export enum PostsActionType {
   CREATE_POST = 'CREATE_POST',
 }
 
 interface CreatePostAction {
   type: PostsActionType.CREATE_POST,
-  payload: PostItem; // TODO: Link to create post form input type.
+  payload: ICreatePostFormInput; // TODO: Link to create post form input type.
 }
 
 export type PostsActions =
@@ -13,7 +13,7 @@ export type PostsActions =
 
 // export interface ICreatePostInput {}
 
-export function createPost(input: PostItem): CreatePostAction {
+export function createPost(input: ICreatePostFormInput): CreatePostAction {
   return {
     type: PostsActionType.CREATE_POST,
     payload: input
