@@ -1,6 +1,7 @@
 import { NetworkResponseBuilder } from '../../util/NetworkResponseBuilder';
 import { INetworkResponse } from '../../interfaces/INetworkResponse';
 import { SignupInput } from '../../../redux/signup.actions';
+import { IServiceCollection } from '../service-collection';
 
 export interface IFeedbackService {
 	upvoteFeedback(id: string): INetworkResponse<UpvoteFeedbackResponse>;
@@ -27,8 +28,7 @@ interface UpvoteFeedbackResponse {
 
 export class MockFeedbackService implements IFeedbackService {
   // TODO: Should I have a mock api client inside the mock services.
-  private _apiClient;
-  constructor() {}
+  constructor(private _serviceCollection: IServiceCollection) {}
 
 	upvoteFeedback(id: string): INetworkResponse<UpvoteFeedbackResponse> {
 		return NetworkResponseBuilder.build({ success: true }, []);

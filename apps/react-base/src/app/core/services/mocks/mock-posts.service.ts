@@ -1,6 +1,7 @@
 import { NetworkResponseBuilder } from './../../util/NetworkResponseBuilder';
 import { INetworkResponse } from './../../interfaces/INetworkResponse';
 import { PostType, PostContext } from '../../../redux/posts.store';
+import { IServiceCollection } from '../service-collection';
 
 export interface ICreatePostFormInput {
   title: string;
@@ -18,8 +19,7 @@ interface CreatePostResponse {
 }
 
 export class MockPostsService implements IPostsService {
-  private _apiClient;
-  constructor() {}
+  constructor(private _serviceCollection: IServiceCollection) {}
 
   createPost(input: ICreatePostFormInput): INetworkResponse<CreatePostResponse> {
     return NetworkResponseBuilder.build({ success: true }, []);
