@@ -1,3 +1,4 @@
+import { CreateExerciseModule } from './../exercises/create-exercise.module';
 import { ExercisesModule } from './../exercises/exercises.module';
 import { FeedbackListScene, ConnectedFeedbackListScene } from './../../scenes/feedback-list.scene';
 import { ExpFeedbackFrameScene } from './../../scenes/exp-feedback-frame.scene';
@@ -77,6 +78,12 @@ export const mainRoutes = [
     path: '/exercises',
     exact: true,
     component: ExercisesModule,
+  },
+  {
+    name: 'CreateExercises',
+    path: '/create-exercise',
+    exact: true,
+    component: CreateExerciseModule
   },
   {
     name: 'Feedback',

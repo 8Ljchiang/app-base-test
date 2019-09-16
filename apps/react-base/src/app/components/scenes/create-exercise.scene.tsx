@@ -15,7 +15,7 @@ export class CreateExerciseScene extends Component<any, any> {
       <BannerLayout title={'Create Exercise'}>
         <CenterLayout>
           <NarrowLayout>
-            <Link to={'/pairing/community/exercises'}>Back</Link>
+            <Link to={'/exercises'}>Back</Link>
             <CreateExerciseForm actions={actions}/>
           </NarrowLayout>
         </CenterLayout>
