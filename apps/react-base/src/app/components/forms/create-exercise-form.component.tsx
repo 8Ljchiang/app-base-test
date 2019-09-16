@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { INITIAL_VALUES_CREATE_EXERCISE, FORM_SCHEMA_CREATE_EXERCISE} from './create-exercise-form.validation';
 
 export class CreateExerciseForm extends Component<any, any> {
   constructor(props) {
@@ -15,8 +16,8 @@ export class CreateExerciseForm extends Component<any, any> {
   render() {
     return (
       <Formik
-        initialValues={}
-        validationSchema={}
+        initialValues={INITIAL_VALUES_CREATE_EXERCISE}
+        validationSchema={FORM_SCHEMA_CREATE_EXERCISE}
         onSubmit={(values, actions) => {
           this.createExercise(values);
           actions.resetForm();
