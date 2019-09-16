@@ -5,13 +5,16 @@ import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
 import { BannerLayout } from '../layouts/BannerLayout';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 
 class ExerciseItem extends Component<any, any> {
   render() {
     const { title } = this.props.exercise;
+    const { completeExercise } = this.props.actions;
     return (
       <div style={styles.itemContainer}>
         <p>{title}</p>
+        <button onClick={completeExercise}>Complete</button>
       </div>
     );
   }
@@ -105,6 +108,8 @@ const styles = {
     flexFlow: 'column',
   },
   itemContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
     border: '1px dashed gray',
     padding: '4px',
     marginBottom: '4px'
@@ -117,4 +122,12 @@ const mapStateToProps = (state: IAppStore) => {
   }
 }
 
-export const ConnectedExercisesListScene = connect(mapStateToProps, null)(ExercisesListScene);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({
+      // TODO: Create Dispatch Action for Completing Exercise
+    }, dispatch)
+  }
+}
+
+export const ConnectedExercisesListScene = connect(mapStateToProps, mapDispatchToProps)(ExercisesListScene);
