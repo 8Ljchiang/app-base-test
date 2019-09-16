@@ -25,15 +25,15 @@ export class CreateExerciseForm extends Component<any, any> {
         render={({ errors, status, touched, isSubmitting }) => (
           <Form className="form-container" autoComplete="off">
             <label htmlFor="title">Title</label>
-            <Field component="text" id="title" name="title" className="form-field"/>
+            <Field type="text" id="title" name="title" className="form-field"/>
             <ErrorMessage name="title" component="div" />
 
             <label htmlFor="desc">Description</label>
-            <Field component="text" id="desc" name="desc" className="form-field"/>
+            <Field type="text" id="desc" name="desc" className="form-field"/>
             <ErrorMessage name="desc" component="div" />
 
             <label htmlFor="repo">Repo / Reference</label>
-            <Field component="text" id="repo" name="repo" className="form-field"/>
+            <Field type="text" id="repo" name="repo" className="form-field"/>
             <ErrorMessage name="repo" component="div" />
 
             <button className="form-submit-button" type="submit" disabled={isSubmitting}>Submit</button>

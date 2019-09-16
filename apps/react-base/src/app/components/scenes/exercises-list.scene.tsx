@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { IAppStore } from '../../core/interfaces/IAppStore';
 import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
+import { BannerLayout } from '../layouts/BannerLayout';
+import { Link } from 'react-router-dom';
 
 class ExerciseItem extends Component<any, any> {
   render() {
@@ -74,22 +76,25 @@ class ExercisesListScene extends Component<any, any> {
     const resultItems = this.processItems(exerciseItems);
 
     return (
-      <CenterLayout>
-        <NarrowLayout>
-          <div style={styles.listContainer}>
-            Sort By:
-            <select onChange={this.onChangeSortBy}>
-              { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
-            </select>
-            Select Type:
-            <select onChange={this.onChangeFilterBy}>
-              <option value={''}>all</option>
-              { filterOptions.map((option, index)=> <option key={index} value={option}>{option}</option>) }
-            </select>
-            { this.renderExercises(resultItems) }
-          </div>
-        </NarrowLayout>
-      </CenterLayout>
+      <BannerLayout title={"Exercises"}>
+        <CenterLayout>
+          <NarrowLayout>
+            <Link to={'/create-exercise'}>Create Exercise</Link>
+            <div style={styles.listContainer}>
+              Sort By:
+              <select onChange={this.onChangeSortBy}>
+                { sortOptions.map((option, index) => <option key={index} value={option}>{option}</option>) }
+              </select>
+              Select Type:
+              <select onChange={this.onChangeFilterBy}>
+                <option value={''}>all</option>
+                { filterOptions.map((option, index)=> <option key={index} value={option}>{option}</option>) }
+              </select>
+              { this.renderExercises(resultItems) }
+            </div>
+          </NarrowLayout>
+        </CenterLayout>
+      </BannerLayout>
     );
   }
 }

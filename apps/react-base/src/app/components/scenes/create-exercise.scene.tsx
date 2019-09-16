@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createExercise } from '../../redux/exercises.actions';
 
-export class CreateExerciseScene extends Component<any, any> {
+class CreateExerciseScene extends Component<any, any> {
   render() {
     const { actions } = this.props;
     return (
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export const ConnectedCreateExerciseScene = connect(null, mapDispatchToProps)(CreateExerciseForm);
+export const ConnectedCreateExerciseScene = connect(null, mapDispatchToProps)(CreateExerciseScene);

@@ -18,9 +18,7 @@ export const ExercisesModule = (props) => {
         moduleName={ModuleNames.EXERCISES}
         routes={[]}
         fallback={DefaultErrorFallback}>
-          <BannerLayout title={'Exercises'}>
-            <ConnectedExercisesListScene />
-          </BannerLayout>
+          <ConnectedExercisesListScene />
       </ModuleComponent>
     </div>
   );

@@ -17,9 +17,7 @@ export const CreateExerciseModule = (props) => {
         moduleName={""}
         routes={[]}
         fallback={DefaultErrorFallback}>
-          <BannerLayout title={'Create Exercise'}>
-            <ConnectedCreateExerciseScene />
-          </BannerLayout>
+          <ConnectedCreateExerciseScene />
       </ModuleComponent>
     </div>
   );
