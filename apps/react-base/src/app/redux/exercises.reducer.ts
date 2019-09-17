@@ -33,11 +33,32 @@ const createExerciseResolver = resolverWithLogging(
       const newState = Object.assign({}, { exercises: newItems });
       return newState;
     }
+    return initialState;
   },
   reducerName,
   actionCategory,
   ExercisesActionType.CREATE_EXERCISE
 );
+
+const completeExercise = resolverWithLogging(
+  (initialState: ExercisesStore, payload: string, exerciseService: any): ExercisesStore => {
+    const networkResponse = exerciseService.completeExercise(payload);
+
+    const { errors, data } = networkResponse;
+
+    if (errors && errors.length > 0) {
+      Log.error(new Error(errors[0]), `${ServiceNames.EXERCISES}.createExercise`);
+    }
+
+    if (data.success === true) {
+
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  ExercisesActionType.COMPLETE_EXERCISE
+)
 
 function exercisesReducer(
   state: ExercisesStore = defaultExercisesStore,
@@ -51,6 +72,12 @@ function exercisesReducer(
         state,
         createLogContext(reducerName, action.type)
       )(state, action.payload, services.get(ServiceNames.EXERCISES));
+    case ExercisesActionType.COMPLETE_EXERCISE:
+      return catchErrorInReduxReducer(
+        completeExercise,
+        state,
+        createLogContext(reducerName, action.type)
+      )(state, action.payload, services.get(ServiceNames.EXERCISES))
     default:
       return state;
   }
