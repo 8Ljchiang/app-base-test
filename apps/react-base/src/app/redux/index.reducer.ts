@@ -6,6 +6,8 @@ import { signupReducer } from './signup.reducers';
 import { applicationReducer } from './application.reducers';
 import { feedbackReducerWithServiceCollection } from './feedback.reducer';
 import { postsReducerWithServiceCollection } from './posts.reducer';
+import { reduxReducerWithServiceCollection } from '../core/services/service-collection';
+import { gamesReducer } from './games.reducer';
 
 // TODO Add redux logging middleware,
 // TODO: add redux error handling middleware
@@ -18,7 +20,8 @@ const reducerSet: { [key in keyof IAppStore]: any} = {
   app: applicationReducer,
   feedback: feedbackReducerWithServiceCollection,
   posts: postsReducerWithServiceCollection,
-  exercises: exercisesReducerWithServiceCollection
+  exercises: exercisesReducerWithServiceCollection,
+  games: reduxReducerWithServiceCollection(gamesReducer)
   // signup: signupReducer
 };
 
