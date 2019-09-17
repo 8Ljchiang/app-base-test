@@ -6,20 +6,30 @@ import { NarrowLayout } from '../layouts/narrow.layout';
 import { BannerLayout } from '../layouts/BannerLayout';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { completeExercise } from '../../redux/exercises.actions';
 
 class ExerciseItem extends Component<any, any> {
+  constructor(props) {
+    super(props);
+
+    this.completeExercise = this.completeExercise.bind(this);
+  }
+
+  completeExercise() {
+    const { id } =this.props.exercise;
+    this.props.actions.completeExercise(id);
+  }
+
   render() {
     const { title } = this.props.exercise;
-    const { completeExercise } = this.props.actions;
     return (
       <div style={styles.itemContainer}>
         <p>{title}</p>
-        <button onClick={completeExercise}>Complete</button>
+        <button onClick={this.props.actions.completeExercise}>Complete</button>
       </div>
     );
   }
 }
-
 
 class ExercisesListScene extends Component<any, any> {
   constructor(props) {
@@ -126,6 +136,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators({
       // TODO: Create Dispatch Action for Completing Exercise
+      completeExercise
     }, dispatch)
   }
 }

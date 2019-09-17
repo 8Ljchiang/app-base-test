@@ -35,7 +35,7 @@ export function createExercise(input: ICreateExerciseFormInput): CreateExerciseA
   }
 }
 
-export function CompleteExerciseAction(input: string): CompleteExerciseAction {
+export function completeExercise(input: string): CompleteExerciseAction {
   return {
     type: ExercisesActionType.COMPLETE_EXERCISE,
     payload: input
