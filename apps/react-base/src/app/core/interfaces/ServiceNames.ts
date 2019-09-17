@@ -3,4 +3,5 @@ export enum ServiceNames {
   FEEDBACK = 'FeedbackService',
   HTTP_CLIENT = 'HttpClientService',
   EXERCISES = 'ExerciseService',
+  GAMES = 'GamesService',
 }
