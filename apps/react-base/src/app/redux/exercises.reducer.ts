@@ -6,6 +6,7 @@ import { ICreateActivityFormInput } from '../components/forms/create-activity-fo
 import { resolverWithLogging, createLogContext } from '../core/util/reduxResolver.utils';
 import Log from '../core/services/log.service';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
+import { IExerciseService } from '../core/services/mocks/mock-exercise.service';
 
 const reducerName = 'ExercisesReducer';
 const actionCategory = 'ExercisesAction';
@@ -41,7 +42,7 @@ const createExerciseResolver = resolverWithLogging(
 );
 
 const completeExercise = resolverWithLogging(
-  (initialState: ExercisesStore, payload: string, exerciseService: any): ExercisesStore => {
+  (initialState: ExercisesStore, payload: string, exerciseService: IExerciseService): ExercisesStore => {
     const networkResponse = exerciseService.completeExercise(payload);
 
     const { errors, data } = networkResponse;
@@ -71,13 +72,13 @@ function exercisesReducer(
         createExerciseResolver,
         state,
         createLogContext(reducerName, action.type)
-      )(state, action.payload, services.get(ServiceNames.EXERCISES));
+      )(state, action.payload, services.get(ServiceNames.EXERCISES).getValue());
     case ExercisesActionType.COMPLETE_EXERCISE:
       return catchErrorInReduxReducer(
         completeExercise,
         state,
         createLogContext(reducerName, action.type)
-      )(state, action.payload, services.get(ServiceNames.EXERCISES))
+      )(state, action.payload, services.get(ServiceNames.EXERCISES).getValue())
     default:
       return state;
   }

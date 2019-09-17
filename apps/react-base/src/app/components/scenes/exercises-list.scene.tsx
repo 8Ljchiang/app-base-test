@@ -16,7 +16,8 @@ class ExerciseItem extends Component<any, any> {
   }
 
   completeExercise() {
-    const { id } =this.props.exercise;
+    const { id } = this.props.exercise;
+    console.log('complete exercise', id);
     this.props.actions.completeExercise(id);
   }
 
@@ -61,8 +62,9 @@ class ExercisesListScene extends Component<any, any> {
   }
 
   renderExercises(exercises: any[]) {
+    const { actions } = this.props;
     return exercises.map((exercise, index) => {
-      return <ExerciseItem key={index} exercise={exercise} />
+      return <ExerciseItem key={index} exercise={exercise} actions={actions}/>
     });
   }
 

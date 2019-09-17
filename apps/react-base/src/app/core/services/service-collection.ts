@@ -3,6 +3,7 @@ import { appConfig } from './../configs/app.config';
 import Log from './log.service';
 import { MockFeedbackService } from './mocks/mock-feedback.service';
 import { ServiceNames } from '../interfaces/ServiceNames';
+import { MockExerciseService } from './mocks/mock-exercise.service';
 
 
 interface IOptional {
@@ -97,7 +98,8 @@ function buildMockServiceCollection(): IServiceCollection {
   const serviceResolver = new ServiceResolver();
   return new ServiceCollection(serviceResolver)
     .registerService(MockFeedbackService, ServiceNames.FEEDBACK)
-    .registerService(MockPostsService, ServiceNames.POSTS);
+    .registerService(MockPostsService, ServiceNames.POSTS)
+    .registerService(MockExerciseService, ServiceNames.EXERCISES);
 }
 
 function buildServiceCollection(): IServiceCollection {
