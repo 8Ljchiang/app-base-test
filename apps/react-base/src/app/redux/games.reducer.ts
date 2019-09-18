@@ -28,6 +28,36 @@ const createGameResolver = resolverWithLogging(
   GamesActionType.CREATE_GAME
 );
 
+const upvoteGameResolver = resolverWithLogging(
+  (initialState: GamesStore, payload: string, gamesService: any) => {
+    const networkResponse = gamesService.upvoteGame(payload);
+
+    const { errors, data } = networkResponse;
+
+    if(errors && errors.length > 0) {
+      Log.error(new Error(errors[0]), `${ServiceNames.GAMES}.upvoteGame`);
+    }
+
+    if (data.success === true) {
+      const newItems = initialState.games.map((game) => {
+        if (game.id === payload) {
+          return {
+            ...game,
+            upvotes: game.upvotes + 1
+          }
+        }
+        return game
+      })
+      const newState = Object.assign({}, initialState, { games: newItems });
+      return newState;
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  GamesActionType.UPVOTE_GAME
+)
+
 export function gamesReducer(
   state: GamesStore,
   action: GamesActions,
@@ -40,6 +70,12 @@ export function gamesReducer(
         state,
         createLogContext(reducerName, action.type)
       )(state, action.payload, services.get(ServiceNames.GAMES).getValue());
+    case GamesActionType.UPVOTE_GAME:
+      return catchErrorInReduxReducer(
+        upvoteGameResolver,
+        state,
+        createLogContext(reducerName, action.type)
+      )(state, action.payload, services.get(ServiceNames.GAMES));
     default:
       return state;
   }

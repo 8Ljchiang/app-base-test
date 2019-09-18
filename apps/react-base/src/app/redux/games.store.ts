@@ -7,6 +7,7 @@ export interface GameItem {
   type: string;
   category: string;
   repo: string;
+  upvotes: number;
 }
 
 export interface GamesStore {
@@ -22,7 +23,8 @@ const seedItems: GameItem[] = [
     title: 'game-title-1',
     type: 'type',
     category: 'category',
-    repo: 'game-repo-1'
+    repo: 'game-repo-1',
+    upvotes: 1,
   },
   {
     id: '2',
@@ -32,7 +34,8 @@ const seedItems: GameItem[] = [
     title: 'game-title-2',
     type: 'type',
     category: 'category',
-    repo: 'game-repo-2'
+    repo: 'game-repo-2',
+    upvotes: 2,
   },
   {
     id: '3',
@@ -42,7 +45,8 @@ const seedItems: GameItem[] = [
     title: 'game-title-3',
     type: 'type',
     category: 'category',
-    repo: 'game-repo-3'
+    repo: 'game-repo-3',
+    upvotes: 3,
   },
   {
     id: '4',
@@ -52,7 +56,8 @@ const seedItems: GameItem[] = [
     title: 'game-title-4',
     type: 'type',
     category: 'category',
-    repo: 'game-repo-4'
+    repo: 'game-repo-4',
+    upvotes: 4
   },
 ];
 
