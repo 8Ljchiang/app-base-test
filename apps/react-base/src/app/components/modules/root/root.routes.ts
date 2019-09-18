@@ -1,3 +1,4 @@
+import { ConnectedGameItemDetail } from './../../units/game-detail.component';
 import { ConnectedGamesListScene } from './../../scenes/games-list.scene';
 import { CreateExerciseModule } from './../exercises/create-exercise.module';
 import { ExercisesModule } from './../exercises/exercises.module';
@@ -138,6 +139,12 @@ export const mainRoutes = [
     exact: true,
     component: ConnectedGamesListScene
   },
+  {
+    name: 'Game Detail',
+    path: '/games/:id',
+    exact: false,
+    component: ConnectedGameItemDetail
+  }
   // {
   //   name: 'ExperimentalFrame',
   //   path: '/experimental',
