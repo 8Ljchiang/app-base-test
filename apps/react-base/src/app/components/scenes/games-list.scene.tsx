@@ -50,7 +50,7 @@ export class GamesListScene extends Component<any, any> {
     }
 
     if (sortBy) {
-      resultItems = resultItems.sort((a, b) => a[sortBy] > b[sortBy] ? 1 : -1);
+      resultItems = resultItems.sort((a, b) => a[sortBy] < b[sortBy] ? 1 : -1);
     }
 
     return (

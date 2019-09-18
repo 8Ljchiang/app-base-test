@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class GameItem extends Component<any, any> {
   constructor(props) {
@@ -16,7 +17,7 @@ class GameItem extends Component<any, any> {
     const { game } = this.props;
     return (
       <div style={styles.itemContainer}>
-        <p>{game.title}</p>
+        <Link to={`/games/${game.id}`}>{game.title}</Link>
         <p>{game.upvotes}</p>
         <button onClick={this.upvoteGame}>upvote</button>
       </div>

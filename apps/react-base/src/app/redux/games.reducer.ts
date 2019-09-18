@@ -1,5 +1,6 @@
+import { IGamesService } from './../core/services/mocks/mock-game.service';
 import { ICreateGameFormInput, GamesActionType, GamesActions } from './games.actions';
-import { GamesStore } from './games.store';
+import { GamesStore, defaultGamesStore } from './games.store';
 import Log from '../core/services/log.service';
 import { resolverWithLogging, createLogContext } from "../core/util/reduxResolver.utils";
 import { ServiceNames } from '../core/interfaces/ServiceNames';
@@ -29,7 +30,7 @@ const createGameResolver = resolverWithLogging(
 );
 
 const upvoteGameResolver = resolverWithLogging(
-  (initialState: GamesStore, payload: string, gamesService: any) => {
+  (initialState: GamesStore, payload: string, gamesService: IGamesService) => {
     const networkResponse = gamesService.upvoteGame(payload);
 
     const { errors, data } = networkResponse;
@@ -59,7 +60,7 @@ const upvoteGameResolver = resolverWithLogging(
 )
 
 export function gamesReducer(
-  state: GamesStore,
+  state: GamesStore = defaultGamesStore,
   action: GamesActions,
   services: IServiceCollection
 ) {
@@ -75,7 +76,7 @@ export function gamesReducer(
         upvoteGameResolver,
         state,
         createLogContext(reducerName, action.type)
-      )(state, action.payload, services.get(ServiceNames.GAMES));
+      )(state, action.payload, services.get(ServiceNames.GAMES).getValue());
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+import { MockGamesService } from './mocks/mock-game.service';
 import { MockPostsService } from './mocks/mock-posts.service';
 import { appConfig } from './../configs/app.config';
 import Log from './log.service';
@@ -99,7 +100,8 @@ function buildMockServiceCollection(): IServiceCollection {
   return new ServiceCollection(serviceResolver)
     .registerService(MockFeedbackService, ServiceNames.FEEDBACK)
     .registerService(MockPostsService, ServiceNames.POSTS)
-    .registerService(MockExerciseService, ServiceNames.EXERCISES);
+    .registerService(MockExerciseService, ServiceNames.EXERCISES)
+    .registerService(MockGamesService, ServiceNames.GAMES);
 }
 
 function buildServiceCollection(): IServiceCollection {

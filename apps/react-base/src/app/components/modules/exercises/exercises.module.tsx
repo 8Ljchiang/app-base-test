@@ -2,7 +2,6 @@ import React from 'react';
 import { ModuleComponent } from '../../structural/module';
 import { NotFound } from '../../units/NotFound';
 import { DefaultErrorFallback } from '../../units/DefaultErrorFallback';
-import { BannerLayout } from '../../layouts/BannerLayout';
 import { Link } from 'react-router-dom';
 import { ModuleNames } from '../../../core/interfaces/ModuleNames';
 import { ConnectedExercisesListScene } from '../../scenes/exercises-list.scene';

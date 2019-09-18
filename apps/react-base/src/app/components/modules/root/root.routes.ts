@@ -1,3 +1,4 @@
+import { ConnectedGamesListScene } from './../../scenes/games-list.scene';
 import { CreateExerciseModule } from './../exercises/create-exercise.module';
 import { ExercisesModule } from './../exercises/exercises.module';
 import { FeedbackListScene, ConnectedFeedbackListScene } from './../../scenes/feedback-list.scene';
@@ -130,6 +131,12 @@ export const mainRoutes = [
     path: '/announcements',
     exact: true,
     component: AppAnnouncementsScene
+  },
+  {
+    name: 'Games List',
+    path: '/games',
+    exact: true,
+    component: ConnectedGamesListScene
   },
   // {
   //   name: 'ExperimentalFrame',
