@@ -4,6 +4,8 @@ import { CenterLayout } from '../layouts/center.layout';
 import { NarrowLayout } from '../layouts/narrow.layout';
 import { GamesList } from '../units/games-list.component';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { upvoteGame } from '../../redux/games.actions';
 
 export class GamesListScene extends Component<any, any> {
   constructor(props) {
@@ -34,7 +36,7 @@ export class GamesListScene extends Component<any, any> {
   }
 
   render() {
-    const { games } = this.props;
+    const { games, actions } = this.props;
     const { sortBy, filterBy } = this.state;
 
     const itemTypes: string[] = games.map(item => item.type);
@@ -63,7 +65,7 @@ export class GamesListScene extends Component<any, any> {
             <select name="filter" id="filter">
               { filterOptions.map((option, index) => <option key={index} value={option}>{option}</option>)}
             </select>
-            <GamesList games={resultItems} />
+            <GamesList games={resultItems} actions={actions}/>
           </NarrowLayout>
         </CenterLayout>
       </BannerLayout>
@@ -77,4 +79,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const ConnectedGamesListScene = connect(mapStateToProps, null)(GamesListScene);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({
+      upvoteGame
+    }, dispatch)
+  }
+}
+
+export const ConnectedGamesListScene = connect(mapStateToProps, mapDispatchToProps)(GamesListScene);
