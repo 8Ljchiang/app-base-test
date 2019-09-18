@@ -1,5 +1,6 @@
 export enum GamesActionType {
   CREATE_GAME = 'CREATE_GAME',
+  UPVOTE_GAME = 'UPVOTE_GAME',
 }
 
 export interface ICreateGameFormInput {
@@ -15,12 +16,25 @@ interface CreateGameAction {
   payload: ICreateGameFormInput
 }
 
+interface UpvoteGameAction {
+  type: GamesActionType.UPVOTE_GAME,
+  payload: { id: string }
+}
+
 export type GamesActions =
-CreateGameAction;
+CreateGameAction
+  | UpvoteGameAction;
 
 export function createGame(input: ICreateGameFormInput): CreateGameAction {
   return {
     type: GamesActionType.CREATE_GAME,
+    payload: input
+  }
+}
+
+export function upvoteGame(input: { id: string }): UpvoteGameAction {
+  return {
+    type: GamesActionType.UPVOTE_GAME,
     payload: input
   }
 }
