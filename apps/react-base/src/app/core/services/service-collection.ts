@@ -1,3 +1,4 @@
+import { MockAccountServiceTwo } from './mocks/mock-account2.service';
 import { MockGamesService } from './mocks/mock-game.service';
 import { MockPostsService } from './mocks/mock-posts.service';
 import { appConfig } from './../configs/app.config';
@@ -101,7 +102,8 @@ function buildMockServiceCollection(): IServiceCollection {
     .registerService(MockFeedbackService, ServiceNames.FEEDBACK)
     .registerService(MockPostsService, ServiceNames.POSTS)
     .registerService(MockExerciseService, ServiceNames.EXERCISES)
-    .registerService(MockGamesService, ServiceNames.GAMES);
+    .registerService(MockGamesService, ServiceNames.GAMES)
+    .registerService(MockAccountServiceTwo, ServiceNames.ACCOUNT);
 }
 
 function buildServiceCollection(): IServiceCollection {
