@@ -2,13 +2,13 @@
 import { ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
-export class CreateAccountDto {
+export class AccountDto {
+  // @Field()
+  // readonly authToken: string;
+  // @Field()
+  // readonly accountRole: string;
   @Field()
-  readonly authToken: string;
-  @Field()
-  readonly accountRole: string;
-  @Field()
-  readonly username: string;
+  readonly displayIdentifier: string;
   @Field()
   readonly email: string;
   @Field()

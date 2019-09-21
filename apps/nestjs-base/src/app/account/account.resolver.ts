@@ -1,7 +1,8 @@
-import { CreateAccountDto } from './dto/create-account.dto';
+import { CreateAccountResponseDto } from './dto/create-account-response.dto';
+import { AccountDto } from './dto/account.dto';
 import { Resolver, Query, Args, ResolveProperty, Parent, Mutation } from "@nestjs/graphql";
 import { AccountService } from './account.service';
-import { CreateAccountInfo } from './input/account.input';
+import { CreateAccountInput } from './input/account.input';
 
 @Resolver()
 export class AccountResolver {
@@ -14,12 +15,12 @@ export class AccountResolver {
     return 'world';
   }
 
-  @Mutation(() => CreateAccountDto)
-  async createAccount(@Args('input') input: CreateAccountInfo) {
+  @Mutation(() => CreateAccountResponseDto)
+  async createAccount(@Args('input') input: CreateAccountInput) {
     return this.accountService.create(input);
   }
 
-  @Query(() => [CreateAccountDto])
+  @Query(() => [AccountDto])
   async listAccounts() {
     return this.accountService.findAll();
   }

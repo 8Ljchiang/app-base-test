@@ -9,11 +9,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     AccountModule,
-    HelloWorldModule,
+    // HelloWorldModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema'
     }),
-    MongooseModule.forRoot('mongodb://localhost:32770/nxRestBase')
+    MongooseModule.forRoot('mongodb://localhost:32769/nxRestBase')
   ],
   controllers: [AppController],
   providers: [AppService],
