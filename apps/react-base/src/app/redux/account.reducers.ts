@@ -1,3 +1,6 @@
+import { IServiceCollection } from './../core/services/service-collection';
+import { IAccountServiceTwo } from './../core/services/mocks/mock-account2.service';
+import { resolverWithLogging } from './../core/util/reduxResolver.utils';
 import { AppFeature } from './../core/configs/feature.config';
 import AccountService from '../core/services/mocks/mock-account.service';
 import SignupService from '../core/services/mocks/mock-signup.service';
@@ -6,6 +9,9 @@ import { AccountStore, defaultAccountStore } from './account.store';
 import { LoginInput, AccountActions, AccountActionType, accountSignup } from './account.actions';
 import { catchErrorInReduxReducer } from '../core/util/error-catchers';
 import { SignupInput } from './signup.actions';
+
+const reducerName = 'AccountReducer';
+const actionCategory = 'AccountAction';
 
 const isAuthenticatedHoc = (resolverFunction: any, context?: string) => {
   const funcWithAuthenticationCheck = (initialState: AccountStore, payload: any) => {
@@ -19,84 +25,110 @@ const isAuthenticatedHoc = (resolverFunction: any, context?: string) => {
   return funcWithAuthenticationCheck;
 }
 
-const login = (initialState: AccountStore, loginInput: LoginInput) => {
-  Log.info('AccountAction', AccountActionType.LOGIN, 'AccountReducer')
+const login = resolverWithLogging(
+  (initialState: AccountStore, loginInput: LoginInput) => {
+    const networkResponse = AccountService.login(loginInput);
+    if (networkResponse.errors && networkResponse.errors.length > 0) {
+      Log.error(new Error(networkResponse.errors[0]), `AccountService.login`);
+    }
+    const containsAccount = initialState.signups.map(e => e.displayIdentifier).indexOf(loginInput.displayIdentifier) !== -1;
+    if (networkResponse.data && containsAccount) {
+      const newState = Object.assign({}, initialState, networkResponse.data);
+      return newState;
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.LOGIN
+);
 
-  const networkResponse = AccountService.login(loginInput);
-  if (networkResponse.errors && networkResponse.errors.length > 0) {
-		Log.error(new Error(networkResponse.errors[0]), `AccountService.login`);
-  }
-  const containsAccount = initialState.signups.map(e => e.displayIdentifier).indexOf(loginInput.displayIdentifier) !== -1;
-  if (networkResponse.data && containsAccount) {
-    const newState = Object.assign({}, initialState, networkResponse.data);
-    return newState;
-	}
-	return initialState;
-}
+const logout = resolverWithLogging(
+  (initialState: any, payload: any, service: any) => {
+  	return Object.assign({}, defaultAccountStore);
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.LOGOUT
+);
 
-const logout = () => {
-  Log.info('AccountAction', AccountActionType.LOGOUT, 'AccountReducer')
-	return Object.assign({}, defaultAccountStore);
-}
+const signup = resolverWithLogging(
+  (initialState: AccountStore, signupInput: SignupInput) => {
+    Log.info('AccountSignupAction', AccountActionType.SIGNUP, 'AccountReducer')
+    const networkResult = SignupService.signup(signupInput);
+    if (networkResult.errors && networkResult.errors.length > 0) {
+      Log.error(new Error(networkResult.errors[0]), `${reducerName}.signup`);
+    }
+    if (networkResult.data && networkResult.data.success) {
+      return Object.assign({}, initialState, { signups: [...initialState.signups, signupInput] });
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.SIGNUP
+);
 
-const signup = (initialState: AccountStore, signupInput: SignupInput) => {
-  Log.info('AccountSignupAction', AccountActionType.SIGNUP, 'AccountReducer')
-	const networkResult = SignupService.signup(signupInput);
-	if (networkResult.errors && networkResult.errors.length > 0) {
-		Log.error(new Error(networkResult.errors[0]), `AccountService.signup`);
-	}
-	if (networkResult.data && networkResult.data.success) {
-		return Object.assign({}, initialState, { signups: [...initialState.signups, signupInput] });
-	}
-	return initialState;
-}
+const newInviteToken = resolverWithLogging(
+  (initialState: AccountStore, payload: any, service: IAccountServiceTwo) => {
+    const networkResult = AccountService.createInviteToken();
+    if (networkResult.errors && networkResult.errors.length > 0) {
+      Log.error(new Error(networkResult.errors[0]), `${reducerName}.createInviteToken`);
+    }
+    if (networkResult.data && networkResult.data.inviteToken) {
+      return Object.assign({}, initialState, { inviteTokens: [...initialState.inviteTokens, networkResult.data.inviteToken] });
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.NEW_INVITE_TOKEN
+);
 
-const newInviteToken = (initialState: AccountStore, payload: any) => {
-  Log.info('AccountNewInviteToken', AccountActionType.NEW_INVITE_TOKEN, 'AccountReducer');
-  const networkResult = AccountService.createInviteToken();
-	if (networkResult.errors && networkResult.errors.length > 0) {
-		Log.error(new Error(networkResult.errors[0]), `AccountService.createInviteToken`);
-	}
-	if (networkResult.data && networkResult.data.inviteToken) {
-		return Object.assign({}, initialState, { inviteTokens: [...initialState.inviteTokens, networkResult.data.inviteToken] });
-	}
-	return initialState;
-}
 
-const updateProfileStatus = (initialState: AccountStore, payload: any) => {
-  Log.info('AccountUpdateProfileStatus', AccountActionType.UPDATE_PROFILE_STATUS, 'AccountReducer');
-  // const networkResult = AccountService.createInviteToken();
-	// if (networkResult.errors && networkResult.errors.length > 0) {
-	// 	Log.error(new Error(networkResult.errors[0]), `AccountService.updateProfileStatus`);
-	// }
-	// if (networkResult.data && networkResult.data.inviteToken) {
-  // return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
-  // }
-  if (payload === 'UPGRADED' && initialState.inviteTokens.length > 0 && !initialState.inviteTokens.includes(AppFeature.FEATURE_UNLOCK)) {
-    return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, AppFeature.FEATURE_UNLOCK], profile: { ...initialState.profile, status: payload } });
-  } else {
-    const newFeatureKeys = initialState.featureKeys.filter(fKey => fKey !== AppFeature.FEATURE_UNLOCK);
-    return Object.assign({}, initialState, { featureKeys: newFeatureKeys, profile: { ...initialState.profile, status: payload } });
-  }
-	// return initialState;
-}
+const updateProfileStatus = resolverWithLogging(
+  (initialState: AccountStore, payload: any, service: any) => {
+    // const networkResult = AccountService.createInviteToken();
+    // if (networkResult.errors && networkResult.errors.length > 0) {
+    // 	Log.error(new Error(networkResult.errors[0]), `AccountService.updateProfileStatus`);
+    // }
+    // if (networkResult.data && networkResult.data.inviteToken) {
+    // return Object.assign({}, initialState, { profile: { ...initialState.profile, status: payload } });
+    // }
+    if (payload === 'UPGRADED' && initialState.inviteTokens.length > 0 && !initialState.inviteTokens.includes(AppFeature.FEATURE_UNLOCK)) {
+      return Object.assign({}, initialState, { featureKeys: [...initialState.featureKeys, AppFeature.FEATURE_UNLOCK], profile: { ...initialState.profile, status: payload } });
+    } else {
+      const newFeatureKeys = initialState.featureKeys.filter(fKey => fKey !== AppFeature.FEATURE_UNLOCK);
+      return Object.assign({}, initialState, { featureKeys: newFeatureKeys, profile: { ...initialState.profile, status: payload } });
+    }
+    // return initialState;
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.UPDATE_PROFILE_STATUS
+);
 
-const addFeatureKey = (initialState: AccountStore, payload: any) => {
-  Log.info('AccountAddFeatureKey', AccountActionType.ADD_FEATURE_KEY, 'AccountReducer');
-  if (payload && !initialState.featureKeys.includes(payload) && Object.values(AppFeature).includes(payload)) {
-    const newFeatureKeys = [...initialState.featureKeys, payload];
-    return Object.assign({}, initialState, { featureKeys: newFeatureKeys });
-  }
-  return initialState;
-}
+const addFeatureKey = resolverWithLogging(
+  (initialState: AccountStore, payload: any, service: any) => {
+    if (payload && !initialState.featureKeys.includes(payload) && Object.values(AppFeature).includes(payload)) {
+      const newFeatureKeys = [...initialState.featureKeys, payload];
+      return Object.assign({}, initialState, { featureKeys: newFeatureKeys });
+    }
+    return initialState;
+  },
+  reducerName,
+  actionCategory,
+  AccountActionType.ADD_FEATURE_KEY
+);
 
 export function accountReducer(
 	state: AccountStore = defaultAccountStore,
-	action: AccountActions
+  action: AccountActions,
+  serviceCollection: IServiceCollection
 ) {
 	switch(action.type) {
     case AccountActionType.LOGOUT:
-      return logout();
+      return logout(state, action.payload, {});
     case AccountActionType.LOGIN:
       const loginContext = `AccountReducer: ${AccountActionType.LOGIN}`;
       return catchErrorInReduxReducer(login, state, loginContext)(state, action.payload);
