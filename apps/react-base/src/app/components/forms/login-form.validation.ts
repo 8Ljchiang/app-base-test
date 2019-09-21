@@ -6,10 +6,10 @@ export const INITIAL_VALUES_LOGIN_FORM = { firstField: '', secondField: '' };
 export const FORM_SCHEMA_LOGIN_FORM = Yup.object().shape({
   firstField: Yup.string()
     .min(4, createMinStringLengthMessage(4))
-    .min(16, createMaxStringLengthMessage(16))
+    .max(16, createMaxStringLengthMessage(16))
     .required(STRING_REQUIRED),
 	secondField: Yup.string()
     .min(4, createMinStringLengthMessage(4))
-    .min(16, createMaxStringLengthMessage(16))
+    .max (16, createMaxStringLengthMessage(16))
     .required(STRING_REQUIRED),
 });
