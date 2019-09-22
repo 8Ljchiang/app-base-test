@@ -7,7 +7,7 @@ export const InviteTokenSchema = new mongoose.Schema({
   },
   assignedTo: {
     type: mongoose.Types.ObjectId,
-    required: true,
+    required: false,
   },
   token: String,
 });

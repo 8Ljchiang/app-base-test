@@ -21,11 +21,19 @@ type CreateAccountResponseDto {
   role: String!
 }
 
+type CreateInviteTokenResponseDto {
+  createdBy: String!
+  assignedTo: String
+  token: String!
+}
+
 type Mutation {
+  createInviteToken: CreateInviteTokenResponseDto!
   createAccount(input: CreateAccountInput!): CreateAccountResponseDto!
 }
 
 type Query {
+  inviteTokenTest: String!
   hello: String!
   listAccounts: [AccountDto!]!
 }

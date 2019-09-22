@@ -1,3 +1,4 @@
+import { InviteTokenModule } from './Invite/invite-token.module';
 import { Module } from '@nestjs/common';
 
 import { AccountModule } from './account/account.module';
@@ -9,6 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     AccountModule,
+    InviteTokenModule,
     // HelloWorldModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema'
